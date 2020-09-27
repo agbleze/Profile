@@ -1,0 +1,43 @@
+body {
+    grid-template-areas: 
+    'header header header header header header header header heade header header'
+    'sidebar sidebar main main main main main main main main'
+    'sidebar sidebar main main main main main main main main'
+    'sidebar sidebar main main main main main main main main'
+    'sidebar sidebar main main main main main main main main'
+    'sidebar sidebar main main main main main main main main'
+    'sidebar sidebar main main main main main main main main'
+    'footer footer footer footer footer footer footer footer footer footer'
+    'footer footer footer footer footer footer footer footer footer footer';
+    grid-gap: 10px;
+    background-color: yellowgreen;
+    padding: 10px;
+}
+
+header {
+    grid-area: header;
+    border: 3px black solid;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    border: 3px red solid;
+    width: 100%;
+    height: 100px;
+}
+
+main {
+    grid-area: main;
+    border: 3px rgb(216, 198, 198) solid;
+    width: 100%;
+    height: 100%;
+    border: 3px rgb(0, 255, 234) solid;
+
+}
+
+footer {
+    grid-area: footerbar;
+    border: 3px rgb(179, 255, 0) solid;
+    width: 100%;
+    height: 100%;
+}
