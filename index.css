@@ -11,15 +11,38 @@
    grid-row-end: 3;
 }
 
-footer {
-    position: fixed;
+/* footer {
+    
     margin-top: 20em;
     height: 100px;
+} */
+
+footer {
+    display: grid;
+    grid-template-rows: 33% 33% 33%;
+    margin-top: 20em;
+}
+.foot-items {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-row-start: 2;
+}
+
+#sitemap {
+    grid-column-start: 2;
+}
+
+#projects {
+    grid-column-start: 3;
+}
+
+#publish {
+    grid-column-start: 4;
 }
 
 .toolpic {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
 }
 
 .alltools {
