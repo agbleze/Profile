@@ -1,3 +1,13 @@
-body {
-    background: red;
+.toolset {
+    display: grid;
+   grid-template-columns: 33% 33% 33%;
+   padding: 1px;
+
+   grid-column-gap: 5px;
+   grid-row-gap: 5px;
+}
+
+.toolpic {
+    width: 300px;
+    height: 300px;
 }
