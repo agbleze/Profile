@@ -22,31 +22,31 @@
     </header>
 
     <sidebar class="sidebar">
-        <div><img src="">Google Earth Engine</div>
+        <div style="display: block"><img src="gee-tut.png" style="width: 15%; height: 15%;"><h2>Google Earth Engine (GEE)</h2></div>
         <div>
-            <span>Introduction to GEE</span>
+            <span><h2><i class="fas fa-book"></i>Introduction to GEE</h2></span>
 
         </div>
         <div>
-            <div><h2>Time Series analysis of biomes</h2></div>
-            <div><i class="fas fa-t"></i>Time series analysis with GEE</div>
-            <div><i class=""></i>Why GEE for Time series analysis</div>
-            <div><i class=""></i>Coding practice</div>
-            <div><i class=""></i>Interpretation of results</div>
+            <div><h2><i class="fas fa-book"></i>Time Series analysis of biomes</h2></div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Time series analysis with GEE</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Why GEE for Time series analysis</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Coding practice</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Interpretation of results</div>
         </div>
         
         <div>
-            <div><i class=""></i>Binary classification with GEE</div>
-            <div><i class=""></i>Why GEE for Time series analysis</div>
-            <div><i class=""></i>Coding practice</div>
-            <div><i class=""></i>Interpretation of results</div>
+            <div><h2><i class="fas fa-book"></i>Random Forest classification (Binary) with GEE</h2></div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Why GEE for Time series analysis</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Coding practice</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Interpretation of results</div>
         </div>
         
         <div>
-            <div><i class=""></i>Binary classification with GEE</div>
-            <div><i class=""></i>Why GEE for Time series analysis</div>
-            <div><i class=""></i>Coding practice</div>
-            <div><i class=""></i>Interpretation of results</div>
+            <div><h2><i class="fas fa-book"></i>Normalized Difference Vegetation Index (NDVI) with GEE</h2></div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Why GEE for Time series analysis</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Coding practice</div>
+            <div><i class="fas fa-file-alt" style="background: green"></i>Interpretation of results</div>
         </div>
 
         <div>
@@ -122,37 +122,199 @@
             </p>
         </div>
 
+        <div>
+            <h2>Figure 2.0 Processing chain for Landsat 8 imagery</h2>
+            <img src="NDVI process GEE.jpg">
+            <small>Source: Author</small>
         
-
-        
+        </div>
 
         <div>
-            <h2>Coding practice</h2>
+            The codes used in executing the workflow above can be access at this<a href="https://code.earthengine.google.com/10a40ac029daa82fdcd4423f47c9dd4a"> link</a> 
+        </div>
+
+        <div><h2>Results</h2>
+         
+
+
+            <h2>Intepretation of results</h2>
+        </div>
+
+        <!--Binary Classification begins here-->
+        <div>
+            <h2>Binary classification with Random Forest(water/no water)</h2>
+            <div>
+                <p> Sentinel-2 data with the image collection ID “COPERNICUS/S2” was loaded and 
+                    assign to a variable for the analysis. The image collection was filtered by 
+                    date (.filterDate) ranging from 1st January, 2018 to 31st December, 2018 and 
+                    filtered by location using “ .filterBounds(aoi)” to cover part of eastern Switzerland
+                    as region of interest. Metadata filtering was done to include only images with less than 
+                    10% cloud cover using the function “.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 10)”. 
+                    Further, amedian composite of the image collection was made by applying the 
+                    function “ .median ”. Binary classification for water was commenced by collecting training 
+                    data and defining the water and no water classes accordingly. The median composite 
+                    was clipped to the region of interest using the function “.clip(aoi)” and the result 
+                    used for training of classifier. This reduces the image collection to cover only the 
+                    region of interest. Further, Random Forest classification algorithm was applied to 
+                    delineate areas of water and no water. To validate the accuracy of the classification results, 
+                    validation confusion matrix and accuracy were evaluated. The workflow for binary classification of surface features into water
+                    and no water classes is illustrated in the diagram below
+                </p>
+                <small>Source: Author</small>
+            </div>
+
+        </div>
+
+        <div>
+            <h2>Workflow for binary classification</h2>
+            <div>
+                <img src="binary class workflow.jpg">
+            </div>
+        </div>
+
+        <div>
+            The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401">link</a>  
+        </div>
+
+        <div>
+            <h2>Results of Random Forest classification</h2>
+            <button type="button">View Results</button>
+            <iframe>
+
+            </iframe>
+        </div>
+
+        <div>
+            <h2>Interpretation of result</h2>
+            <p>
+                The result which is 0.96 as accuracy indicates a high level of validity and correctness in the application of
+                Random Forest on the collection.
+            </p>
+        </div>
+
+        <!--Time series analysis on GEE-->
+        <div>
+            <h2>Time series analysis</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                 A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
                 Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
         </div>
 
         <div>
-            <h2>Without cloud masking</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
-                Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
+            <h2>Plot times series for different biomes</h2>
+            <p>MODIS dataset with 16 days frequency and 250 meters spatial resolution was loaded for the time series
+                analysis. This MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
+                has the bands of Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI)
+                as vegetation layers. The region of interest (ROI) was south-western Germany covering a time period of
+                10 years from 1st January, 2007 to 31st December, 2017 for which filters were applied. From literature
+                review, different classification schemes exist for classifying biome (De Cáceres and Wiser, 2012). Within
+                the ROI, different land surface covers are define in this report to constitute biomes. Delineation of the
+                biomes was undertaken with the support of the dataset of Map Legend in GEE. A scale function was 
+                created with the scaling factor 0.0001 and applied over the image collection using “ .map(scale) ”. 
+                Further, cloud masking function was created and applied to mask-out clouds. The band named “DetailedQA” which contained the Vegetation Index (VI) quality indicators was used for defining bits for cloud. Finally, a time series chart was created and plotted. The workflow for practicing this exercise is summarize in the
+                figure below.</p>
         </div>
 
         <div>
-            <h2>Without cloud masking</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
-                Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
+            <h2>Workflow for Plotting Time series of different biomes in GEE</h2>
+            <img src="time-series workflow.jpg">
+            <small>Source: Author</small>
         </div>
 
         <div>
-            <h2>Interpretation of results</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
-                Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
+            The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e">link</a>  
         </div>
+
+        <div>
+            <h2>Results of Time series</h2>
+            <button type="button">View Results</button>
+            <iframe>
+
+            </iframe>
+        </div>
+
+        <div>
+            <h2>
+                Time series of different biomes (Preprocessed data)
+            </h2>
+            <img src="time ser result withour cloud.jpg">
+            <small>Source: Author</small>
+        </div>
+
+        <div>
+            <h2>Interpretation of result of preprocessed Time series analysis</h2>
+            <p>
+                Plotting of time series for the different biomes shows that the dataset was plagued 
+                with cloud cover which after being masked-out are shown as missing values hence the 
+                discontinuity in the graph. The high occurrence of clouds makes precise interpretation 
+                difficult whiles it is suggested that the location of the missing values on the graph 
+                will most likely not interfere with the suppose pattern in the time series. In this regard, 
+                interpretation of the data is better supported with the time series analysis of the raw 
+                datawithout cloud masking below.
+            </p>
+        </div>
+
+        <div>
+            <h2> Time series of raw data (without cloud masking)</h2>
+                <p>Considering the high impact of cloud cover on the results, a time series analysis
+                 of the raw data without cloud masking is also hereby presented for better 
+                 interpretation and provision of deeper insight on the analysis. This serves as 
+                 a comparative time series analysis between raw and preprocessed data. 
+                 Interpretation of the result is also given.
+                </p>
+        </div>
+
+        <div>
+            <p><a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0">
+                Code for Time series analysis of Raw data (without cloud masking)
+            </a>
+
+            <div>
+                <h2>Time series of different biomes (Raw data)</h2>
+                <img src="time series raw data.jpg">
+                <small>Source: Author</small>
+            </div>
+        </div>
+
+        <div>
+            <h2>Results of Time series without cloud masking can also be inspected by clicking of the
+                view results button below
+            </h2>
+            <button type="button">View Results</button>
+            <iframe>
+
+            </iframe>
+        </div>
+
+        <div>
+            <h2>Interpretation of raw data (without cloud masking)</h2>
+                The result illustrates that whiles different biomes maintained different levels 
+                of maximum NDVI within the time series analyzed, the biomes appear to follow a 
+                common pattern of attaining the maximum and minimum NDVI within a common time frame. 
+                Cropland however deviates from this observation significantly upon visual inspection. Moreover, deciduous broadleaf forest persistently attained the
+highest maximum NDVI of 0.9 approximately within each year of the time series around the month of
+June. This is closely followed by Mixed forest and Evergreen needleleaved forest. As expected, the NDVI
+of Urban builtup have been relatively low compared to others in most periods of the time series. A more
+critical view indicates that whiles deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
+and urban builtup biomes are able to sustain their maximum NDVI in their respective cases for a longer
+period, cropland experiences a sharp decline immediately after attaining maximum NDVI hence a steep
+slope. A suggested explanation in this trend is that cropland is the most disturbed biome by human
+activity with persistent farming activities hence continuous change in land cover and land use compared
+to the other biomes. A more plausible reason is that the maximum NDVI values of cropland are attained at periods of crop maturity after which there is immediate harvesting leading to a fast change in the land
+cover as reflected in the sharp drop in maximum NDVI.
+        </div>
+
+
+        <div>
+            <p>At any stage the final product of a remote sensing project is define by it objectives. Hence,
+                the result of one analysis can serve as the input for futher analysis elsewhere even using a different
+                analytical tool. To domenstrate this, the time series result will be exported and analyzed further 
+                using R programming and R studio as the Integrated Development Environment (IDE). 
+            </p>
+        </div>
+
+
+
 
     </main>
 
