@@ -11,6 +11,8 @@
   <meta http-equiv="refresh" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="gee.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body style="display: grid">
     <header>
@@ -23,9 +25,11 @@
         <div><img src="">Google Earth Engine</div>
         <div>
             <span>Introduction to GEE</span>
+
         </div>
         <div>
-            <div><i class=""></i>Time series analysis with GEE</div>
+            <div><h2>Time Series analysis of biomes</h2></div>
+            <div><i class="fas fa-t"></i>Time series analysis with GEE</div>
             <div><i class=""></i>Why GEE for Time series analysis</div>
             <div><i class=""></i>Coding practice</div>
             <div><i class=""></i>Interpretation of results</div>
@@ -59,19 +63,68 @@
     <main>
         <div>
             <h2>Introduction fo GEE</h2>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
-                Rerum sequi architecto animi, maiores voluptas corrupti fugit accusamus 
-                esse nihil doloribus. Architecto repellendus
-                 amet aliquam reiciendis officia mollitia, eveniet qui in.</p>
+            <p>The era of big data calls for the use of tools with capacity to analyze large volumes of data at fast pace as
+                well as gain deeper understanding of long term spatio-temporal phenomena. Arguably, big data analysis
+                requires capacities that lies beyond the scope of most conventional remote sensing software. This report
+                in demonstrating the practice of techniques in analyzing big data, uses Google Earth Engine and R
+                programming for a plethora of geospatial analysis including Normalized Difference Vegetation Index
+                (NDVI) estimation, binary classification, time series analysis, Land Surface Temperature and NDVI
+                correlation analysis among others. Dataset used varied from different sensors to include Landsat 8, Sentinel-2, and MODIS. 
+                The different tools used were applied to different set of analysis and dataset. In
+                that regard, the workflow of analysis as practiced is documented in separate sections in this report based
+                on the tool used. This was done for the purpose of clarity. Insights are also provided on the rational
+                behind the various techniques used and supplemented with links to codes used. Further, the results of the
+                various analysis are captured and interpreted accordingly. A great utility in the use of Google Earth
+                Engine and R programming which is explored in this report is the ability to automate geospatial processes
+                for a large volume of data with high velocity.</p>
     
         </div>
 
         <div>
-            <h2>Why GEE for Time series analysis</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
-                Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
+            <h2>Analysis with Google Earth Engine</h2>
+            <p>
+                Google Earth Engine (GEE) is a cloud computing platform for geospatial analysis 
+                of global coverage. GEE allows the use of both Graphic User Interface (GUI) and 
+                Coding User Interface for analysis. The Coding User Interface supports Python 
+                and Java-script for coding and an interface for visualization. For this report, 
+                Java-script was used in the Coding User Interface for creating processing chain 
+                for Landsat 8imagery, binary classification of water and no water regions and inspecting 
+                time series over different biomes. Each of these analysis and their codes are 
+                detailed in various sections below.
+            </p>
         </div>
+        
+
+        
+        <div>
+            <h2>Create a processing chain for Landsat 8 imagery</h2>
+            <p>
+                The processing chain for Landsat 8 imagery starts by first importing the Surface 
+                Reflectance dataset and assigning it to a variable. The dataset imported had an 
+                ImageCollection ID being LANDSAT/LC08/C01/T1_SR. Describing the dataset used, 
+                it is atmospherically corrected and has 5 visible and near-infrared (VNIR) bands, 
+                2 short-wave infrared (SWIR) bands and two thermal infrared (TIR). The image collection 
+                was reduced by filtering it by time which was from 1st January 2018 to 31st 
+                December 2018 and the area of interest used to filter by location was 
+                south-western part of Finland. Further, cloud masking function was created to 
+                remove clouds and applied over the image collection to depict a clear condition 
+                over the image collection. This was followed by creation of NDVI function using “ .normalizedDifference() ” 
+                to calculate NDVI for Landsat 8. The formula for NDVI and the bands in correspondence 
+                with Landsat 8 are depicted as follows,
+
+                NDVI = (NIR - RED) / (NIR + RED)
+                RED is band 4 with wavelength of 0.64µm to 0.67µm;
+                NIR is band 5 with wavelength of 0.85µm to 0.88µm. To calculate the maximum NDVI 
+                of the collection, the “ .max” function was applied over the collection NDVI. 
+                The maximum NDVI calculated over the collection was 1.0 which corresponds to 
+                dense green vegetation in the area of interest. This was displayed as a layer on 
+                the map using “addLayer”. The workflow is summarize below
+            </p>
+        </div>
+
+        
+
+        
 
         <div>
             <h2>Coding practice</h2>
