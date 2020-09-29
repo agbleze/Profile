@@ -97,50 +97,35 @@
 
     <main>
         <div>
-            <h2>Introduction fo GEE</h2>
+            <h3>Introduction to Google Earth Engine Analysis</h3>
             <p>The era of big data calls for the use of tools with capacity to analyze large volumes of data at fast pace as
                 well as gain deeper understanding of long term spatio-temporal phenomena. Arguably, big data analysis
-                requires capacities that lies beyond the scope of most conventional remote sensing software. This report
-                in demonstrating the practice of techniques in analyzing big data, uses Google Earth Engine and R
-                programming for a plethora of geospatial analysis including Normalized Difference Vegetation Index
-                (NDVI) estimation, binary classification, time series analysis, Land Surface Temperature and NDVI
-                correlation analysis among others. Dataset used varied from different sensors to include Landsat 8, Sentinel-2, and MODIS. 
-                The different tools used were applied to different set of analysis and dataset. In
-                that regard, the workflow of analysis as practiced is documented in separate sections in this report based
-                on the tool used. This was done for the purpose of clarity. Insights are also provided on the rational
-                behind the various techniques used and supplemented with links to codes used. Further, the results of the
-                various analysis are captured and interpreted accordingly. A great utility in the use of Google Earth
-                Engine and R programming which is explored in this report is the ability to automate geospatial processes
-                for a large volume of data with high velocity.</p>
-    
-        </div>
-
-        <div>
-            <h2>Analysis with Google Earth Engine</h2>
-            <p>
-                Google Earth Engine (GEE) is a cloud computing platform for geospatial analysis 
-                of global coverage. GEE allows the use of both Graphic User Interface (GUI) and 
-                Coding User Interface for analysis. The Coding User Interface supports Python 
-                and Java-script for coding and an interface for visualization. For this report, 
+                requires capacities that lies beyond the scope of most conventional remote sensing software. This page
+                in demonstrating the practice of techniques in analyzing big data, uses Google Earth Engine for a plethora of geospatial analysis including Normalized Difference Vegetation Index
+                (NDVI) estimation, binary classification and time series analysis among others. Google Earth Engine (GEE) is a cloud computing platform for geospatial analysis 
+                of global coverage. GEE allows the use of both Graphic User Interface (GUI) and Coding User Interface for analysis. The Coding User Interface supports Python 
+                and Java-script for coding and an interface for visualization. For this exercise, 
                 Java-script was used in the Coding User Interface for creating processing chain 
-                for Landsat 8imagery, binary classification of water and no water regions and inspecting 
-                time series over different biomes. Each of these analysis and their codes are 
-                detailed in various sections below.
-            </p>
+                for analyzing NDVI Landsat 8 imagery, Random Forest classification of water and no water regions and inspecting 
+                time series over different biomes.Dataset used varied from different sensors to include Landsat 8, Sentinel-2, and MODIS. 
+                The workflow is illustrated graphically for the purpose of clarity. Insights are also provided on the rational
+                behind the various techniques used and supplemented with links to codes. Further, the results of the
+                various analysis are captured and interpreted accordingly. A great utility in the use of Google Earth
+                Engine and R programming (see section for tutorial) which is explored in these exercises are  their ability to automate geospatial processes
+                for a large volume of data with high velocity.</p>   
         </div>
         
-
-        
         <div>
-            <h2>Create a processing chain for Landsat 8 imagery</h2>
+            <h3>Analyzing NDVI</h3>
+            <h4>Create a processing chain for Landsat 8 imagery</h4>
             <p>
                 The processing chain for Landsat 8 imagery starts by first importing the Surface 
                 Reflectance dataset and assigning it to a variable. The dataset imported had an 
-                ImageCollection ID being LANDSAT/LC08/C01/T1_SR. Describing the dataset used, 
-                it is atmospherically corrected and has 5 visible and near-infrared (VNIR) bands, 
+                ImageCollection ID being LANDSAT/LC08/C01/T1_SR. The dataset 
+                 is atmospherically corrected and has 5 visible and near-infrared (VNIR) bands, 
                 2 short-wave infrared (SWIR) bands and two thermal infrared (TIR). The image collection 
                 was reduced by filtering it by time which was from 1st January 2018 to 31st 
-                December 2018 and the area of interest used to filter by location was 
+                December 2018 and the area of interest (AOI) used to filter by location was 
                 south-western part of Finland. Further, cloud masking function was created to 
                 remove clouds and applied over the image collection to depict a clear condition 
                 over the image collection. This was followed by creation of NDVI function using “ .normalizedDifference() ” 
@@ -358,14 +343,6 @@ print(maxAOI);
         </div>
 
         <div>
-            <h2>Results of Random Forest classification</h2>
-            <h4><a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="iframe_a"> <button type="button">View Results</button></a></h4>
-            <iframe src="" width="100%" height="300px" name="iframe_a" style="border:2px solid red;">
-
-            </iframe>
-        </div>
-
-        <div>
             <h2>Interpretation of result</h2>
             <p>
                 The result which is 0.96 as accuracy indicates a high level of validity and correctness in the application of
@@ -376,7 +353,7 @@ print(maxAOI);
         <!--Time series analysis on GEE-->
 
         <div>
-            <h2>Plot times series for different biomes</h2>
+            <h2>Times series for different biomes</h2>
             <p>MODIS dataset with 16 days frequency and 250 meters spatial resolution was loaded for the time series
                 analysis. This MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
                 has the bands of Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI)
@@ -399,15 +376,10 @@ print(maxAOI);
         </div>
 
         <div>
-            The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e">link</a>
-            <button type="button">View Results</button>  
+            The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e" target="_blank">link</a>
         </div>
 
-        <div>
-            <b>Code for analysis is displayed below. You can access the same code by clicking on the 
-                link above where you can run it in GEE </b>
-            
-           
+        <div>        
                 <div class="code-container">
                     <code class="codeBlock">
                         // Scale the NDVI with fac 0.0001// https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13q1_v006
@@ -521,7 +493,7 @@ print(TimeSeries);
         </div>
 
         <div>
-            <p><a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0">
+            <p><a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0" target="_blank">
                 Code for Time series analysis of Raw data (without cloud masking)
             </a>
 
@@ -532,16 +504,6 @@ print(TimeSeries);
                 </div>               
                 <small>Source: Author</small>
             </div>
-        </div>
-
-        <div>
-            <h2>Results of Time series without cloud masking can also be inspected by clicking of the
-                view results button below
-            </h2>
-            <button type="button">View Results</button>
-            <iframe>
-
-            </iframe>
         </div>
 
         <div>
