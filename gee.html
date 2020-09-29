@@ -28,6 +28,7 @@
                     <a href="#">CERES 2019</a>
                     <a href="#">BET 2020</a>
                     <a href="#">GEOBUS 2019</a>
+                    <a href="#">First Health and Migration Collaborative Community Symposium</a>
                   </div>
                 </div>
                 <div class="dropdown">
@@ -205,13 +206,13 @@
 
         <div>
             <h2>Workflow for binary classification</h2>
-            <div>
-                <img src="binary class workflow.jpg">
+            <div class="fig-img">
+                <img src="binary class workflow.jpg" class="fig-img2">
             </div>
         </div>
 
         <div>
-            The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401">link</a>  
+            The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="_blank" >link</a>  
         </div>
 
         <div>
@@ -222,10 +223,6 @@
             </iframe>
         </div>
 
-        <iframe src="" width="100%" height="300px" name="iframe_a" style="border:2px solid red;"></iframe>
-<p><a href="https://www.agrocares.com/en/news/precision-digital-smart-farming/" target="iframe_a" style="font-size:20px;">
-Distinction of various terms</a></p>
-
         <div>
             <h2>Interpretation of result</h2>
             <p>
@@ -235,12 +232,6 @@ Distinction of various terms</a></p>
         </div>
 
         <!--Time series analysis on GEE-->
-        <div>
-            <h2>Time series analysis</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                A at sit error cum magni ullam accusamus doloremque repellendus, corrupti omnis. 
-                Ea dolorum odio aliquid commodi eaque ad animi suscipit ullam.</p>
-        </div>
 
         <div>
             <h2>Plot times series for different biomes</h2>
@@ -259,27 +250,108 @@ Distinction of various terms</a></p>
 
         <div>
             <h2>Workflow for Plotting Time series of different biomes in GEE</h2>
-            <img src="time-series workflow.jpg">
+            <div class="fig-img">
+                <img src="time-series workflow.jpg" class="fig-img2">
+            </div>            
             <small>Source: Author</small>
         </div>
 
         <div>
-            The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e">link</a>  
+            The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e">link</a>
+            <button type="button">View Results</button>  
         </div>
 
         <div>
-            <h2>Results of Time series</h2>
-            <button type="button">View Results</button>
-            <iframe>
+            <b>Code for analysis is displayed below. You can access the same code by clicking on the 
+                link above where you can run it in GEE </b>
+            
+           
+                <div class="code-container">
+                    <code class="codeBlock">
+                        // Scale the NDVI with fac 0.0001// https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13q1_v006
+<br>
+function scale(img){
+  return img.multiply(0.0001).copyProperties(img,['system:time_start']);
+}
 
-            </iframe>
+// Define a FeatureCollection: Different biomes in the region.
+
+var biomes = ee.FeatureCollection([cropland, Deciduous_broadleaf_forest, Mixed_Forest, Evergreen_Needleleaved, Urban_builtup]);
+
+
+var getQABits = function(image, start, end, newName) {
+    // Compute the bits we need to extract.
+    var pattern = 0;
+    for (var i = start; i <= end; i++) {
+       pattern += Math.pow(2, i);
+    }
+    // Return a single band image of the extracted QA bits, giving the band
+    // a new name.
+    return image.select([0], [newName])
+                  .bitwiseAnd(pattern)
+                  .rightShift(start);
+};
+
+// A function to mask out cloudy pixels.
+var maskClouds = function(image) {
+  // Select the QA band.
+  var QA = image.select('DetailedQA');
+  // Get the MOD_LAND_QA bits
+  var internalCloud = getQABits(QA, 0, 1, 'MOD_LAND_QA');
+  // Return an image masking out cloudy areas.
+  return image.mask(internalCloud.eq(0));
+};
+
+
+// Get MODIS data and filter with location and time
+var MOD_imageCollection = ee.ImageCollection("MODIS/006/MOD13Q1")
+.filterBounds(biomes)
+.filterDate('2007-01-01', '2017-01-01')
+.select(['NDVI','DetailedQA']);
+
+// Map the cloud masking function over the collection.
+var collectionCloudMasked = MOD_imageCollection.map(maskClouds);
+print(MOD_imageCollection)
+
+// Map scale over image collection
+var MOD_imageCollection1 = collectionCloudMasked.map(scale);
+
+// Create a time series chart.
+var TimeSeries = ui.Chart.image.seriesByRegion(
+    MOD_imageCollection1, biomes, ee.Reducer.mean(), 'NDVI', 250, 'system:time_start', 'label')
+        .setChartType('LineChart')
+        .setOptions({
+          title: 'NDVI Time Series of Different Biomes in South Western Germany',
+          hAxis: {
+            title: 'Years'
+          },
+          vAxis: {title: 'NDVI'},
+          lineWidth: 2,
+          pointSize: 0,
+          series: {
+            1: {color: '#ff0000'}, // Deciduous Broadleaved forest
+            2: {color: '00FF00'}, // Mixed Forest
+            3: {color: '#ffc82d'}, // Evergreen Needleleaved forest
+            4: {color: '#398b1e'}, // Urban Builtup
+            5: {color: '#1633a0'},//  Cropland
+  
+}});
+
+// Display.
+print(TimeSeries);
+                    </code>
+                </div>
+        
+
         </div>
 
         <div>
             <h2>
                 Time series of different biomes (Preprocessed data)
             </h2>
-            <img src="time ser result withour cloud.jpg">
+            <div class="fig-img">
+                <img src="time ser result withour cloud.jpg" class="fig-img2">
+            </div>            
             <small>Source: Author</small>
         </div>
 
@@ -313,7 +385,9 @@ Distinction of various terms</a></p>
 
             <div>
                 <h2>Time series of different biomes (Raw data)</h2>
-                <img src="time series raw data.jpg">
+                <div class="fig-img">
+                    <img src="time series raw data.jpg" class="fig-img2">
+                </div>               
                 <small>Source: Author</small>
             </div>
         </div>

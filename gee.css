@@ -49,6 +49,7 @@ body {
     display: grid;
     grid-template-columns: 30% 70%;
     grid-template-rows: 1.1% 95% 5%;
+    text-align: justify;
 
 }
 
@@ -56,6 +57,7 @@ body {
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
+    grid-row-end: -1;
     background: yellow;
     overflow: scroll !important;
 }
@@ -67,6 +69,7 @@ body {
 
 main {
     grid-row-start: 2;
+    grid-row-end: -1;
 
 }
 
@@ -90,13 +93,15 @@ footer {
     grid-row-start: -1;
     grid-column-end: -1;
     grid-column-start: 1;
+    margin: 1em;
 }
  .align-all {
     display: grid;
     grid-template-rows: 33% 33% 33%;
     display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: 33% 33% 34%;
     grid-row-start: 2;
+    grid-gap: 2em;
 }
 
 /* Navbar editing  */
@@ -192,6 +197,23 @@ header {
     z-index: 5;
     padding: 25px;
     box-shadow:0px 0px 12px 1px rgba(87, 87, 87, 0.2);
+}
+
+ /* .codeBlock {
+    width: 100px;
+    height: 170px;
+    z-index: 5;
+    padding: 25px;
+    box-shadow:0px 0px 12px 1px rgba(87, 87, 87, 0.2); 
+} */
+
+code {
+    display: inline-block;
+    width: 100%;
+    margin: 3em;
+    border: solid chocolate;
+    border-radius: 1.5%;
+    text-align: left;
 }
 
 .fig-img {
