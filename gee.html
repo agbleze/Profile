@@ -169,15 +169,85 @@
         </div>
 
         <div>
-            The codes used in executing the workflow above can be access at this<a href="https://code.earthengine.google.com/10a40ac029daa82fdcd4423f47c9dd4a"> link</a>
+            The codes used in executing the workflow above can be access at this<a href="https://code.earthengine.google.com/10a40ac029daa82fdcd4423f47c9dd4a" target="_blank"> link</a>
             <p>Also, the code is highlighted below</p> 
         </div>
 
 
         <div class="code-container">
             <code class="codeBlock">
+                //Load  Landsat-8 Surface Reflectance collection 
 
+var LS8collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+ // Filter by the region of interest
+  .filterBounds(aoi)
+ // Filter collection by time ('Year-month-day')
+  .filterDate('2018-01-01', '2018-12-31');
+  
+print(LS8collection);
+
+// Create cloud mask function
+function applyQAlandsat (image) {
+  var mask = image.select('pixel_qa').bitwiseAnd(32).eq(0)
+  .and(image.select('pixel_qa').bitwiseAnd(8).eq(0))
+  .and(image.select('pixel_qa').bitwiseAnd(4).eq(0));
+  return image.updateMask(mask);
+}
+
+// Apply cloud masking function on the collection
+var cloudMasked_Collection = LS8collection.map(applyQAlandsat);
+
+// Display result of cloudmasking 
+Map.addLayer( cloudMasked_Collection, {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000}, 'Result of cloudmasking');
+Map.centerObject(aoi,6);
+
+// Compute Normalized Difference Vegetation Index over Landsat 8 product.
+// NDVI = (NIR - RED) / (NIR + RED), where
+// RED is band 4,  0.64µm - 0.67µm
+// NIR is 5,  0.85µm - 0.88µm
+
+// Function to create NDVI 
+var addNDVI = function(im){
+
+var ndvi = im.select(['B5','B4']).normalizedDifference();
+return ndvi;
+  
+};
+
+
+/////////////////////////////////////////////////////////////////
+///// Mapping NDVI over image collection      //////////////////
+
+// Apply a function to calculate NDVI over the collection
+var ndviCollection = cloudMasked_Collection.map(addNDVI);
+print(ndviCollection.max()); //Returns the maximum NDVI in the collection
+var MaxNDVI = ndviCollection.max();
+
+print(MaxNDVI);
+
+// Add Maximum NDVI of collection on map
+Map.addLayer(MaxNDVI,  { min: -0.8, max: 0.8,'palette': 'FF0000,FFFF00,00FF00'},'Maximum NDVI of collection');
+Map.centerObject(aoi,6);
+
+
+//// Get the Maximum NDVI value  over region of interest //////
+var maxAOI = MaxNDVI.clip(aoi)
+  .reduceRegion({
+    reducer: ee.Reducer.max(),
+    geometry: aoi,
+    scale: 30})
+  .get('nd');
+
+print(maxAOI);
             </code>
+        </div>
+
+        <div>
+            <h2>Results of NDVI calculation</h2>
+            <div class="fig-img">
+                <img src="NDVI result.jpg" class="fig-img2">
+            </div>               
+            <small>Source: Author</small>
         </div>
 
         <!--Binary Classification begins here-->
@@ -206,7 +276,7 @@
         </div>
 
         <div>
-            <h2>Workflow for binary classification</h2>
+            <h2>Workflow for Random Forest classification</h2>
             <div class="fig-img">
                 <img src="binary class workflow.jpg" class="fig-img2">
             </div>
@@ -214,6 +284,77 @@
 
         <div>
             The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="_blank" >link</a>  
+        </div>
+
+        <div class="code-container">
+            <code class="codeBlock">
+                //Load Sentinel 2 image collection 
+
+                var sentinelCollection = ee.ImageCollection('COPERNICUS/S2')
+                 // Filter collection by time (Year-Month-Day)
+                 .filterDate('2018-01-01','2018-12-31')
+                 // Filter by the region of interest
+                 .filterBounds(aoi)
+                 // Filter by Metadata using cloud cover less than 10%
+                 .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 10);
+                
+                 
+                 // Make median composite
+                 var S2_mediancomposite = sentinelCollection.median(); 
+                 
+                 print(S2_mediancomposite);
+                 
+                 var vizParams = {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000};
+                Map.addLayer(S2_mediancomposite.clip(aoi), vizParams, 'S2 Median');
+                Map.centerObject(aoi,9); 
+                
+                 //Selecting bands for classification
+                var bands = ['B2','B3', 'B4','B8','B5','B11','B12'];
+                
+                // Merge class of water and no_water
+                var trainingData = water.merge(no_water); 
+                
+                
+                // Clip region of interest with median composite
+                var S2_mediancompositeclip = S2_mediancomposite.clip(aoi);
+                
+                //training the classifier
+                var trainingS2 = S2_mediancompositeclip.sampleRegions({collection: trainingData, properties: ['class'], scale: 20,tileScale: 16});
+                
+                
+                /**************************************************************************************************/
+                /*** RF classification ***/
+                /**************************************************************************************************/
+                
+                var classifierS2 = ee.Classifier.randomForest(300,3,1,0.5,true).train(trainingS2,'class',bands);
+                
+                var classified = S2_mediancompositeclip.classify(classifierS2);
+                print(classified);
+                 
+                var Palette = [
+                  
+                  'red', // no_ water
+                  'blue', // water
+                  
+                  
+                ];
+                
+                Map.addLayer(classified, {min: 1, max: 5, palette: Palette}, 'classified RF'); 
+                Map.centerObject(aoi,9);
+                
+                
+                //Creation of validation set to cross check results
+                
+                var validationData = valwater.merge(valno_water);  
+                var validation = S2_mediancompositeclip.sampleRegions({collection: validationData, properties: ['class'], scale:20,tileScale: 16});
+                
+                var validated = validation.classify(classifierS2);
+                
+                // Get confusion matrix 
+                var testAccuracy = validated.errorMatrix('class', 'classification');
+                print('Validation error matrix: ', testAccuracy);
+                print('Validation overall accuracy: ', testAccuracy.accuracy());
+            </code>
         </div>
 
         <div>
