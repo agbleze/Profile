@@ -15,8 +15,46 @@
 <body>
     <header>
         <nav>
-
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">Home</a>
+                <a href="#news">News</a>
+                <div class="dropdown">
+                  <button class="dropbtn">Conference works 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="#">CERES 2019</a>
+                    <a href="#">BET 2020</a>
+                    <a href="#">GEOBUS 2019</a>
+                    <a href="#">First Health and Migration Collaborative Community Symposium</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Publications and writing 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="#">Academic publication</a>
+                      <a href="#">Non-academic publication</a>
+                      <a href="#">Journal review for</a>
+                    </div>
+                  </div> 
+                <a href="#about">Project activities</a>
+                <a href="#contact">Contact</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+              </div>
         </nav>
+            
+            <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+            </script>
     </header>
     <div>
         <div class="slide">
