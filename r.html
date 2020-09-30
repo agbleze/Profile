@@ -675,14 +675,135 @@ significantly differs from that of preprocessed data where there was no break an
                         <small>Source: Author</small>
                     </div>
                
+        
+                
+        </div>
+
+        <div id="correlate">
+            <div>
+                <h3> Estimating the correlation between MODIS Land Surface Temperature and NDVI data</h3>
+                <p>
+                    This exercise used MODIS data particularly MOD13A2 with NDVI band and MOD11A2 with Land
+Surface Temperature band acquired with Terra satellites. Selection of these dataset was based on the
+desire to obtain a common spatial resolution of 1km. Scripts were written in GEE to filter the dataset and
+select only the NDVI and LST bands for export and used as input dataset in R. This process involving the
+extraction of LST and NDVI also included scaling of the dataset prior to download. The NDVI
+MOD13A2 was scaled with the factor 0.0001 whiles LST MOD11A2 was scaled with the factor 0.02. The codes for the extraction of LST and NDVI from GEE are provided below.
+                </p>
                 <div>
-                    <p>At any stage the final product of a remote sensing project is define by it objectives. Hence,
-                        the result of one analysis can serve as the input for futher analysis elsewhere even using a different
-                        analytical tool. To domenstrate this, the time series result will be exported and analyzed further 
-                        using R programming and R studio as the Integrated Development Environment (IDE). 
+                    <p>The code for extracting NDVI MOD13A2 data from GEE can be access from this <a href="https://code.earthengine.google.com/5bba784baa5e11172bc6b5f3ace0b1f4" target="_blank">link</a></p>
+
+                    <p>The code for extracting LST MOD11A2 data from GEE can be access from this <a href="https://code.earthengine.google.com/e66d4d3b1e2d519945c7cdf4b7566f87" target="_blank">link</a></p>
+
+                </div>
+                <div>
+                    <p>Another dataset used as input in R was shapefile of Western Region of Ghana (WRG). The complete
+                        regional boundary was downloaded from RSGIS lab and western region extracted using the extract tool in
+                        ArcGIS. Selection of Western Region as ROI was based on availability of data and preliminary
+                        knowledge of land cover and climate of the area. The shapefile of Western Region was used as the region
+                        of interest to crop the NDVI and LST data in R</p>
+                </div>
+
+                <div>
+                    <h4>Workflow of correlation analysis of NDVI and LST in R</h4>
+                    <p>
+                        In R studio, the raster package was installed and library loaded whiles the working directory was setup. The
+NDVI and LST raster data as well as shapefile of Western region of Ghana were loaded. The shapefile
+was used to crop both NDVI and LST and correlation function applied on the subset raster images. Further, Pearson value correlation and P value were plotted. The results are displayed and interpreted
+below.
                     </p>
                 </div>
+
+                <div>        
+                    <div class="code-container">
+                        <code class="codeBlock">
+                #--------------------------------------
+                # install packages, execute only ones
+                #--------------------------------------
+                install.packages("raster")
                 
+                #Load Library  
+                library(raster)
+                library(sp) 	   # provides classes for spatial data in R
+                library(raster)	 # provides classes and methods for raster datasets
+                library(rgdal)	 # interface to the Geospatial Data Abstraction Library to read and write different spatial file formats
+                
+                
+                
+                # Defining the working directory
+                setwd('C:/Rassign/CORRELATION') #/EXTRACT/NDVI')
+                
+                #Load Raster images
+                NDVI <- raster("NDVIMOD13A2.tif")
+                LST <- raster("MODISLST11A2.tif")
+                
+                #Load shapefile of ROI
+                ROI <- readOGR(dsn = 'C:/Rassign/CORRELATION', layer = 'Western region')
+                plot(ROI)
+                
+                #cropping the NDVI image with ROI,
+                NDVISub <- crop(NDVI, extent(ROI))
+                plot(NDVISub)
+                
+                #Cropping the LST image with ROI
+                LSTSub <- crop(LST, extent(ROI))
+                plot(LSTSub)
+                
+                Pal <- colorRampPalette(c("red" , "blue" , "green"))
+                
+                #Correlation function
+                corrNDVI_LST <- corLocal(NDVISub , LSTSub , test = T)
+                plot(corrNDVI_LST)
+                
+                # Plot Pearson value correlation and P value
+                plot(corr$pearson , col = Pal(20) , main = "Pearson Correlation")
+                plot(corr$p.value , col = c("red" , "blue" , rep("azure3" , 15)) ,main = "p-value")
+                        </code>
+                    </div>
+                </div>
+                    
+                
+                
+
+
+                <div><h4>Comparison of MODIS NDVI and LST in Western Region of Ghana</h4></div>
+                <div class="fig-img">
+                    <img src="Modis and lst.jpg" class="fig-img2">
+                </div>
+                <small>Source: Author</small>
+
+                <div>
+                    <p>The figure above illustrates a comparison of the spatial distribution of NDVI and Land Surface
+                        Temperature in Western region of Ghana. The region is dominated by the distribution of high NDVI
+                        values (0.6 to 0.8) which can be interpreted to be forest. This is supported by evidence of the large
+                        tropical rain forest, semi-deciduous forest, mangrove cover in the midst other land use (Hall and Swaine, 2013). This depicts the variation of NDVI values in the area . Also, relatively high LST in the range of
+                        300 to 310 is dominant within the region. To gain a better understanding of the relationship between
+                        NDVI and LST in the region, a correlation analysis was undertake of which the result is displayed below.
+                    </p>
+
+                    <h4>Correlation of NDVI and LST</h4>
+                <div class="fig-img">
+                    <img src="pearson.jpg" class="fig-img2">
+                </div>
+                <small>Source: Author</small>
+            </div>
+
+            <div>
+                <p>
+                    The figure above illustrate how NDVI and LST of areas within western region of Ghana correlate. The
+areas with green colour have positive correlation within the range of 0.5 to 1.0 which implies that as
+NDVI increases in these areas, LST also increases and this is of a moderate to high association. The
+pearson value was plotted to provide clarity.
+                </p>
+            </div>
+            <h4>Plot of Pearson correlation and P value</h4>
+                <div class="fig-img">
+                    <img src="plot perason.jpg" class="fig-img2">
+                </div>
+                <small>Source: Author</small>
+            </div>
+
+
         </div>
 
         
