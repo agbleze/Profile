@@ -48,7 +48,7 @@ footer {
 body {
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: 1.1% 95% 5%;
+    grid-template-rows: .7% 95% 5%;
     text-align: justify;
 
 }
@@ -116,6 +116,7 @@ body {margin:0;font-family:Arial}
 header {
     grid-column-start: 1; 
   grid-column-end: 3;
+  height: fit-content;
 }
 
 #myTopnav {

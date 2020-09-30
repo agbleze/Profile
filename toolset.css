@@ -20,10 +20,15 @@
 /* #body {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-}
+} */
 #tools-align {
     grid-column-start: 2;
     grid-column-end: 3;
+}
+
+.tooset {
+    display: grid;
+    grid-template-columns: 33% 33% 33%
 }
 
 /* Navbar editing  */
@@ -37,7 +42,8 @@ body {margin:0;font-family:Arial}
 
 header {
     grid-column-start: 1; 
-  grid-column-end: 3;
+  grid-column-end: -1;
+  height: fit-content;
 }
 
 #myTopnav {
@@ -113,7 +119,7 @@ header {
 }
 
 /* toolset */
-.toolset {
+.tools-align {
     grid-column-start: 2;
     grid-column-end: 3;
 }
@@ -151,9 +157,10 @@ footer {
     border-radius: 10%;
 }
 
-#tools-align {
+#body {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 20% 60% 20%;
+    grid-template-rows: 2% 88% 20%;;
+    
 }
 
