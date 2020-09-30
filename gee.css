@@ -99,7 +99,7 @@ footer {
     display: grid;
     grid-template-rows: 33% 33% 33%;
     display: grid;
-    grid-template-columns: 33% 33% 34%;
+    grid-template-columns: 33% 32% 31%;
     grid-row-start: 2;
     grid-gap: 2em;
 }
@@ -209,8 +209,8 @@ header {
 
 code {
     display: inline-block;
-    width: 100%;
-    margin: 3em;
+    width: 90%;
+    
     border: solid chocolate;
     border-radius: 1.5%;
     text-align: left;
