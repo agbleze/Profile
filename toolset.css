@@ -26,10 +26,10 @@
     grid-column-end: 3;
 }
 
-#tools-align {
+.toolset {
     display: grid;
     grid-template-columns: 33% 33% 33%; 
-    grid-template-rows: 10% 10% 10%;
+    grid-template-rows: 33% 33% 33%;
 }
 
 /* Navbar editing  */
