@@ -26,7 +26,7 @@
     grid-column-end: 3;
 }
 
-.tooset {
+#tools-align {
     display: grid;
     grid-template-columns: 33% 33% 33%
 }
