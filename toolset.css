@@ -30,6 +30,7 @@
     display: grid;
     grid-template-columns: 33% 33% 33%; 
     grid-template-rows: 30% 33% 33%;
+    grid-gap: 1.5em;
 }
 
 /* Navbar editing  */
@@ -161,7 +162,7 @@ footer {
 #body {
     display: grid;
     grid-template-columns: 15% 70% 15%;
-    grid-template-rows: 2% 88% 20%;;
+    grid-template-rows: 5% 75% 20%;;
     
 }
 
