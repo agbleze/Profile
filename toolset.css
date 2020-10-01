@@ -28,7 +28,8 @@
 
 #tools-align {
     display: grid;
-    grid-template-columns: 33% 33% 33%
+    grid-template-columns: 33% 33% 33%; 
+    grid-template-rows: 10% 10% 10%;
 }
 
 /* Navbar editing  */
