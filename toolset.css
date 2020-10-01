@@ -128,8 +128,11 @@ header {
 
 footer {
     display: grid;
-    grid-template-rows: 33% 33% 33%;
-    margin-top: 20em;
+    /*grid-template-rows: 33% 33% 33%; */
+    margin-top: 3em;
+    grid-row-start: 3;
+    grid-column-start: 1;
+    grid-column-end: -1;
 }
 .foot-items {
     display: grid;
