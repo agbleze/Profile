@@ -116,3 +116,22 @@
     grid-row-start: 2;
     grid-gap: 2em;
 }
+
+/* styling the content-layout */
+.content-layout {
+    display: grid;
+    grid-template-columns: 30% 70%
+}
+
+#sidebar {
+    grid-column-start: 1;
+}
+
+#betimg {
+    max-width: 100%;
+    padding: 1%;
+}
+
+#conference-Article {
+    padding: 3%;
+}
