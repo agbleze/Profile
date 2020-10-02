@@ -135,3 +135,23 @@
 #conference-Article {
     padding: 3%;
 }
+
+
+
+/* sytling confernece banner */
+.slide {
+    display: flex;
+}
+
+/* #conferenceSlide {
+    justify-content: center;
+    align-self: center;
+} */
+#conferenceBanner {
+ padding-left: 10%;
+}
+
+/* clear default body setting */
+body {
+    margin: 0px;
+}
