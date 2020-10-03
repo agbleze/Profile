@@ -162,3 +162,9 @@ body {
 }
 
 /* next and previous button styling */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+}
