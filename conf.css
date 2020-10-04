@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box; 
+}
+
 #myTopnav {
     display: flex;
     justify-content: space-around;
@@ -156,10 +160,10 @@ body {
     margin: 0px;
 }
 
-/* sytle slides 
+/* sytle slides */
 .mySlides {
   display: none;
-}  */
+}
 
 /* next and previous button styling */
 .prev, .next {
