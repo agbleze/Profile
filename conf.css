@@ -235,6 +235,12 @@ body {
   background-color: #717171;
 }
 
+/* Display conference presentation grid for arrow styling */
+#conference-grid {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
+
 /* Fading animation */
 .fade {
   -webkit-animation-name: fade;
