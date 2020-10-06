@@ -169,16 +169,17 @@ body {
 /* next and previous button styling */
 .prev, .next {
   cursor: pointer;
-  position: relative;
+  color:black;
+ /* position: relative;
   top: 50%;
   width: auto;
- /* margin-top: -22px; */
+  margin-top: -22px; 
   padding: 16px;
-  color:black;
+  
   font-weight: bold;
   font-size: 18px;
   transition: 0.6s ease;
- /* border-radius: 0 3px 3px 0; */
+  border-radius: 0 3px 3px 0; */
   user-select: none;
 
 }
@@ -187,10 +188,11 @@ body {
 .next {
  /* right: 0;
    border-radius: 3px 0 0 3px;
-   left: 29em;*/
+   left: 29em;
    left: 36em;
-    bottom: 15em;
-    opacity: 0.2;
+    bottom: 15em; */
+    opacity: 0.2; 
+    grid-column-start: 3;
 }
 
 .fas {
@@ -200,12 +202,13 @@ body {
 /* On hover, add a black background color with a little bit see-through */
 .prev .fas:hover, .next .fas:hover {
   color: rgba(91, 231, 56, 0.8);
-  opacity: 1;
+  opacity: 0.9;
 }
 
 #scrol {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
+  
 }
 /* Caption text */
 .text {
@@ -243,17 +246,18 @@ body {
   background-color: #717171;
 }
 
-/* Display conference presentation grid for arrow styling 
+/* Display conference presentation grid for arrow styling */
 #conference-grid {
   display: grid;
-  grid-template-columns: 10% 80% 10%;
-  grid-template-rows: 5% 90% 5%;
+  
+  /*grid-template-columns: 10% 80% 10%;
+  grid-template-rows: 5% 90% 5%; */
 }
-*/
+
 /*
 #conferenceHeading {
   grid-column-start: 2;
-  justify-content: center;
+  justify-content: center; 
   
 } */
 
