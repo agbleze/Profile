@@ -188,8 +188,9 @@ body {
  /* right: 0;
    border-radius: 3px 0 0 3px;
    left: 29em;*/
-   left: 50em;
-   bottom: 15em;
+   left: 36em;
+    bottom: 15em;
+    opacity: 0.2;
 }
 
 .fas {
@@ -199,8 +200,13 @@ body {
 /* On hover, add a black background color with a little bit see-through */
 .prev .fas:hover, .next .fas:hover {
   color: rgba(91, 231, 56, 0.8);
+  opacity: 1;
 }
 
+#scrol {
+  display: grid;
+  grid-template-columns: 10% 80% 10%;
+}
 /* Caption text */
 .text {
   color: black;
@@ -254,7 +260,8 @@ body {
 a.prev {
  
   bottom: 15em;
-  right: 4em;
+  right: 0em;
+  opacity: 0.5;
 }
 
 /* Fading animation */
