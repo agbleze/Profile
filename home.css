@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {margin:0;font-family:Arial}
             
 .topnav {
@@ -136,4 +140,23 @@ header {
     margin-left: 2%;
     border: 2px solid black;
     border-radius: 15px;
+}
+
+/* styling footer */
+.foot {
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  grid-gap: 0.5%;
+}
+
+.foot-items1 {
+  grid-column-start: 1;
+}
+
+.foot-items2 {
+  grid-column-start: 2;
+}
+
+.foot-items3 {
+  grid-column-start: 3;
 }
