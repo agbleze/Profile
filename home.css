@@ -86,7 +86,7 @@ header {
 /* Display main grid and style it */
 #mainGrid {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 30%    30% 10% 30%;
   grid-template-rows: 10% 30% 60%;
 }
 
