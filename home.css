@@ -162,7 +162,9 @@ header {
 }
 
 /* media queries */
-@media screen only and ( )
+@media screen only and (max-width: 600px) {
+  
+}
 
 
 
