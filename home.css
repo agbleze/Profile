@@ -163,6 +163,9 @@ header {
 
 /* media queries */
 @media only screen  and (max-width: 600px) {
+  * {
+    box-sizing: border-box;
+  }
   #profileCoat {
     display: none;
   }
