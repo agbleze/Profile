@@ -162,9 +162,9 @@ header {
 }
 
 /* media queries */
-@media screen only and (max-width: 600px) {
+@media only screen  and (max-width: 600px) {
   #profileCoat {
-    
+    display: none;
   }
 }
 
