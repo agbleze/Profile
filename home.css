@@ -176,7 +176,7 @@ header {
   }
 
   #headshot {
-    margin-left: 5em;
+    margin-left: 150%;
     grid-column-start: 1;
   }
 }
