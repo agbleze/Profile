@@ -178,6 +178,7 @@ header {
   #headshot {
     margin-left: 100%;
     grid-column-start: 1;
+    width: 100%;
   }
 }
 
