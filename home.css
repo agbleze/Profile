@@ -180,6 +180,12 @@ header {
     grid-column-start: 1;
     width: 100%;
   }
+
+  
+}
+
+body {
+margin-right: 0;
 }
 
 
