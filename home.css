@@ -220,6 +220,10 @@ margin-right: 0;
     width: 100%;
     text-align: left;
   }
+
+  footer {
+    font-size: 10px;
+  }
 }
 
 
