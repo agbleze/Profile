@@ -224,6 +224,14 @@ margin-right: 0;
   footer {
     font-size: 10px;
   }
+
+  #contact {
+    padding-right: 15px;
+  }
+
+  #biography h2 {
+    padding-top: 10px;
+  }
 }
 
 
