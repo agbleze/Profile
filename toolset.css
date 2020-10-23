@@ -163,8 +163,9 @@ footer {
 
 /* styling  picture on tools */
 .profile-pic {
-  width: 50%;
+  width: 10%;
   height: 50%;
+  border-radius: 50%;
 }
 
 .align-all {
