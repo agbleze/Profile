@@ -161,6 +161,12 @@ footer {
   /*  padding: 1%; */
 }
 
+/* styling  picture on tools */
+.profile-pic {
+  width: 50%;
+  height: 50%;
+}
+
 .align-all {
   display: grid;
   grid-template-columns: 33% 33% 34%;
