@@ -234,10 +234,10 @@ footer {
 
 }
 
-@media screen only (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .toolset {
     display: grid;
     grid-template-columns: 100%;
-    
+
   }
 }
