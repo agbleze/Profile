@@ -253,7 +253,7 @@ footer {
 }
 }
 
-@media screen and (min-width: 768) {
+@media screen and (min-width: 700px) {
   .toolset {
     margin-top: 2em;
   }
