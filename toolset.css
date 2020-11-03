@@ -257,4 +257,13 @@ footer {
   .toolset {
     margin-top: 2em;
   }
+
+.toolset {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    grid-gap: 1.5em;
 }
+}
+
+
