@@ -253,7 +253,7 @@ footer {
 }
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 1200px) {
   .toolset {
     margin-top: 2em;
   }
@@ -263,6 +263,12 @@ footer {
     grid-template-columns: 50% 50%;
     grid-template-rows: 20% 20% 20% 20% 20%;
     grid-gap: 1.5em;
+}
+
+#body {
+  display: grid;
+  grid-template-columns: 15% 70% 15%;
+  grid-template-rows: 5% 75% 5%;
 }
 }
 
