@@ -26,7 +26,7 @@
     grid-column-end: 3;
 }
 
-@media
+@media screen and (min
 
 .toolset {
     display: grid;
