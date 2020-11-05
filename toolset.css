@@ -26,13 +26,13 @@
     grid-column-end: 3;
 }
 
-@media screen and (min-width: 1200px)
-
-.toolset {
+@media screen and (min-width: 1200px) {
+  .toolset {
     display: grid;
     grid-template-columns: 33% 33% 33%; 
     grid-template-rows: 30% 33% 33%;
     grid-gap: 1.5em;
+}
 }
 
 /* Navbar editing  */
