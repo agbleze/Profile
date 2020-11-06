@@ -256,7 +256,7 @@ footer {
 }
 }
 
-@media screen and (min-width: 700px) {
+/*@media screen and (max-width: 700px) {
   .toolset {
     margin-top: 2em;
   }
@@ -274,5 +274,5 @@ footer {
   grid-template-rows: 5% 75% 5%;
 }
 }
-
+*/
 
