@@ -25,7 +25,7 @@
     grid-column-start: 2;
     grid-column-end: 3;
 }
-
+/*
 @media screen and (min-width: 1200px) {
   .toolset {
     display: grid;
@@ -34,6 +34,7 @@
     grid-gap: 1.5em;
 }
 }
+*/
 
 /* Navbar editing  */
 
