@@ -33,11 +33,11 @@
     grid-template-rows: 30% 33% 33%;
     grid-gap: 1.5em;
 }
-
+/*
 div img .toolpic {
   height: 70%;
 }
-
+*/
 .toolset {
   margin-top: 1em;
 }
