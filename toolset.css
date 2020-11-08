@@ -269,6 +269,10 @@ footer {
 .toolpic {
   width: 80%;
 }
+
+#SNAP {
+  width: 100%;
+}
 }
 /*
 @media screen and (max-width: 700px) {
