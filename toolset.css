@@ -265,6 +265,10 @@ footer {
     grid-template-columns: 15% 70% 15%;
     grid-template-rows: 2.5% 87% 2%;
 }
+
+.toolpic {
+  width: 80%;
+}
 }
 /*
 @media screen and (max-width: 700px) {
