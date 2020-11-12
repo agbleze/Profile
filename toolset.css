@@ -297,6 +297,6 @@ footer {
 
 a {
   text-decoration: none;
-  text-decoration-color: none;
-  text-decoration-color: yellow;
+  text-decoration-color: none; 
+ /* text-decoration-color: yellow; */
 }
