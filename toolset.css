@@ -296,5 +296,7 @@ footer {
 */
 
 a {
-  list-style: none;
+  text-decoration: none;
+  text-decoration-color: none;
+  text-decoration-color: yellow;
 }
