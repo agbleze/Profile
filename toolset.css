@@ -295,3 +295,6 @@ footer {
 }
 */
 
+a {
+  list-style: none;
+}
