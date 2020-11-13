@@ -299,4 +299,5 @@ a {
   text-decoration: none;
   text-decoration-color: none; 
  /* text-decoration-color: yellow; */
+ font-display: none;
 }
