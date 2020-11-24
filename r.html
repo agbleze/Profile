@@ -568,7 +568,9 @@ bfUrban3$breaks
                         a change in the direction of trend. Changes occurring in the season 
                         component were consistent and is illustrated in the figure below.
                     </p>
-                    <div><h4>Results of BFAST for NDVI time series of Cropland (without preprocessing)</h4></div>
+                    <div>
+                        <h4>Results of BFAST for NDVI time series of Cropland (without preprocessing)</h4>
+                    </div>
                     <div class="fig-img">
                         <img src="crp nocloud.jpg" class="fig-img2">
                     </div>
@@ -629,7 +631,8 @@ bfUrban3$breaks
                         <h4>BFAST for Mixed forest (without cloud masking)</h4>
                         <p>
                             Comparing the results of the raw data with that of preprocessed data,
-                             there was no difference recognized. The trend component remained monotonic (non decreasing).
+                             there was no difference recognized. The trend component remained 
+                             monotonic (non decreasing).
                         </p>
                         <div><h4>4 Time series result of Mixed forest (without cloud masking)</h4></div>
                         <div class="fig-img">
@@ -638,37 +641,40 @@ bfUrban3$breaks
                         <small>Source: Author</small>
         
                         <div>
-                            <p>Inspection of the BFAST model applied on Mixed forest indicates that there was no abrupt break in
-                                OLS-MOSUM and BIC but testing supLM proved true for detected breaks. This is captured in the figure
-                                below.
+                            <p>Inspection of the BFAST model applied on Mixed forest indicates 
+                                that there was no abrupt break in OLS-MOSUM and BIC but testing 
+                                supLM proved true for detected breaks. This is captured in the 
+                                figure below.
                             </p>
         
                             <h4>Inspecting breaks in time series of Mixed forest (without cloud masking)</h4>
-                        <div class="fig-img">
-                            <img src="insp mixed nocloud.jpg" class="fig-img2">
+                            <div class="fig-img">
+                                <img src="insp mixed nocloud.jpg" class="fig-img2">
+                            </div>
+                            <small>Source: Author</small>
                         </div>
-                        <small>Source: Author</small>
                     </div>
-
 
                     <div>
                         <h4>BFAST for time series of Evergreen forest (without cloud masking)</h4>
                         <p>
-                            The results of applying BFAST on evergreen forest time series without cloud 
-                            masking indicates a the
-trend component to be monotonic and non-increasing which differs from a non-decreasing trend for the
-raw data. Thus, a change in the direction of trend is noted. However, both dataset detected no breaks in
-the time series.
+                            The results of applying BFAST on evergreen forest time series without
+                             cloud masking indicates a the trend component to be monotonic and 
+                             non-increasing which differs from a non-decreasing trend for the
+                            raw data. Thus, a change in the direction of trend is noted. 
+                            However, both dataset detected no breaks in the time series.
                         </p>
-                        <div><h4>Time series of Evergreen forest (without cloud masking)</h4></div>
+                        <div>
+                            <h4>Time series of Evergreen forest (without cloud masking)</h4>
+                        </div>
                         <div class="fig-img">
                             <img src="ever nocloud.jpg" class="fig-img2">
                         </div>
                         <small>Source: Author</small>
         
                         <div>
-                            <p>Inspecting the BFAST time series of Evergreen forest, there was no break in the 
-                                time series for this biome. This is capture in the figure below.
+                            <p>Inspecting the BFAST time series of Evergreen forest, there was no break 
+                                in the time series for this biome. This is capture in the figure below.
                             </p>
         
                             <h4>Estimating breaks in time series of Evergreen forest (without cloud masking)</h4>
@@ -678,21 +684,26 @@ the time series.
                         <small>Source: Author</small>
                     </div>
 
-
                     <div>
                         <h4>BFAST of Time series of Urban Builtup (without cloud masking)</h4>
                         <p>
-                            BFAST result of urban builtup biome illustrates a nonlinear trend with a single abrupt break occurring in
-2011. Proceeding from the abrupt break, a gradual change is depicted. Within the urban builtup, abrupt
-change is most likely to result from human activities and land use change as oppose to natural climatic
-conditions. Such a change will require lot of time for the natural environment to recover and this is
-depicted in the gradual response of change after the break. The magnitude of Seasonal changes are
-constant but vary in two time-steps with relatively higher changes occurring prior to the break compared
-to the aftermath of the break. The break and confidence interval are depicted in red. This result
-significantly differs from that of preprocessed data where there was no break and trend as monotonic
-(non-decreasing).
+                            BFAST result of urban builtup biome illustrates a nonlinear trend 
+                            with a single abrupt break occurring in 2011. Proceeding from the 
+                            abrupt break, a gradual change is depicted. Within the urban builtup,
+                             abrupt change is most likely to result from human activities and 
+                            land use change as oppose to natural climatic conditions. 
+                            Such a change will require lot of time for the natural environment 
+                            to recover and this is depicted in the gradual response of change 
+                            after the break. The magnitude of Seasonal changes are constant but 
+                            vary in two time-steps with relatively higher changes occurring prior
+                            to the break compared to the aftermath of the break. The break and 
+                            confidence interval are depicted in red. This result significantly 
+                            differs from that of preprocessed data where there was no break and 
+                            trend as monotonic (non-decreasing).
                         </p>
-                        <div><h4>8 BFAST of Urban builtup</h4></div>
+                        <div>
+                            <h4>8 BFAST of Urban builtup</h4>
+                        </div>
                         <div class="fig-img">
                             <img src="unrban nocloud.jpg" class="fig-img2">
                         </div>
@@ -705,35 +716,37 @@ significantly differs from that of preprocessed data where there was no break an
                             <img src="insp urba nocloud.jpg" class="fig-img2">
                         </div>
                         <small>Source: Author</small>
-                    </div>
-               
-        
-                
+                    </div>               
         </div>
 
         <div id="correlate">
             <div>
                 <h3> Estimating the correlation between MODIS Land Surface Temperature and NDVI data</h3>
                 <p>
-                    This exercise used MODIS data particularly MOD13A2 with NDVI band and MOD11A2 with Land
-Surface Temperature band acquired with Terra satellites. Selection of these dataset was based on the
-desire to obtain a common spatial resolution of 1km. Scripts were written in GEE to filter the dataset and
-select only the NDVI and LST bands for export and used as input dataset in R. This process involving the
-extraction of LST and NDVI also included scaling of the dataset prior to download. The NDVI
-MOD13A2 was scaled with the factor 0.0001 whiles LST MOD11A2 was scaled with the factor 0.02. The codes for the extraction of LST and NDVI from GEE are provided below.
+                    This exercise used MODIS data particularly MOD13A2 with NDVI band and 
+                    MOD11A2 with Land Surface Temperature band acquired with Terra satellites. 
+                    Selection of these dataset was based on the desire to obtain a common 
+                    spatial resolution of 1km. Scripts were written in GEE to filter the dataset 
+                    and select only the NDVI and LST bands for export and used as input dataset
+                    in R. This process involving the extraction of LST and NDVI also included 
+                    scaling of the dataset prior to download. The NDVI MOD13A2 was scaled with 
+                    the factor 0.0001 whiles LST MOD11A2 was scaled with the factor 0.02. 
+                    The codes for the extraction of LST and NDVI from GEE are provided below.
                 </p>
                 <div>
                     <p>The code for extracting NDVI MOD13A2 data from GEE can be access from this <a href="https://code.earthengine.google.com/5bba784baa5e11172bc6b5f3ace0b1f4" target="_blank">link</a></p>
 
                     <p>The code for extracting LST MOD11A2 data from GEE can be access from this <a href="https://code.earthengine.google.com/e66d4d3b1e2d519945c7cdf4b7566f87" target="_blank">link</a></p>
-
                 </div>
                 <div>
-                    <p>Another dataset used as input in R was shapefile of Western Region of Ghana (WRG). The complete
-                        regional boundary was downloaded from RSGIS lab and western region extracted using the extract tool in
-                        ArcGIS. Selection of Western Region as ROI was based on availability of data and preliminary
-                        knowledge of land cover and climate of the area. The shapefile of Western Region was used as the region
-                        of interest to crop the NDVI and LST data in R</p>
+                    <p>Another dataset used as input in R was shapefile of Western Region of 
+                        Ghana (WRG). The complete regional boundary was downloaded from RSGIS 
+                        lab and western region extracted using the extract tool in ArcGIS. 
+                        Selection of Western Region as ROI was based on availability of data 
+                        and preliminary knowledge of land cover and climate of the area. 
+                        The shapefile of Western Region was used as the region
+                        of interest to crop the NDVI and LST data in R
+                    </p>
                 </div>
 
                 <div>
