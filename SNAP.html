@@ -300,23 +300,30 @@
 
                         <div>
                             <h4>Interpretation NDMI result (2018-04-20)</h4>
-<p>Depicted in the map is the spatial distribution of NDMI values in the study area. The result is a wide
-range NDMI value indicating both vegetated and non-vegetated land cover. Basically, using the
-compass direction illustrated on the map, NDMI values within the range of -0.678 to -0.118 occurred
-in greater proportion in the far west region of the study area as compared to other regions. Thus, the
-western region of the study area is made of land cover with barely any vegetation and water stressed. Higher NDMI values (0.428 to 0.913) indicating vegetation with relatively high moisture content
-was more prevalent in central region of the area as opposed to NDMI values of -0.118 to 0.128 in the
-extreme east of the study area. In general, the study area is largely covered by surfaces with NDMI
-values between 0.128 to 0.428 indicative of some vegetative cover with relatively low water content. The interpretation of NDMI is deduced from data provided by Antognelli (2019) which is captured
-in the appendix. The segment of the image with white colour visualization are masked out clouds
-which are replaced with ‘No data’ (NaN)</p>
+                            <p>Depicted in the map is the spatial distribution of NDMI values in the study area. 
+                                The result is a wide range NDMI value indicating both vegetated and non-vegetated 
+                                land cover. Basically, using the compass direction illustrated on the map, NDMI 
+                                values within the range of -0.678 to -0.118 occurred in greater proportion in the 
+                                far west region of the study area as compared to other regions. Thus, the western 
+                                region of the study area is made of land cover with barely any vegetation and water 
+                                stressed. Higher NDMI values (0.428 to 0.913) indicating vegetation with relatively 
+                                high moisture content was more prevalent in central region of the area as opposed 
+                                to NDMI values of -0.118 to 0.128 in the extreme east of the study area. 
+                                In general, the study area is largely covered by surfaces with NDMI values 
+                                between 0.128 to 0.428 indicative of some vegetative cover with relatively low 
+                                water content. The interpretation of NDMI is deduced from data provided by 
+                                Antognelli (2019) which is captured in the appendix. The segment of the image with 
+                                white colour visualization are masked out clouds which are replaced with ‘No data’ (NaN)
+                            </p>
                         </div>
 
                     </div>
+                    
                     <div><h4>Estimating maximum and minimum NDMI values</h4>
                         <p>
                             To compute the maximum and minimum NDMI values, the analysis tool on the menu bar was
-                            clicked on, followed by clicking on Statistics. The procedure is visualized as follows,</p>
+                            clicked on, followed by clicking on Statistics. The procedure is visualized as follows,
+                        </p>
                             <div class="fig-img">
                                 <img src="ndmistats.jpg" class="fig-img2"> 
                                 <p>The result of this procedure is indicated in the statistics box as follows</p>           
@@ -325,23 +332,32 @@ which are replaced with ‘No data’ (NaN)</p>
                             <div class="fig-img">
                                 <h4>Statistics of maximum and minimum NDMI values (2018-04-20)</h4>
                                 <img src="stats res.jpg" class="fig-img2"> 
-                                <p>From the results in Figure 1.6 above, the maximum NDMI value is 0.913 and the minimum NDMI
-                                    value is -0.99 which corresponds to total vegetation cover with high moisture content and bare soil
-                                    with high water stress respectively based on interpretation index by Antognelli (2019) .</p>      
+                                <p>From the results in Figure 1.6 above, the maximum NDMI value is 0.913 and the 
+                                    minimum NDMI value is -0.99 which corresponds to total vegetation cover 
+                                    with high moisture content and bare soil with high water stress respectively 
+                                    based on interpretation index by Antognelli (2019).
+                                </p>      
                             </div>
 
                             <div>
                                 <h4>Applying threshold to delineate the vegetation with high moisture content</h4>
-                                    <p>Based on informed judgement from the statistics result of NDMI computed and a visual inspection of
-                                    the pixel values of the image, a threshold of 0.5 was applied as demarcation for vegetation with high
-                                    water content. To delineate vegetation with high moisture content, right click on image and click on Band maths. Click on Edit expression button box and select the NDMI image from the loaded bands. The
-                                    expression box is filled with the conditional statement below,</p>
+                                    <p>Based on informed judgement from the statistics result of NDMI computed 
+                                        and a visual inspection of the pixel values of the image, a threshold of 
+                                        0.5 was applied as demarcation for vegetation with high water content. 
+                                        To delineate vegetation with high moisture content, right click on image 
+                                        and click on Band maths. Click on Edit expression button box and select 
+                                        the NDMI image from the loaded bands. The expression box is filled with 
+                                        the conditional statement below,
+                                    </p>
                                     <div class="fig-img">
                                         <img src="ndmi thresh.jpg" class="fig-img2"> 
-                                        <p>The above statement implies that from the NDMI band image, all areas with NDMI values greater
-                                            than 0.5 which is the threshold for vegetation with high moisture content are selected and returned
-                                            whiles all others not satisfying this condition are replace with no data (NaN). The workflow for
-                                            delineating vegetation with high water content is visualized below.</p>           
+                                        <p>The above statement implies that from the NDMI band image, all areas 
+                                            with NDMI values greater than 0.5 which is the threshold for vegetation 
+                                            with high moisture content are selected and returned whiles all others 
+                                            not satisfying this condition are replace with no data (NaN). 
+                                            The workflow for delineating vegetation with high water content is 
+                                            visualized below.
+                                        </p>           
                                     </div>
                                     <div class="fig-img">
                                         <img src="new.jpg" class="fig-img2"><br>
