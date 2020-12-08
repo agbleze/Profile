@@ -165,67 +165,67 @@
             <div class="code-container">
                 <code class="codeBlock">
                     //Load  Landsat-8 Surface Reflectance collection     
-    var LS8collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
-     // Filter by the region of interest
-      .filterBounds(aoi)
-     // Filter collection by time ('Year-month-day')
-      .filterDate('2018-01-01', '2018-12-31');
-      
-    print(LS8collection);
-    
-    // Create cloud mask function
-    function applyQAlandsat (image) {
-      var mask = image.select('pixel_qa').bitwiseAnd(32).eq(0)
-      .and(image.select('pixel_qa').bitwiseAnd(8).eq(0))
-      .and(image.select('pixel_qa').bitwiseAnd(4).eq(0));
-      return image.updateMask(mask);
-    }
-    
-    // Apply cloud masking function on the collection
-    var cloudMasked_Collection = LS8collection.map(applyQAlandsat);
-    
-    // Display result of cloudmasking 
-    Map.addLayer( cloudMasked_Collection, {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000}, 'Result of cloudmasking');
-    Map.centerObject(aoi,6);
-    
-    // Compute Normalized Difference Vegetation Index over Landsat 8 product.
-    // NDVI = (NIR - RED) / (NIR + RED), where
-    // RED is band 4,  0.64µm - 0.67µm
-    // NIR is 5,  0.85µm - 0.88µm
-    
-    // Function to create NDVI 
-    var addNDVI = function(im){
-    
-    var ndvi = im.select(['B5','B4']).normalizedDifference();
-    return ndvi;
-      
-    };
-    
-    
-    /////////////////////////////////////////////////////////////////
-    ///// Mapping NDVI over image collection      //////////////////
-    
-    // Apply a function to calculate NDVI over the collection
-    var ndviCollection = cloudMasked_Collection.map(addNDVI);
-    print(ndviCollection.max()); //Returns the maximum NDVI in the collection
-    var MaxNDVI = ndviCollection.max();
-    
-    print(MaxNDVI);
-    
-    // Add Maximum NDVI of collection on map
-    Map.addLayer(MaxNDVI,  { min: -0.8, max: 0.8,'palette': 'FF0000,FFFF00,00FF00'},'Maximum NDVI of collection');
-    Map.centerObject(aoi,6);
-    
-    
-    //// Get the Maximum NDVI value  over region of interest //////
-    var maxAOI = MaxNDVI.clip(aoi)
-      .reduceRegion({
-        reducer: ee.Reducer.max(),
-        geometry: aoi,
-        scale: 30})
-      .get('nd');
-    
-    print(maxAOI);
+                    var LS8collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+                    // Filter by the region of interest
+                    .filterBounds(aoi)
+                    // Filter collection by time ('Year-month-day')
+                    .filterDate('2018-01-01', '2018-12-31');
+                    
+                    print(LS8collection);
+                    
+                    // Create cloud mask function
+                    function applyQAlandsat (image) {
+                    var mask = image.select('pixel_qa').bitwiseAnd(32).eq(0)
+                    .and(image.select('pixel_qa').bitwiseAnd(8).eq(0))
+                    .and(image.select('pixel_qa').bitwiseAnd(4).eq(0));
+                    return image.updateMask(mask);
+                    }
+                    
+                    // Apply cloud masking function on the collection
+                    var cloudMasked_Collection = LS8collection.map(applyQAlandsat);
+                    
+                    // Display result of cloudmasking 
+                    Map.addLayer( cloudMasked_Collection, {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000}, 'Result of cloudmasking');
+                    Map.centerObject(aoi,6);
+                    
+                    // Compute Normalized Difference Vegetation Index over Landsat 8 product.
+                    // NDVI = (NIR - RED) / (NIR + RED), where
+                    // RED is band 4,  0.64µm - 0.67µm
+                    // NIR is 5,  0.85µm - 0.88µm
+                    
+                    // Function to create NDVI 
+                    var addNDVI = function(im){
+                    
+                    var ndvi = im.select(['B5','B4']).normalizedDifference();
+                    return ndvi;
+                    
+                    };
+                    
+                    
+                    /////////////////////////////////////////////////////////////////
+                    ///// Mapping NDVI over image collection      //////////////////
+                    
+                    // Apply a function to calculate NDVI over the collection
+                    var ndviCollection = cloudMasked_Collection.map(addNDVI);
+                    print(ndviCollection.max()); //Returns the maximum NDVI in the collection
+                    var MaxNDVI = ndviCollection.max();
+                    
+                    print(MaxNDVI);
+                    
+                    // Add Maximum NDVI of collection on map
+                    Map.addLayer(MaxNDVI,  { min: -0.8, max: 0.8,'palette': 'FF0000,FFFF00,00FF00'},'Maximum NDVI of collection');
+                    Map.centerObject(aoi,6);
+                    
+                    
+                    //// Get the Maximum NDVI value  over region of interest //////
+                    var maxAOI = MaxNDVI.clip(aoi)
+                    .reduceRegion({
+                        reducer: ee.Reducer.max(),
+                        geometry: aoi,
+                        scale: 30})
+                    .get('nd');
+                    
+                    print(maxAOI);
                 </code>
             </div>
     
