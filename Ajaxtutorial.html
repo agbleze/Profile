@@ -15,6 +15,8 @@
                         document.getElementById("demo").innerHTML = this.responseText;
                     }
                 };
+                xhttp.open("GET", "ajax_info.txt", true);
+                xhttp.send();
             }
         </script>
     </body>
