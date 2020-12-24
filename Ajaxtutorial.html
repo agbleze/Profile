@@ -23,7 +23,7 @@
             function () {
                 var xhttp = new yhttpRequest ();
                 xhttp.onreadychange = function () {
-                    if (this.readyState == 4 )
+                    if (this.readyState == 4 && this.status == 200)
                 }
             }
 
