@@ -23,7 +23,7 @@
             
         <script>
             function loadDoc() {
-                var xhttp = new yhttpRequest ();
+                var xhttp = new httpRequest ();
                 xhttp.onreadychange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         document.getElementById("demo").innerHTML = this.responseText;
