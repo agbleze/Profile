@@ -35,7 +35,11 @@
 
             // check  if the browser support XhttpRequest else create ActiveX object
             if (window.XMLHttpRequest) {
-                
+                // code for modern browsers
+                xmlhttp = new XMLHttpRequest();
+            } else {
+                // code for old IE browsers
+                xmlhttp = new ActiveXObject("Microsoft.XMLHttp");
             }
         </script>
 
