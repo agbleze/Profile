@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>jQuery hide/show</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+	<script>
+		$(document).ready(function () {
+		// Hide all sections when the page is first loaded
+		$(".mySection").hide();
+		// Setup all elements with class "myButton" to react on click
+		$(".myButton").click( function() {
+			// Check if the section is already displayed
+			if ($(this).html()=="Hide") {
+				// Hide the current section
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).hide();
+				// Set the button label to "Show"
+				$(this).html("Show");
+			} else {
+				// Hide all sections, using the class mySection
+				$(".mySection").hide();
+				// Set all button labels to "Show"
+				$(".myButton").html("Show");
+				// Show the section we want to display
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).show();
+				// Set the button label to "hide"
+				$(this).html("Show");
+			}
+		});
+	});	
+	</script>
+</head>
+<body>
+    <button id="btnOne" class="myButton" data-showsection="sectionOne">Show</button>
+    <div id="sectionOne" class="mySection" data-btnID="btnOne">This is the 1st section.</div>
+    <br>
+    <button id="btnTwo" class="myButton" data-showsection="sectionTwo">Show</button>
+    <div id="sectionTwo" class="mySection" data-btnID="btnTwo">You are now seeing the 2nd section.</div>
+    <br>
+    <button id="btnThree" class="myButton" data-showsection="sectionThree">Show</button>
+    <div id="sectionThree" class="mySection" data-btnID="btnThree">This is the 3rd section.</div>
+    <br>
+    <button id="btnFour" class="myButton" data-showsection="sectionFour">Show</button>
+    <div id="sectionFour" class="mySection" data-btnID="btnFour">The 4th and last section.</div>
+    <br>
+</body>
