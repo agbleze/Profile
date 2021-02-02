@@ -14,6 +14,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+		$(document).ready(function () {
+		// Hide all sections when the page is first loaded
+		$(".mySection").hide();
+		// Setup all elements with class "myButton" to react on click
+		$(".myButton").click( function() {
+			// Check if the section is already displayed
+			if ($(this).html()=="Hide") {
+				// Hide the current section
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).hide();
+				// Set the button label to "Show"
+				$(this).html("Show");
+			} else {
+				// Hide all sections, using the class mySection
+				$(".mySection").hide();
+				// Set all button labels to "Show"
+				$(".myButton").html("Show");
+				// Show the section we want to display
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).show();
+				// Set the button label to "hide"
+				$(this).html("Show");
+			}
+		});
+	});	
+	</script>
 </head>
 <body style="display: grid">
     <header>
@@ -96,7 +123,7 @@
 
     <main>
         
-        <div href = "GEE-intro">
+        <div href = "GEE-intro" class = "mySection">
             <h3>Introduction to Google Earth Engine Analysis</h3>
             <p>The era of big data calls for the use of tools with capacity to analyze large 
                 volumes of data at fast pace as well as gain deeper understanding of long 
@@ -124,7 +151,7 @@
             </p>   
         </div>
         
-        <div id="ndvi">
+        <div id="ndvi" class = "mySection">
             <h3>Analyzing NDVI</h3>
             <h4>Create a processing chain for Landsat 8 imagery</h4>
             <p>
@@ -243,7 +270,7 @@
 
         
         <!--Binary Classification begins here-->
-        <div id ="Rf">
+        <div id ="Rf" class = "mySection">
             <h3>Random Forest classification with binary classes (water/no water)</h3>
             <div>
                 <p> For this analysis, sentinel-2 data with the image collection ID “COPERNICUS/S2” was loaded and 
@@ -359,7 +386,7 @@
         
         <!--Time series analysis on GEE-->
 
-        <div id="timeSeries">
+        <div id="timeSeries" class = "mySection">
             <h3>Times series analysis of NDVI for different biomes or vegetation</h3>
             <p>For this exercise, MODIS dataset with 16 days frequency and 250 meters spatial resolution was used for the time series
                 analysis. This MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
@@ -389,7 +416,7 @@
                         <div class="code-container">
                             <code class="codeBlock">
                                 // Scale the NDVI with fac 0.0001// https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13q1_v006
-        <br>
+            <br>
         function scale(img){
           return img.multiply(0.0001).copyProperties(img,['system:time_start']);
         }
@@ -517,17 +544,22 @@
                         The result illustrates that whiles different biomes maintained different levels 
                         of maximum NDVI within the time series analyzed, the biomes appear to follow a 
                         common pattern of attaining the maximum and minimum NDVI within a common time frame. 
-                        Cropland however deviates from this observation significantly upon visual inspection. Moreover, deciduous broadleaf forest persistently attained the
-        highest maximum NDVI of 0.9 approximately within each year of the time series around the month of
-        June. This is closely followed by Mixed forest and Evergreen needleleaved forest. As expected, the NDVI
-        of Urban builtup have been relatively low compared to others in most periods of the time series. A more
-        critical view indicates that whiles deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
-        and urban builtup biomes are able to sustain their maximum NDVI in their respective cases for a longer
-        period, cropland experiences a sharp decline immediately after attaining maximum NDVI hence a steep
-        slope. A suggested explanation in this trend is that cropland is the most disturbed biome by human
-        activity with persistent farming activities hence continuous change in land cover and land use compared
-        to the other biomes. A more plausible reason is that the maximum NDVI values of cropland are attained at periods of crop maturity after which there is immediate harvesting leading to a fast change in the land
-        cover as reflected in the sharp drop in maximum NDVI.
+                        Cropland however deviates from this observation significantly upon visual inspection. 
+                        Moreover, deciduous broadleaf forest persistently attained the
+                        highest maximum NDVI of 0.9 approximately within each year of the time series around 
+                        the month of June. This is closely followed by Mixed forest and Evergreen needleleaved
+                        forest. As expected, the NDVI of Urban builtup have been relatively low compared 
+                        to others in most periods of the time series. A more critical view indicates that 
+                        whiles deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
+                        and urban builtup biomes are able to sustain their maximum NDVI in their respective 
+                        cases for a longer period, cropland experiences a sharp decline immediately after 
+                        attaining maximum NDVI hence a steep slope. A suggested explanation in this trend 
+                        is that cropland is the most disturbed biome by human activity with persistent 
+                        farming activities hence continuous change in land cover and land use compared
+                        to the other biomes. A more plausible reason is that the maximum NDVI values 
+                        of cropland are attained at periods of crop maturity after which there is immediate 
+                        harvesting leading to a fast change in the land
+                        cover as reflected in the sharp drop in maximum NDVI.
                 </div>
                
                 <div>
