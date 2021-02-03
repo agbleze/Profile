@@ -1,46 +1,94 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>jQuery hide/show</title>
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
 	<script>
-		$(document).ready(function () {
-		// Hide all sections when the page is first loaded
-		$(".mySection").hide();
-		// Setup all elements with class "myButton" to react on click
-		$(".myButton").click( function() {
-			// Check if the section is already displayed
-			if ($(this).html()=="Hide") {
-				// Hide the current section
-				var sectionID = $(this).attr("data-showsection");
-				$("#"+sectionID).hide();
-				// Set the button label to "Show"
-				$(this).html("Show");
-			} else {
-				// Hide all sections, using the class mySection
-				$(".mySection").hide();
-				// Set all button labels to "Show"
-				$(".myButton").html("Show");
-				// Show the section we want to display
-				var sectionID = $(this).attr("data-showsection");
-				$("#"+sectionID).show();
-				// Set the button label to "hide"
-				$(this).html("Show");
-			}
-		});
-	});	
+        // $(selector).action
+        // $("p").html("just testing")
+        // $(".topic-link").hide()
+        // $(document).ready(function(){})
+        
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("p").hide(1000);
+            });
+        });
+
+        $(document).ready(function() {
+            $("span").click(function() {
+                $("#last").hide("slow");
+            });
+        });
+
+        $(document).ready(function() {
+            $("h2").dblclick(function() {
+                $(this).hide(1000);
+            });
+        })
+
+       /* $(document).ready(function() {
+            $("div").mouseleave(function() {
+                alert("You left!");
+        });
+        });
+        */
+
+        //$(selector).hide(speed, callback)
+
+        $(document).ready(function() {
+            $("input").focus(function() {
+                $(this).css("background-color", "blue");
+            });
+            $("input").blur(function() {
+                $(this).css("background-color", "yellow");
+            });
+        });
+
+        $(document).ready(function() {
+            $("p").on({
+                mouseenter: function() {
+                    (this).css("background-color", "lightgray");
+                },
+                mouseleave: function() {
+                    $(this).css("background", "red");
+                },
+                click: function() {
+                    $(this).css("background-color", "green");
+                }
+            });
+        });
+        
+        $(document).ready(function() {
+            $(button).click(function() {
+                $("#div1").fadeIn();
+                $("#div2").fadeIn("slow");
+                $("#div3").fadeIn(3000);
+            });
+        });
+
+
 	</script>
 </head>
 <body>
-    <button id="btnOne" class="myButton" data-showsection="sectionOne">Show</button>
-    <div id="sectionOne" class="mySection" data-btnID="btnOne">This is the 1st section.</div>
-    <br>
-    <button id="btnTwo" class="myButton" data-showsection="sectionTwo">Show</button>
-    <div id="sectionTwo" class="mySection" data-btnID="btnTwo">You are now seeing the 2nd section.</div>
-    <br>
-    <button id="btnThree" class="myButton" data-showsection="sectionThree">Show</button>
-    <div id="sectionThree" class="mySection" data-btnID="btnThree">This is the 3rd section.</div>
-    <br>
-    <button id="btnFour" class="myButton" data-showsection="sectionFour">Show</button>
-    <div id="sectionFour" class="mySection" data-btnID="btnFour">The 4th and last section.</div>
-    <br>
+    
+    <h2>This is a heading</h2>
+
+    <p>This is a paragraph.</p>
+    <p id = "last">This is another paragraph.</p>
+    <p>More paragraphs here</p>
+
+    <div>Its a happy day for all</div>
+
+    <button>Click me to hide paragraphs</button>
+    <span>click me</span>
+
+    Name: <input type="text" name="fullname"><br>
+    Email: <input type="text" name="email">
+
+    <button>Click to fade in boxes</button><br><br>
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    
 </body>

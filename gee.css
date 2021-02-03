@@ -48,8 +48,8 @@ footer {
 body {
     display: grid;
     grid-template-columns: 30% 70%;
-    grid-template-rows: .7% 95% 5%;
-    text-align: justify;
+    grid-template-rows: 5% 95% 0%;
+  /*  text-align: justify; */
 
 }
 
@@ -252,5 +252,7 @@ code {
   }
 }
 
-
+.topic-link {
+  text-decoration: none;
+}
 
