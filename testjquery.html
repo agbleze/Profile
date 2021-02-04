@@ -9,7 +9,7 @@
         // $(".topic-link").hide()
         // $(document).ready(function(){})
         
-        $(document).ready(function(){
+       /* $(document).ready(function(){
             $("button").click(function(){
                 $("p").hide(1000);
             });
@@ -35,7 +35,7 @@
         */
 
         //$(selector).hide(speed, callback)
-
+        /*
         $(document).ready(function() {
             $("input").focus(function() {
                 $(this).css("background-color", "blue");
@@ -57,15 +57,16 @@
                     $(this).css("background-color", "green");
                 }
             });
-        });
+        }); */
         
         $(document).ready(function() {
             $(button).click(function() {
-                $("#div1").fadeIn();
-                $("#div2").fadeIn("slow");
-                $("#div3").fadeIn(3000);
-            });
-        });
+                $("#div1").fadeOut();
+                $("#div2").fadeOut("slow");
+                $("#div3").fadeOut(3000);
+
+            })
+        })
 
 
 	</script>
@@ -80,15 +81,15 @@
 
     <div>Its a happy day for all</div>
 
-    <button>Click me to hide paragraphs</button>
+    <button>Click me to hide paragraphs</button> 
     <span>click me</span>
 
     Name: <input type="text" name="fullname"><br>
     Email: <input type="text" name="email">
 
     <button>Click to fade in boxes</button><br><br>
-    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
-    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
-    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+    <div id="div1" style="width:80px;height:80px;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;background-color:blue;"></div>
     
 </body>
