@@ -5,7 +5,14 @@
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $("div").animate({height: "toggle"})
+            var div = $("div");
+            div.animate({height: "200px",
+                            left: "200px",
+                        fontSize: ".3em",
+                        right: "100px",
+                        });
+            div.animate({width: "200px",
+                        right: "300px"})
         })
     })
 </script>
