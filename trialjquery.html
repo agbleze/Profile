@@ -22,9 +22,17 @@
 
 <script>
     $(document).ready(function(){
-        $("button").click(function(){
-            alert("Value: " + $("#test").val())
-        })
+        $("#btn1").click(function(){
+            $("#test1").text("Hello world")
+        });
+
+        $("#btn2").click(function(){
+            $("#test2").html("<b>Hello World</b>")
+        });
+
+        $("#btn3").click(function(){
+            $("#test3").val("Chief")
+        });
     })
 </script>
 
@@ -32,9 +40,14 @@
 
 <body>
 
-    <p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
+    <p id="test1">This is a paragraph.</p>
+    <p id="test2">This is another paragraph.</p>
     
-    <button>Show Value</button>
+    <p>Input field: <input type="text" id="test3" value="Mickey Mouse"></p>
+    
+    <button id="btn1">Set Text</button>
+    <button id="btn2">Set HTML</button>
+    <button id="btn3">Set Value</button>
     
 </body>
 </html>
