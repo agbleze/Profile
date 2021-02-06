@@ -21,32 +21,38 @@
 </style>
 
 <script>
-    $(document).ready(function(){
-        $("#btn1").click(function(){
-            $("p").append("<li><i>ADDED TEXT</i></li>");
-        });
+    function afterText(){
+        //create text with HTML
+        var txt = "<p><strong>This is html text</strong></p>"
 
-        $("#btn2").click(function(){
-            $("ol").append("<li>Added list</li>")
-        })
-    })
+        //create text with jquery
+        var txt2 = $("<p></p>").text("This is jquery text")
+
+        //create text with DOM
+        var txt3 = document.createElement("p")
+        txt3.innerHTML = "This text is created with DOM"
+
+        $("div").after(txt, txt2, txt3);
+    
+    }
+    
+ 
 </script>
 
 </head>
 
 <body>
 
-    <p>This is a paragraph.</p>
-    <p>This is another paragraph.</p>
+    <div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
     
-    <ol>
-      <li>List item 1</li>
-      <li>List item 2</li>
-      <li>List item 3</li>
-    </ol>
+    This is some text in the div.
+    <p>This is a paragraph in the div.</p>
+    <p>This is another paragraph in the div.</p>
     
-    <button id="btn1">Append text</button>
-    <button id="btn2">Append list items</button>
+    </div>
+    <br>
+    
+    <button>Remove div element</button>
     
 </body>
 </html>
