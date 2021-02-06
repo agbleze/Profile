@@ -22,11 +22,12 @@
 
 <script>
     $(document).ready(function(){
-        $("button").click(function(){
-            $("#w3s").attr("href", function(i, origVal){
-                return origValue + "/jquery/"
+        $("#btn1").click(function(){
+            $("p").append("<li><i>ADDED TEXT</i></li>");
+        });
 
-            })
+        $("#btn2").click(function(){
+            $("ol").append("<li>Added list</li>")
         })
     })
 </script>
@@ -35,11 +36,17 @@
 
 <body>
 
-    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
     
-    <button>Change href Value</button>
+    <ol>
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
+    </ol>
     
-    <p>Mouse over the link (or click on it) to see that the value of the href attribute has changed.</p>
+    <button id="btn1">Append text</button>
+    <button id="btn2">Append list items</button>
     
 </body>
 </html>
