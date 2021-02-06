@@ -23,8 +23,10 @@
 <script>
     $(document).ready(function(){
         $("button").click(function(){
-            $("w3s").attr({"href": "https://www.w3schools.com/jquery/",
-                            "title": "New title"})
+            $("#w3s").attr("href", function(i, origVal){
+                return origValue + "/jquery/"
+
+            })
         })
     })
 </script>
@@ -33,11 +35,11 @@
 
 <body>
 
-    <p><a href="https://www.w3schools.com" title="some title" id="w3s">W3Schools.com</a></p>
+    <p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
     
-    <button>Change href and title</button>
+    <button>Change href Value</button>
     
-    <p>Mouse over the link to see that the href attribute has changed and a title attribute is set.</p>
+    <p>Mouse over the link (or click on it) to see that the value of the href attribute has changed.</p>
     
 </body>
 </html>
