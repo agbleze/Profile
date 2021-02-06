@@ -21,22 +21,11 @@
 </style>
 
 <script>
-    function afterText(){
-        //create text with HTML
-        var txt = "<p><strong>This is html text</strong></p>"
-
-        //create text with jquery
-        var txt2 = $("<p></p>").text("This is jquery text")
-
-        //create text with DOM
-        var txt3 = document.createElement("p")
-        txt3.innerHTML = "This text is created with DOM"
-
-        $("div").after(txt, txt2, txt3);
-    
-    }
-    
- 
+    $(document).ready(function(){
+        $("button").click(function(){
+            $("#div1").empty()
+        })
+    })
 </script>
 
 </head>
@@ -52,7 +41,7 @@
     </div>
     <br>
     
-    <button>Remove div element</button>
+    <button>Empty the div element</button>
     
 </body>
 </html>
