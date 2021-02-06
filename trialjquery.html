@@ -21,9 +21,9 @@
 </style>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $("button").click(function(){
-            $("#div1").empty()
+            $("p").remove(".test")
         })
     })
 </script>
@@ -32,16 +32,11 @@
 
 <body>
 
-    <div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+    <p>This is a paragraph.</p>
+    <p class="test">This is another paragraph.</p>
+    <p class="test">This is another paragraph.</p>
     
-    This is some text in the div.
-    <p>This is a paragraph in the div.</p>
-    <p>This is another paragraph in the div.</p>
+    <button>Remove all p elements with class="test"</button>
     
-    </div>
-    <br>
-    
-    <button>Empty the div element</button>
-    
-</body>
+    </body>
 </html>
