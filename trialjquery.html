@@ -3,27 +3,16 @@
 <head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<style> 
-    #panel, #flip {
-      padding: 5px;
-      font-size: 18px;
-      text-align: center;
-      background-color: #555;
-      color: white;
-      border: solid 1px #666;
-      border-radius: 3px;
-    }
-    
-    #panel {
-      padding: 50px;
-      display: none;
+<style>
+    .blue {
+      color: blue;
     }
 </style>
 
 <script>
-    $(document).ready(function() {
-        $("button").click(function(){
-            $("p").remove(".test")
+    $(document).ready(function(){
+        $("button").click(function() {
+            alert("Background color is " + $("p").css("background-color"))
         })
     })
 </script>
@@ -32,11 +21,15 @@
 
 <body>
 
+    <h2>This is a heading</h2>
+    
+    <p style="background-color:#ff0000">This is a paragraph.</p>
+    <p style="background-color:#00ff00">This is a paragraph.</p>
+    <p style="background-color:#0000ff">This is a paragraph.</p>
+    
     <p>This is a paragraph.</p>
-    <p class="test">This is another paragraph.</p>
-    <p class="test">This is another paragraph.</p>
     
-    <button>Remove all p elements with class="test"</button>
+    <button>Set multiple styles for p</button>
     
-    </body>
+</body>
 </html>
