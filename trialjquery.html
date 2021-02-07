@@ -26,10 +26,21 @@
 
 <body>
 
-    <div id="div1"></div>
-    <br>
+    <div class="ancestors">
+      <div style="width:500px;">div (great-grandparent)
+        <ul>ul (grandparent)  
+          <li>li (direct parent)
+            <span>span</span>
+          </li>
+        </ul>   
+      </div>
     
-    <button>Resize div</button>
+      <div style="width:500px;">div (grandparent)   
+        <p>p (direct parent)
+          <span>span</span>
+        </p> 
+      </div>
+    </div>
     
 </body>
 </html>
