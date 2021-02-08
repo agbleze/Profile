@@ -15,22 +15,21 @@
 </style>
 
 <script>
-    $(document).ready(function() {
-        $("h2").nextAll().css({"color": "red", "border": "2px dotted"})
+    $(document).ready(function(){
+        $("p").not(".intro").css({"color": "green"})
     })
 </script>
 
 </head>
 
-<body class="siblings">
+<body>
 
-    <div>div (parent)
-      <p>p</p>
-      <span>span</span>
-      <h2>h2</h2>
-      <h3>h3</h3>
-      <p>p</p>
-    </div>
+    <h1>Welcome to My Homepage</h1>
+    
+    <p>My name is Donald.</p>
+    <p class="intro">I live in Duckburg.</p>
+    <p class="intro">I love Duckburg.</p>
+    <p>My best friend is Mickey.</p>
     
     </body>
 </html>
