@@ -17,7 +17,15 @@
 <script>
     $(document).ready(function() {
         $("button").click(function() {
-            $("span").load("toolset.html")
+            $("span").load("SNAP.html", function(responseTxt, statusTxt, xhr) {
+                if(statusTxt == "success") {
+                    alert("Operation succesful")
+                } else {
+                    if(statusTxt == "error") {
+                        alert("Error: " + xhr.status + ": " + xhr.statusText)
+                    }
+                }
+            })
         })
     })
 </script>
