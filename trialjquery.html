@@ -15,8 +15,10 @@
 </style>
 
 <script>
-    $(document).ready(function(){
-        $("p").not(".intro").css({"color": "green"})
+    $(document).ready(function() {
+        $("button").click(function() {
+            $("span").load("toolset.html")
+        })
     })
 </script>
 
@@ -30,6 +32,9 @@
     <p class="intro">I live in Duckburg.</p>
     <p class="intro">I love Duckburg.</p>
     <p>My best friend is Mickey.</p>
+    <span></span>
+
+    <button>Click to try</button>
     
     </body>
 </html>
