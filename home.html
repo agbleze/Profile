@@ -27,7 +27,7 @@
                   </button>
 
                   <div class="dropdown-content">
-                    <a href="conferenceCERES.html" id = "ceres">CERES 2019</a>
+                    <a href="#" id = "ceres">CERES 2019</a>
                     <a href="conf.html">BET 2020</a>
                     <a href="#">GEOBUS 2019</a>
                     <a href="#">First Health and Migration Collaborative Community Symposium</a>
@@ -63,25 +63,25 @@
     </header>
 
     <main id="mainGrid">
-        <div id="profileCoat">
+        <div id="profileCoat" class = "mainHide">
             <div id ="profilePic">
                 <img src="Linus_Pic.jpg" alt="profile pic">
             </div>
         </div>
         
-        <div id="headshot"><img src="Linus_snow.jpg" alt="head shot" id="cast"></div>
-        <div id = "biography">
+        <div id="headshot"><img src="Linus_snow.jpg" alt="head shot" id="cast" class = "mainHide"></div>
+        <div id = "biography" class = "mainHide">
             <h2>About me</h2>
             <p>Linus Agbleze is a researcher with a bachelor education in Geography and Resource 
                 Development from the University of Ghana as well as a Post-graduate certificate in Climate Change Management from the University of Edinburgh. Currently, he is a Master student at United Nations University and University of Bonn studying environmental risk and human security with research interests spanning but not limited to the areas of climate change adaptation and mitigation, vulnerability and disaster risk assessment and management. His works have largely focused on Africa.</p>   
         </div>
 
        
-        
+        <span></span>  
           
 
     </main>
-    <span></span>
+    
 
     <footer>
         <div class="foot align-all">
@@ -142,13 +142,12 @@
     <script>
       $(document).ready(function() {
         $("#ceres").click(function() {
-        //  $("main").hide();
-          $("main").load("conferenceCERES.html")
+          $(".mainHide").hide();
+          $("span").load("conferenceCERES.html")
 
         })
         
       })
-
     </script>
     
 
