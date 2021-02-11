@@ -20,7 +20,7 @@
         <nav>
             <div class="topnav" id="myTopnav">
                 <a href="home.html">A Gist of Me</a>
-                <a href="toolset.html">Toolsets and skills</a>
+                <a href="#" id = "toolset">Toolsets and skills</a>
                 <div class="dropdown">
                   <button class="dropbtn">Conference works 
                     <i class="fa fa-caret-down"></i>
@@ -28,7 +28,7 @@
 
                   <div class="dropdown-content">
                     <a href="#" id = "ceres">CERES 2019</a>
-                    <a href="conf.html">BET 2020</a>
+                    <a href="#" id = "bet">BET 2020</a>
                     <a href="#">GEOBUS 2019</a>
                     <a href="#">First Health and Migration Collaborative Community Symposium</a>
                   </div>
@@ -142,6 +142,16 @@
           $(".mainHide").hide();
           $("span").load("conferenceCERES.html")
 
+        })
+
+        $("#bet").click(function() {
+          $(".mainHide").hide();
+          $("span").load("conf.html")
+        })
+
+        $("#toolset").click(function() {
+          $(".mainHide").hide();
+          $("span").load("toolset.html")
         })
         
       })
