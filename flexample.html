@@ -53,6 +53,21 @@ text-decoration: underline;
         max-width: 75rem;
         margin: auto;
     }
+    main {
+        display: flex;
+        flex-wrap: wrap;
+        box-sizing: border-box;
+        border-bottom: 0.5rem solid;
+    }
+    nav, header {
+        order: -1;
+    }
+    article {
+        flex: 75%;
+    }
+    aside {
+        flex: 25%;
+    }
 }
     </style>
 
@@ -62,9 +77,21 @@ text-decoration: underline;
     <main>
         <article>
             <h2>This is the heading of the main section</h2>
-            <p>This is a paragraph of text.</p>
+            <p>This is a paragraph of text.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                Doloribus impedit explicabo corporis, veniam voluptatem totam 
+                perspiciatis omnis illo nobis culpa. Temporibus eius mollitia, ex consectetur
+                 blanditiis voluptates illo libero! Optio!
+                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, provident cum? 
+                 Rerum accusamus autem iste minus id repudiandae illum officiis ex dicta aliquid 
+                 cum, ab, soluta enim. Odit, delectus nobis.
+            </p>
         </article>
-        <aside>Here is the aside</aside>
+        <aside>Here is the aside
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Explicabo doloremque 
+            quod recusandae maxime quae magni ratione, ullam accusantium reiciendis fuga
+             repellendus sequi atque pariatur odit? Placeat et mollitia vitae enim!
+        </aside>
     </main>
         <nav>
             <a href="/">Home</a>
