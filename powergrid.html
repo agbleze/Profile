@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            nav {
+display: flex;
+}
+nav a {
+flex: 0%;
+}
+section > img,
+section > button,
+section > a {
+width: 100%;
+display: inline-block;
+}
+
+@media screen and (min-width: 40em) {
+                body, main, section {
+                    display: flex;
+                }
+                body, section {
+                    flex-direction: column;
+                }
+                header, nav {
+                    order: -1;
+                }
+            }
+        </style>
+
+    </head>
+    <body>
+        <header>
+            <h1>Document Heading</h1>
+        </header>
+        <main>
+            <section>
+                <img alt="" src="img1.jpg">
+                <p>Shortest content</p>
+                <a href="somewhere">Go Somewhere</a>
+            </section>
+            <section>
+                <img alt="" src="img2.jpg">
+                <p>Medium content.</p>
+                <button>Click Me</button>
+            </section>
+            <section>
+                <img alt="" src="img3.jpg">
+                <p>Longest content</p>
+                <button>Do Something</button>
+            </section>
+        </main>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <a href="/blog">Blog</a>
+            <a href="/jobs">Careers</a>
+            <a href="/contact">Contact Us</a>
+        </nav>
+        <footer>
+            <p>Copyright &#169; 2017 <a href="/">My Site</a></p>
+        </footer>
+    </body>
+</html>
