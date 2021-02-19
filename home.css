@@ -5,11 +5,11 @@
 
 body {margin:0;
   font-family:Arial;
-  overflow: hidden;
+  
 }
             
 .topnav {
-  /*overflow: hidden;*/
+  overflow: hidden;
   background-color: #333;
   
 }
