@@ -26,6 +26,11 @@
     grid-column-end: 3;
 }
 
+.toolset {
+  display: flex;
+  max-width: inherit;
+}
+
 @media screen and (min-width: 600px) {
   .toolset {
     display: grid;
@@ -40,6 +45,7 @@ div img .toolpic {
 */
 .toolset {
   margin-top: 1em;
+  
 }
 }
 
