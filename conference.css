@@ -3,12 +3,17 @@ body {
 
 }
 
-.slide img {
+.content-layout {
+    display:flex;
+}
+
+/*.slide img {
     justify-content: center;
     width: 10px;
 }
+*/
 
-#betimg {
-    width: 20%;
-    height: 20%;
+#betimg, #sidebar {
+    width: 100%;
+    height: 100%;
 }
