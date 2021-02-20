@@ -92,6 +92,10 @@ header {
   display: block;
 }
 
+footer {
+  position: relative;
+}
+
 /* Display main grid and style it */
 #mainGrid {
   display: grid;

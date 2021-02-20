@@ -142,17 +142,17 @@ header {
     grid-column-start: 2;
     grid-column-end: 3;
 }
-
+/*
 footer {
-   /* display: grid;
+    display: grid;
     grid-template-rows: 33% 33% 33%; 
     margin-top: 3em;
-    grid-row-start: 3; */
+    grid-row-start: 3; 
     grid-column-start: 1;
     grid-column-end: -1;
     padding-left: 1em;
-    padding-top: 3em;
-}
+    padding-top: 3em; 
+} */
 /*.foot-items {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
