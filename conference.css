@@ -1,0 +1,14 @@
+body {
+    display: flex;
+
+}
+
+.slide img {
+    justify-content: center;
+    width: 10px;
+}
+
+#betimg {
+    width: 20%;
+    height: 20%;
+}
