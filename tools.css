@@ -1,0 +1,51 @@
+body, .toolset {
+    display: flex;
+}
+
+.toolset {
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-content: space-between;
+}
+
+.toolpic {
+    /*max-width: 150px;*/
+    max-height: 150px;
+    border-radius: 25px;
+  /*  padding: 1%; */
+    width: 100%;
+}
+
+span, .profilepic {
+    flex: 1 1 auto;
+}
+
+.alltools {
+    border: 3px black solid;
+    border-radius: 10%;
+    width: 30%;
+    height: 30%;  
+    height: 250px;
+    flex: 1 1 auto;
+    margin-bottom: 2%; 
+    margin-left: 2%;     
+}
+
+@media screen and (max-width: 400px) {
+    .alltools {
+        width: 40%;
+    }
+}
+
+/* styling  picture on tools */
+.profile-pic {
+  width: 10%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    flex: 1 1 auto;
+}
