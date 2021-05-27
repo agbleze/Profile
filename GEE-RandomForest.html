@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en-UK">
+<head>
+  <Title> Linus Agbleze (GEE tutorial)</Title>
+  <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="keywords" content="Linus Agbleze, Linus biography, Strive code preparation, Learn to code">
+  <meta name="description" content="Agrimetry support to small scale farmers">
+  <meta name="author" content="Linus Agbleze">
+  <meta http-equiv="refresh" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="gee.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script> /*
+		$(document).ready(function () {
+		// Hide all sections when the page is first loaded
+		$(".mySection").hide();
+		// Setup all elements with class "myButton" to react on click
+		$(".myButton").click( function() {
+			// Check if the section is already displayed
+			if ($(this).html()=="Hide") {
+				// Hide the current section
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).hide();
+				// Set the button label to "Show"
+				$(this).html("Show");
+			} else {
+				// Hide all sections, using the class mySection
+				$(".mySection").hide();
+				// Set all button labels to "Show"
+				$(".myButton").html("Show");
+				// Show the section we want to display
+				var sectionID = $(this).attr("data-showsection");
+				$("#"+sectionID).show();
+				// Set the button label to "hide"
+				$(this).html("Show");
+			}
+		});
+	});	 */
+	</script>
+</head>
+<body style="## display: grid">
+    <header>
+        <nav>
+            <div class="topnav" id="myTopnav">
+                <a href="#home" class="active">A Gist of Me</a>
+                <a href="toolset.html">Toolsets and skills</a>
+                <div class="dropdown">
+                  <button class="dropbtn">Conference works 
+                    <i class="fa fa-caret-down"></i>
+                  </button>
+                  <div class="dropdown-content">
+                    <a href="conferenceCERES.html">CERES 2019</a>
+                    <a href="conf.html">BET 2020</a>
+                    <a href="#">GEOBUS 2019</a>
+                    <a href="#">First Health and Migration Collaborative Community Symposium</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Publications and writing 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="#">Academic publication</a>
+                      <a href="#">Non-academic publication</a>
+                      <a href="#">Journal review for</a>
+                    </div>
+                  </div> 
+                <!-- <a href="#about">Project activities</a> -->
+                <div class="dropdown">
+                    <button class="dropbtn">Project activities 
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="gee.html">Estimating Normalized Difference Vegetation Index (NDVI) with GEE</a>
+                      <a href="GEE-RandomForest.html">Using Random Forest Classification for binary classification with GEE</a>
+                      <a href="GEE-TimeSeries.html">Time series Analysis of Vegetation biomes with GEE</a>
+                      <a href="r.html">Change detection in Time series based on BFAST algorithmn using R</a>
+                      <a href="SNAP.html">SNAP: Analyzing Normalized Difference Moisture Index (NDMI) with Sentinel 2</a>
+                      <a href="SNAP-Multitemporal-Composite.html">SNAP: Multi-temporal analysis based on Sentinel 1 </a>
+                    </div>
+
+                <a href="#contact">Contact</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+              </div>
+        </nav>
+            
+            <script>
+            function myFunction() {
+              var x = document.getElementById("myTopnav");
+              if (x.className === "topnav") {
+                x.className += " responsive";
+              } else {
+                x.className = "topnav";
+              }
+            }
+            </script>
+    </header>
+    <!--   
+    <sidebar class="sidebar">
+        <div style="display: inline-flex"><img src="gee-tut.png" style="width: 15%; height: 15%;" class="title-logo"><h2>Google Earth Engine (GEE)</h2></div>
+        <div>
+            <span href = "GEE-intro"><a href ="#" class = "topic-link"><h3><i class="fas fa-book"></i>Introduction to GEE</h3></a></span>
+
+        </div>
+
+        <div>
+            <div><a href = "#"  class = "topic-link"><h3><i class="fas fa-book"></i>Normalized Difference Vegetation Index (NDVI) </h3></a></div>            
+            
+        </div>
+        <div class="file-align">
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Why GEE for Time series analysis</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Coding practice</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Interpretation of results</a></div>
+        </div>
+
+        <div>
+            <div><a href ="#" class = "topic-link"><h3><i class="fas fa-book"></i>Random Forest classification (Binary)</h3></a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Why GEE for Time series analysis</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Coding practice</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Interpretation of results</a></div>
+        </div>
+
+        <div>
+            <div><a href ="#" class = "topic-link"><h3><i class="fas fa-book"></i>Time Series analysis of biomes</h3></a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Time series analysis with GEE</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Why GEE for Time series analysis</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Coding practice</a></div>
+            <div><a href ="#" class = "topic-link"><i class="fas fa-file-alt"></i>Interpretation of results</a></div>
+        </div>
+                
+    </sidebar>
+    -->
+    <main>
+        
+        <div href = "GEE-intro">
+            <h3>Introduction to Google Earth Engine Analysis</h3>
+            <p>The era of big data calls for the use of tools with capacity to analyze large 
+                volumes of data at fast pace as well as gain deeper understanding of long 
+                term spatio-temporal phenomena. Arguably, big data analysis                        
+                requires capacities that lies beyond the scope of most conventional
+                remote sensing software. This page in demonstrating the practice of techniques 
+                in analyzing big data, uses Google Earth Engine for a plethora of geospatial 
+                analysis including Normalized Difference Vegetation Index
+                (NDVI) estimation, binary classification and time series analysis among others. 
+                Google Earth Engine (GEE) is a cloud computing platform for geospatial analysis 
+                of global coverage. GEE allows the use of both Graphic User Interface (GUI) 
+                and Coding User Interface for analysis. The Coding User Interface supports Python 
+                and Java-script for coding and an interface for visualization. For this exercise, 
+                Java-script was used in the Coding User Interface for creating processing chain 
+                for analyzing NDVI Landsat 8 imagery, Random Forest classification of water and
+                no water regions and inspecting time series over different biomes.Dataset used 
+                varied from different sensors to include Landsat 8, Sentinel-2, and MODIS. 
+                The workflow is illustrated graphically for the purpose of clarity. Insights 
+                are also provided on the rational behind the various techniques used and 
+                supplemented with links to codes. Further, the results of the various analysis 
+                are captured and interpreted accordingly. A great utility in the use of Google 
+                Earth Engine and R programming (see section for tutorial) which is explored in
+                these exercises are  their ability to automate geospatial processes for a large 
+                volume of data with high velocity.
+            </p>   
+        </div>
+      <!-- 
+        <div id="ndvi" class = "mySection">
+            <h3>Analyzing NDVI</h3>
+            <h4>Create a processing chain for Landsat 8 imagery</h4>
+            <p>
+                The processing chain for Landsat 8 imagery starts by first importing the Surface 
+                Reflectance dataset and assigning it to a variable. The dataset imported had an 
+                ImageCollection ID being LANDSAT/LC08/C01/T1_SR. The dataset 
+                 is atmospherically corrected and has 5 visible and near-infrared (VNIR) bands, 
+                2 short-wave infrared (SWIR) bands and two thermal infrared (TIR). The image collection 
+                was reduced by filtering it by time which was from 1st January 2018 to 31st 
+                December 2018 and the area of interest (AOI) used to filter by location was 
+                south-western part of Finland. Further, cloud masking function was created to 
+                remove clouds and applied over the image collection to depict a clear condition 
+                over the image collection. This was followed by creation of NDVI function using “ .normalizedDifference() ” 
+                to calculate NDVI for Landsat 8. The formula for NDVI and the bands in correspondence 
+                with Landsat 8 are depicted as follows; <br>
+
+                NDVI = (NIR - RED) / (NIR + RED)
+                <br>
+                RED is band 4 with wavelength of 0.64µm to 0.67µm;
+                NIR is band 5 with wavelength of 0.85µm to 0.88µm. To calculate the maximum NDVI 
+                of the collection, the “ .max” function was applied over the collection NDVI. 
+                The maximum NDVI calculated over the collection was 1.0 which corresponds to 
+                dense green vegetation in the area of interest. This was displayed as a layer on 
+                the map using “addLayer”. The workflow is summarize below
+            </p>
+
+            <div>
+                <h4> Processing chain for Landsat 8 imagery</h4>
+                <div class="fig-img">
+                    <img src="NDVI process GEE.jpg" class="fig-img2">            
+                </div>
+                <small>Source: Author</small>        
+            </div>
+    
+            <div>
+                The codes used in executing the workflow above can be access at this<a href="https://code.earthengine.google.com/10a40ac029daa82fdcd4423f47c9dd4a" target="_blank"> link</a>
+                <p>Also, the code is highlighted below</p> 
+            </div>
+    
+            <div class="code-container">
+                <code class="codeBlock">
+                    //Load  Landsat-8 Surface Reflectance collection     
+                    var LS8collection = ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
+                    // Filter by the region of interest
+                    .filterBounds(aoi)
+                    // Filter collection by time ('Year-month-day')
+                    .filterDate('2018-01-01', '2018-12-31');
+                    
+                    print(LS8collection);
+                    
+                    // Create cloud mask function
+                    function applyQAlandsat (image) {
+                    var mask = image.select('pixel_qa').bitwiseAnd(32).eq(0)
+                    .and(image.select('pixel_qa').bitwiseAnd(8).eq(0))
+                    .and(image.select('pixel_qa').bitwiseAnd(4).eq(0));
+                    return image.updateMask(mask);
+                    }
+                    
+                    // Apply cloud masking function on the collection
+                    var cloudMasked_Collection = LS8collection.map(applyQAlandsat);
+                    
+                    // Display result of cloudmasking 
+                    Map.addLayer( cloudMasked_Collection, {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000}, 'Result of cloudmasking');
+                    Map.centerObject(aoi,6);
+                    
+                    // Compute Normalized Difference Vegetation Index over Landsat 8 product.
+                    // NDVI = (NIR - RED) / (NIR + RED), where
+                    // RED is band 4,  0.64µm - 0.67µm
+                    // NIR is 5,  0.85µm - 0.88µm
+                    
+                    // Function to create NDVI 
+                    var addNDVI = function(im){
+                    
+                    var ndvi = im.select(['B5','B4']).normalizedDifference();
+                    return ndvi;
+                    
+                    };
+                    
+                    
+                    /////////////////////////////////////////////////////////////////
+                    ///// Mapping NDVI over image collection      //////////////////
+                    
+                    // Apply a function to calculate NDVI over the collection
+                    var ndviCollection = cloudMasked_Collection.map(addNDVI);
+                    print(ndviCollection.max()); //Returns the maximum NDVI in the collection
+                    var MaxNDVI = ndviCollection.max();
+                    
+                    print(MaxNDVI);
+                    
+                    // Add Maximum NDVI of collection on map
+                    Map.addLayer(MaxNDVI,  { min: -0.8, max: 0.8,'palette': 'FF0000,FFFF00,00FF00'},'Maximum NDVI of collection');
+                    Map.centerObject(aoi,6);
+                    
+                    
+                    //// Get the Maximum NDVI value  over region of interest //////
+                    var maxAOI = MaxNDVI.clip(aoi)
+                    .reduceRegion({
+                        reducer: ee.Reducer.max(),
+                        geometry: aoi,
+                        scale: 30})
+                    .get('nd');
+                    
+                    print(maxAOI);
+                </code>
+            </div>
+    
+            <div>
+                <h4>Results of NDVI calculation</h4>
+                <div class="fig-img">
+                    <img src="NDVI result.jpg" class="fig-img2">
+                </div>               
+                <small>Source: Author</small>
+            </div>
+    
+        </div>
+    -->
+        
+        <!--Binary Classification begins here-->
+        <div id ="Rf" class = "mySection">
+            <h3>Random Forest classification with binary classes (water/no water)</h3>
+            <div>
+                <p> For this analysis, sentinel-2 data with the image collection ID “COPERNICUS/S2” was loaded and 
+                    assign to a variable. The image collection was filtered by 
+                    date (.filterDate) ranging from 1st January, 2018 to 31st December, 2018 and 
+                    filtered by location using “ .filterBounds(aoi)” to cover part of eastern Switzerland
+                    as region of interest. Metadata filtering was done to include only images with less than 
+                    10% cloud cover using the function “.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 10)”. 
+                    Further, a median composite of the image collection was made by applying the 
+                    function “ .median ”. Binary classification for water was commenced by collecting training 
+                    data and defining the water and no water classes accordingly. The median composite 
+                    was clipped to the region of interest (ROI) using the function “.clip(aoi)” and the result 
+                    used for training of classifier. This reduces the image collection to cover only the 
+                    region of interest. Further, Random Forest classification algorithm was applied to 
+                    delineate areas of water and no water. To validate the accuracy of the classification results, 
+                    validation confusion matrix and accuracy were evaluated. The workflow for binary classification of surface features into water
+                    and no water classes is illustrated in the diagram below
+                </p>
+                <small>Source: Author</small>
+            </div>
+
+            <div>
+                <h4>Workflow for Random Forest classification</h4>
+                <div class="fig-img">
+                    <img src="binary class workflow.jpg" class="fig-img2">
+                </div>
+            </div>
+    
+            <div>
+                The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="_blank" >link</a>  
+            </div>
+    
+            <div class="code-container">
+                <code class="codeBlock">
+                    //Load Sentinel 2 image collection 
+    
+                    var sentinelCollection = ee.ImageCollection('COPERNICUS/S2')
+                     // Filter collection by time (Year-Month-Day)
+                     .filterDate('2018-01-01','2018-12-31')
+                     // Filter by the region of interest
+                     .filterBounds(aoi)
+                     // Filter by Metadata using cloud cover less than 10%
+                     .filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 10);
+                    
+                     
+                     // Make median composite
+                     var S2_mediancomposite = sentinelCollection.median(); 
+                     
+                     print(S2_mediancomposite);
+                     
+                     var vizParams = {'bands': 'B4,B3,B2', 'min': 0, 'max': 3000};
+                    Map.addLayer(S2_mediancomposite.clip(aoi), vizParams, 'S2 Median');
+                    Map.centerObject(aoi,9); 
+                    
+                     //Selecting bands for classification
+                    var bands = ['B2','B3', 'B4','B8','B5','B11','B12'];
+                    
+                    // Merge class of water and no_water
+                    var trainingData = water.merge(no_water); 
+                    
+                    
+                    // Clip region of interest with median composite
+                    var S2_mediancompositeclip = S2_mediancomposite.clip(aoi);
+                    
+                    //training the classifier
+                    var trainingS2 = S2_mediancompositeclip.sampleRegions({collection: trainingData, properties: ['class'], scale: 20,tileScale: 16});
+                    
+                    
+                    /**************************************************************************************************/
+                    /*** RF classification ***/
+                    /**************************************************************************************************/
+                    
+                    var classifierS2 = ee.Classifier.randomForest(300,3,1,0.5,true).train(trainingS2,'class',bands);
+                    
+                    var classified = S2_mediancompositeclip.classify(classifierS2);
+                    print(classified);
+                     
+                    var Palette = [
+                      
+                      'red', // no_ water
+                      'blue', // water
+                      
+                      
+                    ];
+                    
+                    Map.addLayer(classified, {min: 1, max: 5, palette: Palette}, 'classified RF'); 
+                    Map.centerObject(aoi,9);
+                    
+                    
+                    //Creation of validation set to cross check results
+                    
+                    var validationData = valwater.merge(valno_water);  
+                    var validation = S2_mediancompositeclip.sampleRegions({collection: validationData, properties: ['class'], scale:20,tileScale: 16});
+                    
+                    var validated = validation.classify(classifierS2);
+                    
+                    // Get confusion matrix 
+                    var testAccuracy = validated.errorMatrix('class', 'classification');
+                    print('Validation error matrix: ', testAccuracy);
+                    print('Validation overall accuracy: ', testAccuracy.accuracy());
+                </code>
+            </div>
+    
+            <div>
+                <h4>Interpretation of result</h4>
+                <p>
+                    The result indicates an accuracy level of 0.96 which is a high level of validity and correctness in the application of
+                    Random Forest on the image collection.
+                </p>
+            </div>    
+        </div>
+
+        
+        <!--Time series analysis on GEE-->
+        <!-- 
+        <div id="timeSeries" class = "mySection">
+            <h3>Times series analysis of NDVI for different biomes or vegetation</h3>
+            <p>For this exercise, MODIS dataset with 16 days frequency and 250 meters spatial resolution was used for the time series
+                analysis. This MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
+                has the bands of Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI)
+                as vegetation layers. The region of interest (ROI) was south-western Germany covering a time period of
+                10 years from 1st January, 2007 to 31st December, 2017 for which filters were applied. From literature
+                review, different classification schemes exist for classifying biome (De Cáceres and Wiser, 2012). Within
+                the ROI, different land surface covers are define in this exercise to constitute biomes. Delineation of the
+                biomes was undertaken with the support of the dataset of Map Legend in GEE. A scale function was 
+                created with the scaling factor 0.0001 and applied over the image collection using “ .map(scale) ”. 
+                Further, cloud masking function was created and applied to mask-out clouds. The band named “DetailedQA” which contained the Vegetation Index (VI) quality indicators was used for defining bits for cloud. Finally, a time series chart was created and plotted. The workflow for practicing this exercise is summarize in the
+                figure below.</p>
+
+                <div>
+                    <h4>Workflow for Plotting Time series of different biomes in GEE</h4>
+                    <div class="fig-img">
+                        <img src="time-series workflow.jpg" class="fig-img2">
+                    </div>            
+                    <small>Source: Author</small>
+                </div>
+        
+                <div>
+                    The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e" target="_blank">link</a>
+                </div>
+        
+                <div>        
+                        <div class="code-container">
+                            <code class="codeBlock">
+                                // Scale the NDVI with fac 0.0001// https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod13q1_v006
+            <br>
+        function scale(img){
+          return img.multiply(0.0001).copyProperties(img,['system:time_start']);
+        }
+        
+        // Define a FeatureCollection: Different biomes in the region.
+        
+        var biomes = ee.FeatureCollection([cropland, Deciduous_broadleaf_forest, Mixed_Forest, Evergreen_Needleleaved, Urban_builtup]);
+        
+        
+        var getQABits = function(image, start, end, newName) {
+            // Compute the bits we need to extract.
+            var pattern = 0;
+            for (var i = start; i <= end; i++) {
+               pattern += Math.pow(2, i);
+            }
+            // Return a single band image of the extracted QA bits, giving the band
+            // a new name.
+            return image.select([0], [newName])
+                          .bitwiseAnd(pattern)
+                          .rightShift(start);
+        };
+        
+        // A function to mask out cloudy pixels.
+        var maskClouds = function(image) {
+          // Select the QA band.
+          var QA = image.select('DetailedQA');
+          // Get the MOD_LAND_QA bits
+          var internalCloud = getQABits(QA, 0, 1, 'MOD_LAND_QA');
+          // Return an image masking out cloudy areas.
+          return image.mask(internalCloud.eq(0));
+        };
+        
+        
+        // Get MODIS data and filter with location and time
+        var MOD_imageCollection = ee.ImageCollection("MODIS/006/MOD13Q1")
+        .filterBounds(biomes)
+        .filterDate('2007-01-01', '2017-01-01')
+        .select(['NDVI','DetailedQA']);
+        
+        // Map the cloud masking function over the collection.
+        var collectionCloudMasked = MOD_imageCollection.map(maskClouds);
+        print(MOD_imageCollection)
+        
+        // Map scale over image collection
+        var MOD_imageCollection1 = collectionCloudMasked.map(scale);
+        
+        // Create a time series chart.
+        var TimeSeries = ui.Chart.image.seriesByRegion(
+            MOD_imageCollection1, biomes, ee.Reducer.mean(), 'NDVI', 250, 'system:time_start', 'label')
+                .setChartType('LineChart')
+                .setOptions({
+                  title: 'NDVI Time Series of Different Biomes in South Western Germany',
+                  hAxis: {
+                    title: 'Years'
+                  },
+                  vAxis: {title: 'NDVI'},
+                  lineWidth: 2,
+                  pointSize: 0,
+                  series: {
+                    1: {color: '#ff0000'}, // Deciduous Broadleaved forest
+                    2: {color: '00FF00'}, // Mixed Forest
+                    3: {color: '#ffc82d'}, // Evergreen Needleleaved forest
+                    4: {color: '#398b1e'}, // Urban Builtup
+                    5: {color: '#1633a0'},//  Cropland
+          
+        }});
+        
+        // Display.
+        print(TimeSeries);
+                            </code>
+                        </div>
+                
+        
+                </div>
+        
+                <div>
+                    <h4>
+                        Time series of different biomes (Preprocessed data with cloud cover masked-out)
+                    </h4>
+                    <div class="fig-img">
+                        <img src="time ser result withour cloud.jpg" class="fig-img2">
+                    </div>            
+                    <small>Source: Author</small>
+                </div>
+        
+                <div>
+                    <h4>Interpretation of result for preprocessed NDVI Time series analysis (clouds masked-out)</h4>
+                    <p>
+                        Plotting of time series for the different biomes shows that the dataset was plagued 
+                        with cloud cover which after being masked-out are shown as missing values hence the 
+                        discontinuity in the graph. The high occurrence of clouds makes precise interpretation 
+                        difficult whiles it is suggested that the location of the missing values on the graph 
+                        will most likely not interfere with the suppose pattern in the time series. In this regard, 
+                        interpretation of the data is better supported with the time series analysis of the raw 
+                        datawithout cloud masking below.
+                    </p>
+                </div>
+        
+                <div>
+                    <h4> Time series of NDVI (without cloud masking)</h4>
+                        <p>Considering the high impact of cloud cover on the results, a time series analysis
+                         of the raw data without cloud masking is also hereby presented for better 
+                         interpretation and provision of deeper insight on the analysis. This serves as 
+                         a comparative time series analysis between raw and preprocessed data. 
+                         Interpretation of the result is also given.
+                        </p>
+                </div>
+        
+                <div>
+                    <p><a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0" target="_blank">
+                        Code for Time series analysis of Raw data (without cloud masking)
+                    </a>
+        
+                    <div>
+                        <h4>NDVI Time series of different biomes (without cloud masking)</h4>
+                        <div class="fig-img">
+                            <img src="time series raw data.jpg" class="fig-img2">
+                        </div>               
+                        <small>Source: Author</small>
+                    </div>
+                </div>
+        
+                <div>
+                    <h4>Interpretation of NDVI time series (without cloud masking)</h4>
+                        The result illustrates that whiles different biomes maintained different levels 
+                        of maximum NDVI within the time series analyzed, the biomes appear to follow a 
+                        common pattern of attaining the maximum and minimum NDVI within a common time frame. 
+                        Cropland however deviates from this observation significantly upon visual inspection. 
+                        Moreover, deciduous broadleaf forest persistently attained the
+                        highest maximum NDVI of 0.9 approximately within each year of the time series around 
+                        the month of June. This is closely followed by Mixed forest and Evergreen needleleaved
+                        forest. As expected, the NDVI of Urban builtup have been relatively low compared 
+                        to others in most periods of the time series. A more critical view indicates that 
+                        whiles deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
+                        and urban builtup biomes are able to sustain their maximum NDVI in their respective 
+                        cases for a longer period, cropland experiences a sharp decline immediately after 
+                        attaining maximum NDVI hence a steep slope. A suggested explanation in this trend 
+                        is that cropland is the most disturbed biome by human activity with persistent 
+                        farming activities hence continuous change in land cover and land use compared
+                        to the other biomes. A more plausible reason is that the maximum NDVI values 
+                        of cropland are attained at periods of crop maturity after which there is immediate 
+                        harvesting leading to a fast change in the land
+                        cover as reflected in the sharp drop in maximum NDVI.
+                </div>
+               
+                <div>
+                    <p>At any stage the final product of a remote sensing project is define by it objectives. Hence,
+                        the result of one analysis can serve as the input for futher analysis elsewhere even using a different
+                        analytical tool. To domenstrate this, the time series result will be exported and analyzed further 
+                        using R programming and R studio as the Integrated Development Environment (IDE). 
+                    </p>
+                </div>
+                
+        </div>
+    -->
+        
+
+    </main>
+
+    <footer>
+        <div class="foot align-all">
+            <div class="foot-items">
+                <div id="contact"><h4>Contact</h4>
+                    <address id="opr"; Style="text-align:left;">
+    
+                        Am Jesuitenhof<br>
+                        Bonn<br>
+                        Nordrhine Westphalia<br>  
+                        Germany<br>
+                        Lagbleze@st.ug.edu.gh<br>
+                        +4915175701653<br>
+                        </address>
+                        <!-- 
+                        <script>
+                        function myFunc5(){
+                          document.getElementById("opr").style.fontSize= "20px";
+                          document.getElementById("opr").style.color = "red";
+                          document.getElementById("opr").style.backgroundColor = "yellow";
+                        }
+                        </script>
+                        <button type="button" onclick="myFunc5()">Magnify</button>
+                        -->
+                </div>
+            </div>
+    
+            
+            <div class="foot-items">
+                <div id="projects">
+                    <h4>Project collaboration</h4>
+                    <p><a href="">Seed 4 Seed project with ACESWorld</a></p>
+                    <p><a href="">Pad4Learing project with ACESWorld</a></p>
+                    <a href=""></a>
+                </div>
+            </div>
+    
+            <div class="foot-items">
+                <div id="publish">
+                   <h4> Pulications </h4>
+                    <p><a href="">Gendered perspective: Climate change adaptation in Malawi</a></p>
+                    <p><a href="">Digitalization and innovation as a driver of sole proprietorship in Ghana</a></p>
+                    <p><a href="">
+                        Climate change mitigation-adaptation matrix: a better tool and benchmark for climate action with policy implication at local and national level.
+                        </a>
+                    </p>
+                    <h5>Blog posts</h5>
+                    <p><a href="">Gendered perspective: Climate change adaptation in Malawi</a></p>
+                    <p><a href="">COVID-19 SET TO THWART CLIMATE CHANGE ADAPTATION WHILE AIDING MITIGATION</a></p>
+                </div>
+            </div>
+        </div>
+        
+    </footer>
+</body>
+</html>
+
