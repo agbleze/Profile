@@ -52,7 +52,7 @@ body {
   /* text-align: justify; //
 
 } */
-
+/*
 .sidebar {
     grid-column-start: 1;
     grid-column-end: 2;
@@ -60,7 +60,7 @@ body {
     grid-row-end: -1;
     background: yellow;
     overflow: scroll !important;
-}
+} */
 
 .title-logo {
     background: yellow;
