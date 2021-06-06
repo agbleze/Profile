@@ -19,15 +19,15 @@
     <header>
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="home.html" class="active">Home</a>
-                <a href="toolset.html">Toolset and skills</a>
+                <a href="index.html" class="active">Home</a>
+                <a href="#">Toolset and skills</a> <!-- Need to include id = "toolset" and style for jquery to work-->
                 <div class="dropdown">
                   <button class="dropbtn">Conference works 
                     <i class="fa fa-caret-down"></i>
                   </button>
                   <div class="dropdown-content">
-                    <a href="conferenceCERES.html">CERES 2019</a>
-                    <a href="conf.html">BET 2020</a>
+                    <a href="#">CERES 2019</a> <!-- Need to include id = "ceres" and style for jquery to work-->
+                    <a href="#">BET 2020</a> <!-- Need to include id = "bet" and style for jquery to work-->
                     <a href="#">GEOBUS 2019</a>
                     <a href="#">First Health and Migration Collaborative Community Symposium</a>
                   </div>
@@ -111,21 +111,28 @@
 
     <main>
         <div>
-            <h3>Introduction to SNAP (demonstarted with a number of projects)</h3>
-            <p>This report demonstrates the use of remotely sensed images both radar and optical being Sentinel 1
-                and Sentinel 2 respectively in analyzing Normalized Difference Moisture Index (NDMI) and
-                multi-temporal analysis. NDMI has many applications including crop water stress monitoring. The
-                preprocessing and analysis tasks undertaken in this report were done with Sentinel Application
-                Platform (SNAP) software and supported with QGIS for creating maps of the results. Images were
-                acquired from Copernicus Open Access Hub. The report is structured to focus on capturing
-                important metadata characteristics, workflow which includes image acquisition, image preprocessing, analysis, and presenting map output as well as interpreting them. For the purpose of clarity and ease
-                of understanding, the general workflow is summarized in a diagram whiles details of the procedure is
-                segmented to reflect the task being undertaken and documented a such. These are aimed at achieving
-                the following main objectives
-                (i) To calculate Normalized Difference Moisture index (NDMI)
-                (ii) To estimate the change of NDMI (change detection)
-                (iii) To create a SAR multi-temporal composite
-            </p>   
+            <h3>Introduction to SNAP </h3>
+            <p>Sentinel Application Platform (SNAP) is a graphic user interface based software mainly used 
+                for preprocessing and analysis of remotely sensed satellite images. The application 
+                allows for analysis of both optical and radar images produced by the
+                 <a>European Space Agency Copernicus programme </a>
+            </p>
+            <p>
+                In this mini-project, we will demonstrate how SNAP is used for processing of Sentinel 1 
+                radar satellite image to analyze Normalized Difference Moisture Index (NDMI) and undertake
+                 change detection. NDMI has many applications including crop water stress monitoring. 
+                 The results from SNAP can be exported and used as inputs for further processing or 
+                 displayed in other GIS software. We will demonstrate this by using QGIS to create map for 
+                 the NDMI results. 
+            </p>  
+            <p>By the end of this tutorial, we will achieve the following objectives;
+                <ul>
+                    <li>View and highlight metadata characteristics of importance to the analysis</li>
+                    <li>Sketch a workflow for a typical image processing specific to NDMI using SNAP</li>
+                    <li>Undertake analysis of NDMI and interprete it</li>
+                    <li>Undertake change detection of NDMI</li>
+                </ul>
+            </p> 
         </div>
         
         <div id="NDMI">
@@ -837,5 +844,30 @@
             </div>
         </div>        
     </footer>
+
+    <!--jquery not yet working. Need to fix the id and class as well as style the pages to display properly-->
+    <script>
+        $(document).ready(function() {
+          $("#ceres").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conferenceCERES.html")
+          })
+  
+          $("#bet").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conf.html")
+          })
+  
+          $("#toolset").click(function() {
+            $(".mainHide").hide();
+            $("span").load("toolset.html")
+          })
+  
+          /* $("#migrant").click(function() {
+            $(".mainHide").hide();
+            $("span").load("")
+          }) */       
+        })
+      </script>
 </body>
 </html>

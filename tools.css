@@ -1,6 +1,6 @@
-body, .toolset {
+ body, .toolset {
     display: flex;
-}
+} 
 
 .toolset {
     flex-flow: row wrap;
@@ -13,7 +13,7 @@ body, .toolset {
     max-height: 150px;
     border-radius: 25px;
   /*  padding: 1%; */
-    width: 100%;
+ 
 }
 
 span, .profilepic {

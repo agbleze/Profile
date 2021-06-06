@@ -644,8 +644,31 @@
         </div>
         
     </footer>
-    
-
+    <!--jquery not yet working. Need to fix the id and class as well as style the pages to display properly-->
+    <script>
+        $(document).ready(function() {
+          $("#ceres").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conferenceCERES.html")
+          })
+  
+          $("#bet").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conf.html")
+          })
+  
+          $("#toolset").click(function() {
+            $(".mainHide").hide();
+            $("span").load("toolset.html")
+          })
+  
+          /* $("#migrant").click(function() {
+            $(".mainHide").hide();
+            $("span").load("")
+          }) */       
+        })
+  
+      </script>
 </body>
 
 

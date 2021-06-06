@@ -19,15 +19,15 @@
     <header>
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="home.html" class="active">Home</a>
-                <a href="toolset.html">Toolset and skills</a>
+                <a href="index.html" class="">Home</a>
+                <a href="#">Toolset and skills</a> <!-- Need to include id = "toolset" and style for jquery to work-->
                 <div class="dropdown">
                   <button class="dropbtn">Conference works 
                     <i class="fa fa-caret-down"></i>
                   </button>
                   <div class="dropdown-content">
-                    <a href="conferenceCERES.html">CERES 2019</a>
-                    <a href="conf.html">BET 2020</a>
+                    <a href="#">CERES 2019</a> <!-- Need to include id = "ceres" and style for jquery to work-->
+                    <a href="#">BET 2020</a> <!-- Need to include id = "bet" and style for jquery to work-->
                     <a href="#">GEOBUS 2019</a>
                     <a href="#">First Health and Migration Collaborative Community Symposium</a>
                   </div>
@@ -834,5 +834,30 @@
             </div>
         </div>        
     </footer>
+
+     <!--jquery not yet working. Need to fix the id and class as well as style the pages to display properly-->
+     <script>
+        $(document).ready(function() {
+          $("#ceres").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conferenceCERES.html")
+          })
+  
+          $("#bet").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conf.html")
+          })
+  
+          $("#toolset").click(function() {
+            $(".mainHide").hide();
+            $("span").load("toolset.html")
+          })
+  
+          /* $("#migrant").click(function() {
+            $(".mainHide").hide();
+            $("span").load("")
+          }) */       
+        })
+      </script>
 </body>
 </html>

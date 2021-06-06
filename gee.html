@@ -9,7 +9,7 @@
   <meta name="author" content="Linus Agbleze">
   <meta http-equiv="refresh" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="gee.css">
+  <link rel="stylesheet" href="gee.css"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -42,18 +42,18 @@
 	</script>
 </head>
 <body style="## display: grid">
-    <header>
+    <header style = "width: 100%;"> 
         <nav>
             <div class="topnav" id="myTopnav">
-                <a href="#home" class="active">A Gist of Me</a>
-                <a href="toolset.html">Toolsets and skills</a>
+                <a href="index.html" class="active">A Gist of Me</a>
+                <a href="#" id = "toolset">Toolsets and skills</a> <!-- Need to include id = "toolset" and style for jquery to work-->
                 <div class="dropdown">
                   <button class="dropbtn">Conference works 
                     <i class="fa fa-caret-down"></i>
                   </button>
                   <div class="dropdown-content">
-                    <a href="conferenceCERES.html">CERES 2019</a>
-                    <a href="conf.html">BET 2020</a>
+                    <a href="#">CERES 2019</a> <!-- Need to include id = "ceres" and style for jquery to work-->
+                    <a href="#">BET 2020</a> <!-- Need to include id = "bet" and style for jquery to work-->
                     <a href="#">GEOBUS 2019</a>
                     <a href="#">First Health and Migration Collaborative Community Symposium</a>
                   </div>
@@ -68,7 +68,7 @@
                       <a href="#">Journal review for</a>
                     </div>
                   </div> 
-                <<!-- a href="#about">Project activities</a> -->
+                <!-- a href="#about">Project activities</a> -->
 
                 <div class="dropdown">
                     <button class="dropbtn">Project activities 
@@ -134,7 +134,7 @@
                 
     </sidebar>
     -->
-    <main>
+    <main class = "mainHide">
         
         <div href = "GEE-intro">
             <h3>Introduction to Google Earth Engine Analysis</h3>
@@ -588,8 +588,9 @@
         
 
     </main>
+    <span style = "display: block"></span>
 
-    <footer>
+    <footer style= "z-index: -1;">
         <div class="foot align-all">
             <div class="foot-items">
                 <div id="contact"><h4>Contact</h4>
@@ -644,6 +645,31 @@
         </div>
         
     </footer>
+
+    <script>
+        $(document).ready(function() {
+          $("#ceres").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conferenceCERES.html")
+          })
+  
+          $("#bet").click(function() {
+            $(".mainHide").hide();
+            $("span").load("conf.html")
+          })
+          /*
+          $("#toolset").click(function() {
+            $(".mainHide").hide();
+            $("span").load("toolset.html")
+          })
+  
+          /* $("#migrant").click(function() {
+            $(".mainHide").hide();
+            $("span").load("")
+          }) */       
+        })
+  
+      </script>
     
 
 </body>
