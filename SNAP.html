@@ -136,9 +136,41 @@
         </div>
 
         <div>
+            <h3>Brief background on Normalized Difference Moisture Index (NDMI)</h3>
+            <p>
+                Typically, NDMI values ranges from -1 to 1 with higher positive values indicating higher moisture
+                content of vegetation and lower positive values suggesting that vegetation is experiencing water stress. 
+                Negative values of NDMI indicate non-vegetated land cover. NDMI is also used to explain land cover 
+                change overtime otherwise known as change detection. Change detection involves analyzing variation 
+                in a phenomenon or an index (NDMI values in this case) occuring at the same location over different 
+                times span. A threshold can be set to map-out regions with certain land surface characteristics
+                such as delineate regions of high moisture vegetation. This tutorial will focus on change detection 
+                in NDMI values in regions of high moisture vegetation. This will map changes in moisture level 
+                resulting from seasonal changes.
+            </p>
+        </div>
+
+        <div>
+            <h4>Analysis of image (NDMI and change detection)</h4>
+            <p>The NDMI (Normalized Difference Moisture Index) is computed as the comparison of difference
+                between the Near Infrared (NIR) and Short Wave Infrared (SWIR), and the sum of NIR and SWIR.
+                The Near Infrared (NIR) band which is band 8 has a spatial resolution of 10m and the Short Wave 
+                Infrared (SWIR) which is band 11 has a spatial resolution of 60m in sentinel 2 raster data. The 
+                difference in spatial resolution means that resampling will be required as part of preprocessing.
+            </p>
+        </div> 
+
+        <div>
+            <h4>Mathematically, NDMI is expressed as;</h4>
+            <div class="fig-img">
+                <img src="NDMI cal.jpg" class="fig-img2">            
+            </div>       
+        </div>
+
+        <div>
             <h3>Workflow for the analysis</h3>
             <p>The workflow shows the processing chain or a sequence of preprocessing and processing 
-                activities that has to be undertaken usually sequentially to produce the final analysis.
+                activities that has to be undertaken to produce the final analysis.
                 I will discuss each of them briefly but before then, let's keep this diagram in our memory
             </p>
             <div>
@@ -151,24 +183,26 @@
         
         <div id="NDMI">
             <h4>Image Acquisition</h4>
-            <p> Sentinel 2 image with processing level 2A covering the southwestern part of Germany will 
+            <p> 
+                You can download sentinel 2 image for analysis from the Copernicus Access Hub. 
+                While the region of analysis for this exercise is SouthWestern Germany, you can downlaod any region 
+                of interest to you and apply the same workflow for produce result that is specific to your study 
+                area. 
+                Sentinel 2 image with processing level 2A covering the southwestern part of Germany will 
                 be used for this analysis. Level 2A images are atmospherically corrected from 
-                Top-Of-Atmosphere (TOA) to Bottom-Of-Atmosphere (BOA) corrected reflectance value. 
+                Top-Of-Atmosphere (TOA) to Bottom-Of-Atmosphere (BOA) reflectance value. 
                 This means that preprocessing techniques such as atmospheric correction are not needed 
                 for level 2A images. In any case, we still have to undertake some preprocessing techniques 
-                such as cloud masking undertaken to remove clouds on the image. A complete description of the 
+                such as cloud masking to remove cloud cover on the image. A complete description of the 
                 quality of preprocessing applied to level 2A images before made available for download can 
-                access here.
-
-                You can download sentinel 2 image for analysis from the Copernicus Access Hub. While the region of analysis for this exercise is SouthWestern Germany, you can downlaod any region of interest to you and apply the same workflow for produce analysis that is specific to your study area. 
-                
-                
+                access <a href= "https://sentinel.esa.int/web/sentinel/user-guides/sentinel-2-msi/processing-levels/level-2"
+                target = _blank rel = "noreferer">here.</a>                 
             </p>
 
             <div>
-                <p>First, we would love take a look at the downloaded image before any processing takes 
-                    place. T o do that, we will use the RGB Sentinel MSI natural colour bands where 
-                    Red (R), Green (G), Blue (B) band channels corresponds to band 4, band 3 and band 2 
+                <p>First, lets take a look at the downloaded image before any processing takes 
+                    place. To do that, we will use the RGB Sentinel MSI natural colour bands where 
+                    Red (R), Green (G), Blue (B) bands corresponds to band 4, band 3 and band 2 
                     of image. The result is depicted as follows;
                 </p>
                 <h4> The figure below illustrates image of study area (2018-04-20)</h4>
@@ -196,13 +230,13 @@
             <div>
                 <h4>Metadata characteristics</h4>
                 <p>
-                    Metadata is simply <i><u><b>data about data</b></u></i>. It provides several additional details about
-                    the image including date of acquisition, bands, resolution, sensor type among others.
+                    Metadata is simply <i><u><b>data about data</b></u></i>. It provides several additional details 
+                    about the image including date of acquisition, bands, resolution, sensor type among others.
                 </p>
                 <p>
                     The characteristics of the image we displayed can be viewed by navigating
                     to the "product explorer button" in SNAP and clicking on Level-2A_User_Product.
-                    This will open a window and the metadata can be access the various folders. For our 
+                    This will open a window and the metadata can be access from the various folders. For our 
                     interest, we will navigate to the General info folder and click on it. The image has 
                     the following characteristics;
                     <ul>
@@ -226,51 +260,25 @@
                 </div>
                 <small>Source: Author</small>        
             </div>
-
-            <div>
-                <h4> Preprocessing of Sentinel 2 image of study area</h4>
-                <p>With image processing level of 2A implying image was downloaded already atmospherically
-                    corrected, atmospheric correction process was skipped and cloud masking undertaken to remove
-                    clouds on the image. Clouds masking involves ‘replacing the reported reflectance values in 
-                    clouded or shadowed areas of the images with Not Available (NA) values’ (Masiliūnas, 2017). 
-                    This is aimed at reducing the noise impact of clouds on the image. Resampling was also 
-                    undertaken to resize the pixels into the same pixel size which is 10 meters (m) spatial 
-                    resolution. This was done because NDMI uses the Near Infrared (NIR) band which is band 8 with 
-                    a spatial resolution of 10m which is different from the Short Wave Infrared (SWIR) which is 
-                    band 11 with a spatial resolution of 60m.
-                </p>           
-            </div>
-
-            <div>
-                <h4>Analysis of image (NDMI and change detection)</h4>
-                <p>The NDMI (Normalized Difference Moisture Index) is computed as the comparison of difference
-                    between the NIR and SWIR, and the sum of NIR and SWIR.
-                </p>
-            </div> 
         </div>
 
         <div>
-            <h4>Mathematically expressed as;</h4>
-            <div class="fig-img">
-                <img src="NDMI cal.jpg" class="fig-img2">            
-            </div>       
+            <h4> Preprocessing of Sentinel 2 image of study area</h4>
+            <p>With image processing level of 2A implying image was downloaded already atmospherically
+                corrected, atmospheric correction process was skipped and cloud masking undertaken to remove
+                clouds on the image. Clouds masking involves ‘replacing the reported reflectance values in 
+                clouded or shadowed areas of the images with Not Available (NA) values’ (Masiliūnas, 2017). 
+                This is aimed at reducing the noise impact of clouds on the image. 
+                Resampling was also 
+                undertaken to resize the pixels into the same pixel size which is 10 meters (m) spatial 
+                resolution. This was done because NDMI uses 
+
+            </p>           
         </div>
 
-        <div>
-            <p>
-                Typically, NDMI values ranges from -1 to 1 with higher positive values indicating higher moisture
-                content of vegetation and lower positive values indicating vegetation with water stress. Negative
-                values of NDMI indicates non-vegetated land cover. NDMI is also used to explain land cover change
-                overtime hence change detection. Change detection in this report involved recognizing a variation in
-                NDMI values of the study area during different times. This was calculated to reflect the impact of a
-                change in prevailing conditions such as weather on land surface characteristics. The characteristics of
-                land as depicted by an image is best explain by the NDMI range of values for which a threshold is set
-                to delineate regions of high moisture in vegetation. Change detection in NDMI was focused on the
-                regions of high moisture vegetation to map changes in moisture level resulting from seasonal
-                changes. Workflow for preprocessing and analysis of the image is diagrammatically summarized
-                below;
-            </p>
-        </div>
+        <p>
+            Workflow for preprocessing and analysis of the image is diagrammatically summarized below;
+        </p>
 
         
 
