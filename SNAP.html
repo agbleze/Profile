@@ -266,31 +266,23 @@
             <h4> Preprocessing of Sentinel 2 image of study area</h4>
             <p>With image processing level of 2A implying image was downloaded already atmospherically
                 corrected, atmospheric correction process was skipped and cloud masking undertaken to remove
-                clouds on the image. Clouds masking involves ‘replacing the reported reflectance values in 
-                clouded or shadowed areas of the images with Not Available (NA) values’ (Masiliūnas, 2017). 
-                This is aimed at reducing the noise impact of clouds on the image. 
-                Resampling was also 
-                undertaken to resize the pixels into the same pixel size which is 10 meters (m) spatial 
-                resolution. This was done because NDMI uses 
+                clouds on the image. Workflow for preprocessing and analysis of the image is summarized below;
 
             </p>           
         </div>
-
-        <p>
-            Workflow for preprocessing and analysis of the image is diagrammatically summarized below;
-        </p>
-
-        
-
-            <div>
+        <div>
                 <h4> Cloud masking of image </h4>
-                <p>Procedure for cloud masking starts with right clicking on the image folder in the Product 
-                    Explorer window and selecting band maths from the dialog box that opened. In the Band Maths box,
-                    the expected output is given a name (cloud_mask) and Edit Expression button clicked on. 
-                    In the Band Maths Expression Editor box, the expression for cloud masking is input as follows,
+                <p>
+                    Clouds masking involves ‘replacing the reported reflectance values in clouded or shadowed 
+                    areas of the images with Not Available (NA) values’ (Masiliūnas, 2017). This is aimed at reducing 
+                    the noise impact of clouds on the image. Procedure for cloud masking starts with right clicking on 
+                    the image folder in the Product Explorer window and selecting band maths from the dialog box that 
+                    opened. In the Band Maths box, provide a preferred name to save the expected output with (cloud_mask) 
+                    and click on Edit Expression button. Next the expression for cloud cover removal is input into 
+                    the Band Maths Expression Editor box. The expression for cloud masking is as follows,
                 </p>
-            </div>
-            <div class="input-dialog">  
+        </div>
+            <div class="input-dialog">   <!--Image figure Cloud masking expression / formulae-->
                 <div class="fig-img">
                     <img src="used.jpg" class="fig-img2">            
                 </div>       
@@ -298,7 +290,7 @@
 
             <div>
                 <p>The workflow for cloud masking is visualized below;</p>
-                <div class="input-dialog">  
+                <div class="input-dialog">  <!--Image figure for Cloud masking workflow -->
                     <div class="fig-img">
                         <img src="cloudmask.jpg" class="fig-img2">            
                     </div>       
@@ -306,7 +298,7 @@
             </div>
 
             <div>
-                <h4> Illustrates masked-out clouds of study area;</h4>
+                <h4> <i> Results: Figure Illustrates masked-out clouds of study area; </i></h4>
                 <div class="input-dialog">  
                     <div class="fig-img">
                         <img src="rescloudmask.jpg" class="fig-img2">            
@@ -316,12 +308,18 @@
             <div>
                 <h4>Procedure for Resampling of image</h4>
                 <p>
-                    Resampling of the image was undertaken by clicking on Raster button on the menu bar, navigating to
-                    Geometric processing and clicking on Resampling button from the dialog box that opened. From the
-                    resampling box, the image to be resampled was selected as the source product and the target product
-                    named as preferred. Further, Resampling Parameters button was clicked and the size for the
-                    resampled product defined as 10m based on Pixel resolution. The process was executed by clicking
-                    on Run button to complete the resampling procedure. The procedure is visualized as follows;
+                    Another preprocessing needed is resampling. This is done to resize the image pixels into the same 
+                    pixel size of 10 meters (m) spatial resolution. To undertake resampling, click on Raster button on
+                    the menu bar, navigate to Geometric processing and from the dialog box that opened click on 
+                    Resampling button. From the
+                    resampling box, select the image to be resampled as the source product and in the target product box
+                    provide preferred for saving the output. Further, click on <em>Resampling Parameters</em> button.
+                    A number of options are provided to select from for resampling in the dialog box that opens. The 
+                    resampling can be done either by reference band, target width or pixel resolution. Since we 
+                    already know the resolution we prefer, we will input it into the dialog box (10). A number or 
+                    parameters are also available to choose from in meeting our needs. This includes 
+                    “upsampling method” downsampling method among other. The defaults are kept for this exercise. 
+                    Click run to complete the resampling process. The procedure is visualized as follows;
                 </p>
             </div>
 
