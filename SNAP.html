@@ -375,21 +375,21 @@
                         </div>
 
                         <div>
-                            <h4>Interpretation NDMI result (2018-04-20)</h4>
-                            <p>Depicted in the map is the spatial distribution of NDMI values in the study area. 
-                                The result is a wide range NDMI value indicating both vegetated and non-vegetated 
-                                land cover. Basically, using the compass direction illustrated on the map, NDMI 
+                            <h4>Interpretation of NDMI result (2018-04-20)</h4>
+                            <p>Depicted in the map is the spatial distribution of NDMI. 
+                                The result is a wide range of NDMI values indicating both vegetated and non-vegetated 
+                                land cover. Using the compass direction illustrated on the map, NDMI 
                                 values within the range of -0.678 to -0.118 occurred in greater proportion in the 
-                                far west region of the study area as compared to other regions. Thus, the western 
-                                region of the study area is made of land cover with barely any vegetation and water 
+                                 western region of the study area as compared to other regions. Thus, the western 
+                                region of the study area is made of a land cover with barely any vegetation and water 
                                 stressed. Higher NDMI values (0.428 to 0.913) indicating vegetation with relatively 
                                 high moisture content was more prevalent in central region of the area as opposed 
-                                to NDMI values of -0.118 to 0.128 in the extreme east of the study area. 
+                                to NDMI values of -0.118 to 0.128 in the east of the study area. 
                                 In general, the study area is largely covered by surfaces with NDMI values 
-                                between 0.128 to 0.428 indicative of some vegetative cover with relatively low 
+                                between 0.128 to 0.428 which is indicative of vegetative cover with relatively low 
                                 water content. The interpretation of NDMI is deduced from data provided by 
-                                Antognelli (2019) which is captured in the appendix. The segment of the image with 
-                                white colour visualization are masked out clouds which are replaced with ‘No data’ (NaN)
+                                Antognelli (2019). The section of the image with white colour visualization are masked out 
+                                clouds which are replaced with ‘No data’ (NaN)
                             </p>
                         </div>
 
@@ -397,54 +397,56 @@
                     
                     <div><h4>Estimating maximum and minimum NDMI values</h4>
                         <p>
-                            To compute the maximum and minimum NDMI values, the analysis tool on the menu bar was
-                            clicked on, followed by clicking on Statistics. The procedure is visualized as follows,
+                            To compute the maximum and minimum NDMI values, click on analysis button on the menu bar and
+                            navigate to and click on Statistics. The procedure is visualized below,
                         </p>
                             <div class="fig-img">
                                 <img src="ndmistats.jpg" class="fig-img2"> 
-                                <p>The result of this procedure is indicated in the statistics box as follows</p>           
+                                          
                             </div>
 
-                            <div class="fig-img">
-                                <h4>Statistics of maximum and minimum NDMI values (2018-04-20)</h4>
+                            <div class="fig-img"><!-- Image figure for max and min NDMI-->
+                                <p>The result for computing the maximum and minimum NDMI is displayed below</p> 
+                                <h4>Statistics of maximum and minimum NDMI values</h4>
                                 <img src="stats res.jpg" class="fig-img2"> 
-                                <p>From the results in Figure 1.6 above, the maximum NDMI value is 0.913 and the 
+                                <p>From the results in the Figure above, the maximum NDMI value is 0.913 and the 
                                     minimum NDMI value is -0.99 which corresponds to total vegetation cover 
-                                    with high moisture content and bare soil with high water stress respectively 
+                                    with high moisture content and bare soil with high water stress respectively; 
                                     based on interpretation index by Antognelli (2019).
                                 </p>      
                             </div>
 
                             <div>
-                                <h4>Applying threshold to delineate the vegetation with high moisture content</h4>
-                                    <p>Based on informed judgement from the statistics result of NDMI computed 
+                                <h4>Applying threshold to delineate areas of vegetation with high moisture content</h4>
+                                    <p>
+                                        Based on informed judgement from the NDMI statistics result computed 
                                         and a visual inspection of the pixel values of the image, a threshold of 
-                                        0.5 was applied as demarcation for vegetation with high water content. 
+                                        0.5 is define as the demarcation for vegetation with high water content. 
                                         To delineate vegetation with high moisture content, right click on image 
-                                        and click on Band maths. Click on Edit expression button box and select 
-                                        the NDMI image from the loaded bands. The expression box is filled with 
-                                        the conditional statement below,
+                                        and click on Band maths. Click on Edit expression button and select 
+                                        the NDMI image from the loaded bands. Input the conditional statement in the 
+                                        figure below into the expression box
                                     </p>
-                                    <div class="fig-img">
+                                    <div class="fig-img"> <!-- Figure image for expresssion for delineating high moisture vegetation -->
                                         <img src="ndmi thresh.jpg" class="fig-img2"> 
-                                        <p>The above statement implies that from the NDMI band image, all areas 
+                                        <p>The above statement implies that from the NDMI image, all areas 
                                             with NDMI values greater than 0.5 which is the threshold for vegetation 
-                                            with high moisture content are selected and returned whiles all others 
+                                            with high moisture content are selected and returned while all others 
                                             not satisfying this condition are replace with no data (NaN). 
                                             The workflow for delineating vegetation with high water content is 
                                             visualized below.
                                         </p>           
                                     </div>
-                                    <div class="fig-img">
+                                    <div class="fig-img"> <!-- workflow for delineating high moisture vegetation -->
                                         <img src="new.jpg" class="fig-img2"><br>
                                         <img src="new22.jpg" class="fig-img2">
                                     </div>
                                     <div>
-                                        <p>The workflow produced the output for vegetation with high moisture 
-                                            content. A map of the output was created with QGIS for better 
-                                            illustration and is displayed below.
+                                        <p>Now we have successfully assessed vegetation with high moisture content.
+                                            For visualization purposes, a map is created and with the results using QGIS.
+                                            This is displayed below.
                                         </p>
-                                            <div class="fig-img">
+                                            <div class="fig-img"> <!--Figure for vegetation map -->
                                                 <h4>Map of vegetation with high water content</h4>
                                                 <img src="hmos.jpg" class="fig-img2"><br>
                                                 
@@ -454,42 +456,43 @@
                                     <div>
                                             <h4>Change detection analysis of Sentinel 2 images</h4>
                                             <p>To undertake change detection, another sentinel 2 image of the same area 
-                                                but different timestep was downloaded and the same preprocessing 
-                                                analysis as highlighted for the first timestep image was undertaken. 
-                                                The NDMI of the second image of the same region dated as 2018-10-12 is 
-                                                visualized below
+                                                but different timestep has to be downloaded and the same preprocessing 
+                                                analysis as highlighted for the first timestep image needs to be undertaken. 
+                                                The tutorial will continue without repeating the workflow help. This is the perfect
+                                                time to practice what you have read so far using a second image. I will however, show
+                                                my second image and results because I will using them for the change detection analysis
                                             </p>
 
                                             <div class="fig-img">
                                                 <h4>NDMI map of study area (2018-10-12)</h4>
                                                 <img src="NDMI 2.jpg" class="fig-img2"><br>
-                                                
-                                            </div>
-                                            <div>
-                                                <h4>Interpretation of NDMI second time-step of study area (2018-10-12)</h4>
-                                                <p>The result has a maximum NDMI value of 0.967 and minimum NDMI value 
-                                                    of -0.999 which corresponds to very dense vegetation with high 
-                                                    water content and bare land with no water respectively. This 
-                                                    interpretation is based on index provided by Antognelli (2019) which 
-                                                    is attached in appendix. This result was overlay with basemap of 
-                                                    Bing aerial with label in QGIS and visual inspection indicates that 
-                                                    areas with NDMI of 0.428 to 0.967 perfectly corresponds with dense
-                                                    vegetated areas. These areas run vertically across the the middle 
-                                                    section of the study area. All areas with negative NDMI corresponded 
-                                                    with non-vegetated areas which were verified from 2018 CORINE Land 
-                                                    Cover dataset to be discontinuous urban fabric, continuous urban fabric 
-                                                    among others. This dataset was obtained from Copernicus Land Monitoring 
-                                                    Service mainly for validation purposes. Relatively low positive NDMI values 
-                                                    of 0.128 to 0.428 can be deduced to have low vegetation with high water
-                                                    stress conditions deduced from the interpretation matrix by Antognelli (2019).
-                                                    To delineate areas of vegetation with high moisture content ,a threshold of
-                                                    0.5 was applied and the result used to create map in QGIS as 
-                                                    presented below.
+                                                <p>Also, the result for the delineating areas of high moisture vegetation 
+                                                    for the second image is presented in the figure below.
                                                 </p>
                                                 <div class="fig-img">
                                                     <h4>Map of vegetation with high moisture content for second timestep (2018-10-12)</h4>
                                                     <img src="high mositur.jpg" class="fig-img2"><br>                                                
                                                 </div>
+                                                
+                                            </div>
+                                            <div>
+                                                <h4>Groundtruthing of results</h4>
+                                                <p>
+                                                    Groundtruthing involves the process of validating results with field data to verify
+                                                    its accuracy. For this tutorial, we will adopt other methods that proves a good alternative to
+                                                    travelling to the field. It is not meant to be a substitute but to demonstrate how to put our
+                                                    analysis in check as early as possible. To do that, we simply have to overlay our results over
+                                                    recent landcover or landuse map. To achieve that, the result was overlay over basemap of 
+                                                    Bing aerial with label in QGIS and visually inspected as the first stage. Visual inspection indicates that 
+                                                    areas with NDMI of 0.428 to 0.967 perfectly corresponds with dense vegetated areas. 
+                                                    These areas run vertically across the the middle section of the study area. After the use of basemap we 
+                                                    can use actual landcover map which in this case is the CORINE Land cover areas. 
+                                                    All areas with negative NDMI corresponded with non-vegetated areas and verified 
+                                                    from 2018 CORINE Land Cover dataset to be discontinuous urban fabric, continuous 
+                                                    urban fabric among others. This dataset was obtained from Copernicus Land 
+                                                    Monitoring Service mainly for validation purposes. 
+                                                </p>
+                                                    
                                             </div>
                                     </div>                                    
                             </div>
@@ -497,60 +500,60 @@
             </div>
 
             <div clas="changedetection">
-                <h4>Procedure for estimating NDMI change</h4>
+                <h4>Procedure for estimating NDMI change (Collocation)</h4>
                 <p>
-                    To estimate the change of NDMI, vegetative index differencing method was used for high moisture
-                    vegetation areas which is delineated with a threshold of 0.5. This method involved the 
-                    subtraction of NDMI of high moisture vegetation image for 2018-04-20 from NDMI of high moisture
-                    vegetation for 2018-10-12 to detect changes in NDMI. Thus, all changes to be discuss and 
-                    indicated are occurring over areas of high vegetation cover. To undertake such analysis, 
-                    collocation is done to combine both NDMI bands together in a common folder. Collocation 
-                    was undertaken by clicking on Raster tool on the menu bar , then navigating to Geometic 
-                    operations and clicking on Collocate. In the Collocation box, the first preprocessed image
-                    which is dated 2018-04-20 was set as the master image and the second preprocessed image set as
-                    the slave image in a procedure visualized in the workflow below.
+                    To estimate the change in NDMI, vegetative index differencing method will be use. The 
+                    input dataset will be the first and second high moisture vegetation areas evaluated.
+                    This vegetative index differencing will involve subtracting NDMI of high moisture 
+                    vegetation result for the first timestep from that of the second to detect changes 
+                    in NDMI. Thus, all changes to be discuss and indicated are occurring in areas of high vegetation 
+                    cover. To undertake such analysis, collocation is undertaken to combine both NDMI images into
+                     a common folder. We will undertake Collocation by clicking on Raster button on the menu bar, 
+                     then navigating to Geometic operations and clicking on Collocate. In the Collocation box, 
+                     the first NDMI timestep image will be set as the master image and the second timestep NDMI results 
+                     will be set as the slave image. The workflow is visualize in the workflow below.
                 </p>
-                <div class="fig-img">
+                <div class="fig-img"> <!--Figure image for collocation workflow-->
                     <img src="proce 1.jpg" class="fig-img2"><br>                   
                 </div>
 
                 <div>
                     <p>
-                        Procedure for estimating NDMI change include clicking on Band Maths and selecting the 
-                        Collocated file for Source Product. The formula or statement subtracting first timestep 
-                        NDMI for vegetation high moisture index from second timestep for vegetation of moisture 
-                        index is input into the Edit Expression box. Run button was clicked to execute NDMI change. 
-                        he workflow is visualized below.
+                        To undertake change detection in NDMI click on Band Maths and select the 
+                        Collocated file as Source Product. Then, input the formula for subtracting first timestep 
+                        NDMI for vegetation with high moisture index from second timestep of vegetation with high moisture 
+                        index into the Edit Expression box. Click the Run button to execute. The workflow is visualized below.
                     </p>
-                    <div class="fig-img">
+                    <div class="fig-img"> <!--Figure image for change detection workflow-->
                         <img src="proce 2.jpg" class="fig-img2"><br>                   
                     </div>
                 </div>
-                <div class="fig-img">
-                    <h4>Map of estimated NDMI change</h4>
+                <div class="fig-img"><!-- change detection results-->
+                    <h4>Map of change detection results of NDMI</h4>
                     <img src="NDMI change.jpg" class="fig-img2"><br>                   
                 </div>
 
                 <div>
-                    <h4>Interpretation of NDMI change</h4>
+                    <h4>Interpretation of NDMI change detection</h4>
                     <p>
                         Analyzing the changes in NDMI between the period of April and October for high moisture
-                        vegetation, the minimum NDMI change was -0.399 (0.4) and maximum was 0.284 (0.3) as 
-                        computed from statistics. It can be interpreted that negative NDMI are areas where 
-                        vegetation lost it water content or increase water stress level and positive NDMI being 
+                        vegetation (first and second NDMI timestpe), the minimum NDMI change was -0.399 (0.4) and 
+                        maximum change was 0.284 (0.3). This was computed using the same process we used for calculate maximum 
+                        and minimum NDMI for the first image. From the results, negative NDMI are areas where 
+                        vegetation lost it water content or increase water stress level and positive NDMI is a 
                         net gain in moisture level by the vegetation. Thus, the highest lost of moisture by 
-                        vegetation occurred at areas with -0.4 NDMI change and the highest gain in moisture by 
-                        vegetation occurred in areas with 0.3 NDMI change. With such a short timelaspe between 
-                        images and relatively limited range of change, the proposed most plausible
+                        vegetation occurred at areas with -0.4 NDMI and the highest gain in moisture by 
+                        vegetation occurred in areas with 0.3 NDMI. With such a short timelaspe between 
+                        images and relatively limited range of change, it can be suggested that the most possible
                         cause of change in NDMI is seasonal changes where April image is under the Spring weather
                         condition which changes to Autumn for the October image. The spatial distribution of changes 
                         in NDMI is such that moderate loss in moisture (-0.2 to 0.0) occurs more extensively in the 
                         south western part of the study area and much lesser in the south eastern part. Further, 
                         greater area of vegetation in the western part of the central belt of the study area had 
-                        an increase in its moisture content (0 to 0.3 NDMI change). Differences in the amount of
+                        an increase in its moisture content (0 to 0.3 NDMI). Differences in the amount of
                         moisture lost or gain is likely to be contributed by the varying forest and vegetation on 
-                        the landscape ranging from broad-leaved forest, coniferous forest to mixed forest 
-                        as verified from 2018 CORINE land cover.
+                        the landscape ranging from broad-leaved forest, coniferous forest to mixed forest which
+                        can be verified from 2018 CORINE land cover.
                     </p>
                 </div>
             </div>
