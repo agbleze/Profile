@@ -496,32 +496,67 @@
         <!--SAR multitemporal composite-->
          
         <div id ="multi-tempo">
-            <h3>Synthetic Aperture Radar (SAR) multitemporal composite</h3>
+            <h3>Synthetic Aperture Radar (SAR) Multi-temporal composite analysis with SNAP </h3>
             <div>
                 <p> 
                     Multitemporal composite analysis involves combining images of different timestep to detect 
                     changes evident in a study area over time period under study. This analysis is quite simple 
                     and efficient in depicting both unchanged and change areas of phenomena being studied. 
-                    This analysis is aimed at achieving the third objective set in this report.
-                </p>
-                
+                    In this tutorial, we undertake multi-temporal composite analysis with the SNAP tool. 
+                    As part of the exercise, we will design a typical workflow for undertaking a multi-temporal 
+                    composite analysis, view important metadata characteristics of the satellite image, image 
+                    preprocessing, analysis, and presenting map output as well as interpreting them. So by the 
+                    end of this tutorial, we will be achieving these objective;
+                    <ul>
+                        <li>
+                            Undertake image calibration, speckle filtering, terrain correction and image stacking
+                        </li>
+
+                        <li>
+                            Undertake a SAR multi-temporal composite analysis
+                        </li>
+                    </ul>                  
+                </p>                
             </div>
+
+            <div>
+                <p>
+                    Before proceeding with the analysis, we will be in a better position now if you have an idea of the
+                    processing chain will pass through to produce our Multi-temporal composite <i>a.k.a <em>workflow</em></i>
+                    The workflow for the analysis is depicted below;
+                </p>
+            </div>
+
+            <div class="fig-img"> <!--Workflow diagram-->
+                <img src="workflow multi.jpg"fig-img2">
+                <small>Source: Author</small>
+            </div>
+
             <div>
                 <h4>Image acquisition of Sentinel 1 images</h4>
-                <p>Radar images from Sentinel 1 were used for this type of analysis. Three images of different time
-                    steps of the same study area which was selected to be the region of Mekong Delta were used. These
-                    images not only reflects different conditions of the study area at different times but also different
-                    land use activities in the area. The selection of dates for the image was based on the supposed
-                    periods for land preparation, planting and harvesting of rice in certain towns such as Mua. Nonetheless, 
-                    it is worth noting that different areas undertake different activities at different times. The main 
-                    phenomena that is being researched with multitemporal composite analysis is land use changes 
-                    depicting the growth stage of rice cultivation in the Mekong Delta region. To undertake a 
-                    multitemporal composite, a radar sensed image being sentinel 1 Ground Range Detector in 
-                    Interferometric Wide (IW) swath mode was used. Three timesteps being 13th March 2018, 16th 
+                <p>We will be using radar images from Sentinel 1 for the analysis. We will use three images of different time
+                    steps of the same study area which will be the region of Mekong Delta. These images not only reflects 
+                    different conditions of the study area at different times but also different
+                    land use activities in the area. In order to capture the phenomena we are analyzing very well,
+                    particualr attention will be paid to time period the image covers and for this we need some
+                    background knowledge of the study area. We will consider time periods where different land use 
+                    activities are dominant. So, the selection of dates for the image will be based on the supposed
+                    periods for land preparation, planting and harvesting of rice in certain towns such as Mua. Clearly,
+                    these are activities will produce significant changes on the landscape that can be captured.
+                    We also have to take note that different towns undertake different activities at different times. 
+                    The main phenomena that is being researched with the multitemporal composite analysis is land use 
+                    changes depicting the growth stage of rice cultivation in the Mekong Delta region. With this 
+                    understanding, we can now proceed to focus on the images to be used.
+                    
+
+                </p>
+                <p>
+                    The image used for this analysis is a radar sensed image being sentinel 1 Ground Range Detector in 
+                    Interferometric Wide (IW) swath mode. Three timesteps being 13th March 2018, 16th 
                     August 2018 and 7th January 2019 image covering the Mekong delta were download from Copernicus 
-                    Access Hub. The first timestep image of 13th March 2018 is displayed in figure 2.6
-                    which is viewed in the Amplitude band in VH polarization. Sentinel 1 images requires preprocessing
-                    analysis which are different from optical images of Sentinel 2 which are describe below.
+                    Access Hub. You can use these specifications to download the same images if you want have the
+                    same results that we have produced here. We start by displaying the first timestep image of 13th
+                     March 2018 in the Amplitude band in VH polarization. The result is displayed below;
                 </p>
             </div>
 
@@ -537,70 +572,57 @@
                     scale to improve visualization and stacked together.
                 </p>
             </div>
-
             <div>
-                <h4>
-                    Analysis of Sentinel image 1
-                </h4>
-                <p>
-                    Multitemporal composite analysis was applied on the preprocessed images by combining the images
-                    in RGB band channels to detect changes that have occurred during the time periods analyzed. This
-                    produced a multitude of different colours indicating diverse changes mapped. With the aim of only
-                    detecting changes in land use with this methodology, the result was not further classified but
-                    interpreted to reveal the spatial distribution of the changes. The complete workflow involved in
-                    practicing multitemporal composite is illustrated below
-                </p>
-                <div class="fig-img">
-                    <img src="workflow multi.jpg"fig-img2">
-                </div>
-                <small>Source: Author</small>
-
-                <p>To begin with the workflow, the image of the study area acquired on 13
-                    th March 2018 is displayed
-                    using the Amplitude band in VH polarization below.
-                </p>
-            </div>
-
-
-            <div>
-                <h4>7 Image of Mekong Delta (2018-03-13)</h4>
+                <h4>Image of Mekong Delta (2018-03-13)</h4>
                 <div class="fig-img">
                     <img src="sent 11.jpg" class="fig-img2">
                 </div>
                 <small>Source: Author</small>
             </div>
             <div>
+                <p>
+                    Now lets take a look at characteristics of the downloaded image. This can be view from the
+                    metadata. To do that, lets click on Abstracted_data.
+                </p>
                 <h4>Metadata characteristics of study area (2018-03-13)</h4>
                 <p>
-                    The metadata characteristic of the image was viewed by clicking on Abstracted_data. From the
-                    metadata, incidence angle was 30.86 o for the near range and 45.99 o for the far range. Value for
+                    We can now take note of some image characteristics. From the metadata, incidence angle was 
+                    30.86<sup>o</sup> for the near range and 45.99<sup>o</sup> for the far range. Value for
                     relative orbit is 18. This is depicted in the figure below.
                 </p>
             </div>
 
             <div>
                 <h4>Metadata characteristics of image (2018-03-13)</h4>
-                <div class="fig-img">
+                <div class="fig-img"><!--Figure metadata characteristics-->
                     <img src="sent 1 meta.jpg" class="fig-img2">
                 </div>
                 <small>Source: Author</small>
             </div>
 
             <div>
+                <h3>Preprocessing of image</h3>
+                <p>Now, we can start with the preprocessing of the images. This will be done with SNAP with 
+                    instructions. We will process the first image and the rest of the images can process with 
+                    the same method as a form of practice. All images have to be processed for the composite
+                    analysis. Let start the preprocessing with image calibration.
+                </p>
+            </div>
+
+            <div>
                 <h4>Procedure for image calibration</h4>
                 <p>
-                    To undertake calibration, Radar button from the menu bar was clicked and followed by navigation to
-                    Radiometric then Calibrate button was clicked on. From the Calibration box that opened, image to be
-                    calibrated was selected in the Source product box. Clicking on Processing parameters button, the
-                    preferred processing parameter was set as Output sigma0 band for this exercise. To execute
-                    calibration, the Run button was clicked on. Note that the surfix ‘Cal’ is added to the name of the
-                    product for saving in the Target product and can be rename as preferred. The procedure as described
-                    is visualized in the figure below.
+                    To undertake calibration, click on Radar button from the menu bar and navigate to
+                    Radiometric then click on Calibrate button. From the Calibration box that opened, select 
+                    image to be calibrated in the Source product box. Click on Processing parameters button, and set
+                    the preferred processing parameter as Output sigma0 band. Click on Run button to execute
+                    calibration. We will notice that the surfix ‘Cal’ is added to the name of the product for saving 
+                    in the Target product and can be rename as preferred. You can also follow the procedure 
+                    which is visualized in the figure below.
                 </p>
             </div>
             
-            <div>
-    
+            <div><!--Figure image calibration-->   
                 <div class="fig-img">
                     <img src="cret.jpg" class="fig-img2">
                 </div>
@@ -610,13 +632,15 @@
             <div>
                 <h4>Procedure for Speckle filtering</h4>
                 <p>
-                    To remove speckle, Radar button from the menu bar was clicked on, then navigated to speckle
-                    filtering and clicked on Single Product speckle filter as the option for this exercise. From the dialog
-                    box of Single Product speckle filter, the appropriate Input / Output parameters were set. For Source
-                    product, the calibrated image was selected and a desired name set for the Target Product. Clicking on
-                    Processing Parameters button, the preferred filter was set as Lee for this exercise. Finally, Run button
-                    was clicked to execute speckle filtering. The workflow is visualized below</p>
-                <div class="fig-img">
+                    Speckle are salt grain-like noise on the image and has to be removed. To do so,
+                    we will click on Radar button from the menu bar and navigate to speckle filtering then click
+                     on Single Product speckle filter. From the dialog box of Single Product speckle filter, we have to 
+                     set the appropriate Input / Output parameters. For Source product, we will select the calibrated image 
+                     and provide a name for the Target Product. Now we have to choose the filter type that should be used.
+                     To do that, click on Processing Parameters button and select Lee as the preferred filter. Finally, click on
+                     Run button to execute speckle filtering. The workflow is visualized below
+                </p>
+                <div class="fig-img"> <!--figrue image for speckle filtering-->
                     <img src="certtt5555.jpg" class="fig-img2">
                 </div>
                 <small>Source: Author</small>
@@ -711,6 +735,20 @@
         </div>
         
         <!--BFAST analysis of NDVI time series (without cloud masking)-->
+
+        <div>
+            <h4>
+                Analysis of Sentinel image 1
+            </h4>
+            <p>
+                Multitemporal composite analysis was applied on the preprocessed images by combining the images
+                in RGB band channels to detect changes that have occurred during the time periods analyzed. This
+                produced a multitude of different colours indicating diverse changes mapped. With the aim of only
+                detecting changes in land use with this methodology, the result was not further classified but
+                interpreted to reveal the spatial distribution of the changes. The complete workflow involved in
+                practicing multitemporal composite is illustrated below
+            </p>
+        </div>
           
         <div id="multi-composite">
             <h3>Multitemporal composite</h3>
