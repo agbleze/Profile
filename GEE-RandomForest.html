@@ -283,7 +283,45 @@
         
         <!--Binary Classification begins here-->
         <div id ="Rf" class = "mySection">
-            <h3>Random Forest classification with binary classes (water/no water)</h3>
+            <h3>Random Forest classification with binary classes (water/no water) in GEE</h3>
+            <p>
+                In this tutorial, we will implement a machine learning classification algorithmn for image classification
+                in Google Earth Engine (GEE). We will use Random Forest to classify land cover into the binary class of 
+                water and no water. By the end of this tutorial, we will achieve the following objectives;
+
+                <h4>Objectives</h4>
+                <ul>
+                    <li>
+                        Design a processing chain for Random forest (RF) classification
+                    </li>
+                    <li>
+                        To undertake preprocessing of sentinel-2 data for RF
+                    </li>
+                    <li>
+                        To undertake RF classification
+                    </li>
+                </ul>
+            </p>
+
+            <div>
+                <p>
+                    With our objectives set, we need come up with the workflow for the analysis. This is very handy
+                    for helping us navigate our way through the analysis easier by knowing how far we have gone and how
+                    much more is left to complete the analysis. All we will be doing then is to write codes for each step.
+                    The workflow is depicted below;
+                </p>
+                <div>
+                    <h4>Workflow for Random Forest classification</h4> 
+                    <div class="fig-img"> <!--Workflow for RF-->
+                        <img src="binary class workflow.jpg" class="fig-img2">
+                    </div>
+                </div>
+        
+                <div>
+                    The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="_blank" >link</a>  
+                </div>
+                
+            </div>
             <div>
                 <p> For this analysis, sentinel-2 data with the image collection ID “COPERNICUS/S2” was loaded and 
                     assign to a variable. The image collection was filtered by 
@@ -304,16 +342,7 @@
                 <small>Source: Author</small>
             </div>
 
-            <div>
-                <h4>Workflow for Random Forest classification</h4>
-                <div class="fig-img">
-                    <img src="binary class workflow.jpg" class="fig-img2">
-                </div>
-            </div>
-    
-            <div>
-                The code for and result of executing the workflow can be access by this <a href="https://code.earthengine.google.com/4445f69be19672708829353bfb164401" target="_blank" >link</a>  
-            </div>
+            
     
             <div class="code-container">
                 <code class="codeBlock">
