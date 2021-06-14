@@ -693,22 +693,24 @@
                 </div>
 
                 <div>
-                    <h4> Preprocessing of second timestep image (2018-08-16)</h4>
+                    <h4> Preprocessing of second and third timestep image (2018-08-16)</h4>
                     <p>
-                        The second and third timestep image which were sensed on 16th August 2018 and 7th January 2019 
-                        respectively preprocessed using the same procedure discussed for the first
-                        timestep image. The most important issue is to make sure the second image covers the same study 
-                        area.
+                        We have successfully completed preprocessing of the sentinel 1 radar image of the first 
+                        timestep. The second and third timestep image which were sensed on 16th August 2018 and 7th January 2019 
+                        respectively will also need to be preprocessed using the same procedure discussed for the first
+                        timestep image. The most important issue is that they all cover the same study area for them to be
+                        comparable. For that reason, we will not repeat the preprocessing of the rest of the images but will
+                        show the results of the preprocessed images
                     </p>
                 </div> 
                 <div>
-                    <h4> Preprocessed second timestep image (2018-08-18)</h4>
-                    <div class="fig-img">
+                    <h4> Result of Preprocessed second timestep image (2018-08-18)</h4>
+                    <div class="fig-img"><!--preprocessed 2nd image-->
                         <img src="preprocessed 2.jpg" class="fig-img2">
                     </div>
                     <small>Source: Author</small>
     
-                    <div>
+                    <div><!--Preprocessed 3rd image -->
                         <h4>Preprocessed third timestep image (2019-01-07)</h4>
                         <div class="fig-img">
                             <img src="preprocessed 3.jpg" class="fig-img2">
@@ -717,39 +719,36 @@
                     </div>
 
                     <div>
-                        <h4> Image stacking</h4>
+                        <h4> Image stacking of preprocessed images</h4>
                         <p>
-                             To combine all preprocessed timestep images into a single file, the preprocessed images were
-                            stacked. To stack images, Radar button on the menu bar was clicked, navigated to Coregisteration in
-                            the dialog box that opened and then to Stack Tools. This was followed by clicking on Create stack. 
+                            Now that all images for the analysis have been preprocessed, we have to stack them together 
+                            into a single file. To stack images, click on Radar button on the menu bar, navigate
+                            to Coregisteration in the dialog box that opened and then to Stack Tools. Click on Create stack. 
                             In the Create Stack box, click on the plus sign to import all image files to be stack. The minus sign
-                            can be used to remove any file not to be stack. Create stack button was clicked and preferred settings
-                            made. For this exercise, Product Geolocation was selected for Initial Offset Method. Run button was
-                            clicked to execute stacking. The workflow is illustrated in the diagram below for clarity.
+                            can be used to remove any file not to be stack. Click on Create stack button and select Product Geolocation 
+                            for Initial Offset Method. Click on Run button to execute stacking. The workflow is illustrated in the 
+                            diagram below for clarity.
                         </p>
                     </div>
 
                     <div>
-                        <div class="fig-img">
+                        <div class="fig-img"><!--Figure image for stacking process-->
                             <img src="stack.jpg" class="fig-img2">
                         </div>
                         <small>Source: Author</small>
                     </div>
-        </div>
-        
-        <!--BFAST analysis of NDVI time series (without cloud masking)-->
+            </div>
 
         <div>
             <h4>
-                Analysis of Sentinel image 1
+                Multitemporal composite analysis of stacked preprocessed images
             </h4>
             <p>
-                Multitemporal composite analysis was applied on the preprocessed images by combining the images
-                in RGB band channels to detect changes that have occurred during the time periods analyzed. This
-                produced a multitude of different colours indicating diverse changes mapped. With the aim of only
-                detecting changes in land use with this methodology, the result was not further classified but
-                interpreted to reveal the spatial distribution of the changes. The complete workflow involved in
-                practicing multitemporal composite is illustrated below
+                We have completed all preprocessing analysis and are ready to the multitemporal composite analysis.
+                Multitemporal composite analysis of the preprocessed images will be undertaken by combining the images
+                in RGB band channels to detect changes that have occurred. This will produce a multitude of different 
+                colours indicating diverse changes mapped. Our aim is to detect changes in land use and we will not undertaken 
+                classification for now. The image shows the spatial distribution of the changes. 
             </p>
         </div>
           
