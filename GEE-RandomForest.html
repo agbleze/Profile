@@ -314,6 +314,7 @@
                     <h4>Workflow for Random Forest classification</h4> 
                     <div class="fig-img"> <!--Workflow for RF-->
                         <img src="binary class workflow.jpg" class="fig-img2">
+                        <small>Source: Author</small>
                     </div>
                 </div>
         
@@ -325,23 +326,25 @@
 
             <div>
                 <h4>Explanation of the code</h4>
-                <p> Sentinel-2 data with the image collection ID “COPERNICUS/S2” was loaded and 
-                    assign to a variable. The image collection was filtered by 
-                    date (.filterDate) ranging from 1st January, 2018 to 31st December, 2018 and 
-                    filtered by location using “ .filterBounds(aoi)” to cover part of eastern Switzerland
-                    as region of interest. Metadata filtering was done to include only images with less than 
+                <p> Sentinel-2 data with the image collection ID “COPERNICUS/S2” is loaded and 
+                    assign to a variable. The image collection is filtered by 
+                    date with (.filterDate) method ranging from 1st January, 2018 to 31st December, 2018. We do another
+                    filtering but this time round by location using “ .filterBounds(aoi)” method to cover part of 
+                    eastern Switzerland as the Region of Interest (ROI). Given sentinel 2 image is an optical image,
+                    it is affected by atmopsheric conditions such as cloud cover which can affect our results. We want to use
+                    images with the least cloud cover available for better results. To do that, 
+                    Metadata filtering is done to include only images with less than 
                     10% cloud cover using the function “.filterMetadata('CLOUDY_PIXEL_PERCENTAGE', 'less_than', 10)”. 
-                    Further, a median composite of the image collection was made by applying the 
-                    function “ .median ”. Binary classification for water was commenced by collecting training 
+                    Further, a median composite of the image collection is made by applying the 
+                    function “ .median ”. Now, binary classification for water is commenced by collecting training 
                     data and defining the water and no water classes accordingly. The median composite 
-                    was clipped to the region of interest (ROI) using the function “.clip(aoi)” and the result 
+                    is clipped to the region of interest (ROI) using the function “.clip(aoi)” and the result 
                     used for training of classifier. This reduces the image collection to cover only the 
-                    region of interest. Further, Random Forest classification algorithm was applied to 
+                    region of interest. Further, Random Forest classification algorithm is applied to 
                     delineate areas of water and no water. To validate the accuracy of the classification results, 
-                    validation confusion matrix and accuracy were evaluated. The workflow for binary classification of surface features into water
-                    and no water classes is illustrated in the diagram below
+                    validation confusion matrix and accuracy is used.
                 </p>
-                <small>Source: Author</small>
+                
             </div>
 
             
