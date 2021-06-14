@@ -400,31 +400,57 @@
         <!--Time series analysis on GEE-->
 
         <div id="timeSeries" class = "mySection">
-            <h3>Times series analysis of NDVI for different biomes or vegetation</h3>
-            <p>For this exercise, MODIS dataset with 16 days frequency and 250 meters spatial resolution was used for the time series
-                analysis. This MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
-                has the bands of Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI)
-                as vegetation layers. The region of interest (ROI) was south-western Germany covering a time period of
-                10 years from 1st January, 2007 to 31st December, 2017 for which filters were applied. From literature
-                review, different classification schemes exist for classifying biome (De Cáceres and Wiser, 2012). Within
-                the ROI, different land surface covers are define in this exercise to constitute biomes. Delineation of the
-                biomes was undertaken with the support of the dataset of Map Legend in GEE. A scale function was 
-                created with the scaling factor 0.0001 and applied over the image collection using “ .map(scale) ”. 
-                Further, cloud masking function was created and applied to mask-out clouds. The band named “DetailedQA” which contained the Vegetation Index (VI) quality indicators was used for defining bits for cloud. Finally, a time series chart was created and plotted. The workflow for practicing this exercise is summarize in the
-                figure below.</p>
+            <h3>Times series analysis of NDVI for different biomes or vegetation in Google Earth Engine (GEE)</h3>
+            <p>
+                Time series data is one of the big data that we have deal with in recent times. With several satellites
+                operating in space, the volume of data available to us recently is really huge. It only means one thing,
+                we have more to mine to gain insights. One of the ways to draw such insight is to analyse changes over 
+                a long time period. With vegetation being one of the major land surface features studied with remote sensing, 
+                we will doing a good job by subjecting it to time series analysis. This is what this tutorial seek to achieve,
+                - to analyze time series of NDVI of vegetation or biome over a decade. By the end of this tutorial, we will 
+                acquire the skills of 
+                <ul>
+                    <li>
+                        Preprocessing of MODIS image for time series analysis
+                    </li>
+                    <li>Plotting of time series in GEE</li>
+                </ul>
+            </p>
 
-                <div>
-                    <h4>Workflow for Plotting Time series of different biomes in GEE</h4>
-                    <div class="fig-img">
-                        <img src="time-series workflow.jpg" class="fig-img2">
-                    </div>            
-                    <small>Source: Author</small>
-                </div>
-        
-                <div>
-                    The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e" target="_blank">link</a>
-                </div>
-        
+            <div>
+                <h4>Workflow for Plotting Time series of different biomes in GEE</h4>
+                <p>
+                    The diagram below summarizes the processing chain to be undertaken for the analysis. We will write codes
+                    for each step in GEE. The link to the code will be provide here for your review.
+                </p>
+                <div class="fig-img"> <!--time series workflow in GEE-->
+                    <img src="time-series workflow.jpg" class="fig-img2">
+                </div>            
+                <small>Source: Author</small>
+            </div>
+    
+            <div>
+                The code for executing the workflow of the time series can be access from this <a href="https://code.earthengine.google.com/c7edaec9a0a8a529e4fa8324aa727e2e" target="_blank">link</a>
+            </div>
+
+            <h4>Explanation of code</h4>
+            <p>
+                MODIS dataset with 16 days frequency and 250 meters spatial resolution is used for the time series
+                analysis. The MODIS collection with an ID being MODIS/006/MOD13Q1 is from the Terra satellite and
+                has the bands of Normalized Difference Vegetation Index (NDVI) and Enhanced Vegetation Index (EVI)
+                as vegetation layers. The region of interest (ROI) is south-western Germany covering a time period of
+                10 years from 1st January, 2007 to 31st December, 2017. We apply filters to the image collection. 
+                From literature review, different classification schemes exist for classifying biome (De Cáceres and 
+                Wiser, 2012). Within the ROI, different land surface covers are define to constitute biomes. 
+                Delineation of the biomes is undertaken with the support of the dataset of Map Legend in GEE. Next, we
+                scale the image collection using “ .map(scale) ” function with the scaling factor 0.0001.
+                Further, cloud masking function is created and applied to mask-out clouds. The band 
+                named “DetailedQA” conatins the Vegetation Index (VI) quality indicators and is used for 
+                defining bits for cloud. Finally, a time series chart is created and plotted. 
+            </p>
+
+                
+                <!-- 
                 <div>        
                         <div class="code-container">
                             <code class="codeBlock">
@@ -504,11 +530,16 @@
                 
         
                 </div>
+                -->
         
                 <div>
                     <h4>
                         Time series of different biomes (Preprocessed data with cloud cover masked-out)
                     </h4>
+                    <p>
+                        First of all, lets display the preprocessed result with cloud cover masked-out and after that 
+                        compare it one without clouds removed to see the impact of cloud over on the time series.
+                    </p>
                     <div class="fig-img">
                         <img src="time ser result withour cloud.jpg" class="fig-img2">
                     </div>            
@@ -518,34 +549,32 @@
                 <div>
                     <h4>Interpretation of result for preprocessed NDVI Time series analysis (clouds masked-out)</h4>
                     <p>
-                        Plotting of time series for the different biomes shows that the dataset was plagued 
-                        with cloud cover which after being masked-out are shown as missing values hence the 
+                        The results for plotting  time series for the different biomes shows that the dataset was 
+                        plagued with cloud cover which after being masked-out are shown as missing values hence the 
                         discontinuity in the graph. The high occurrence of clouds makes precise interpretation 
-                        difficult whiles it is suggested that the location of the missing values on the graph 
-                        will most likely not interfere with the suppose pattern in the time series. In this regard, 
-                        interpretation of the data is better supported with the time series analysis of the raw 
-                        datawithout cloud masking below.
+                        difficult. Nonetheless, we can safely assume that the location of the missing values on the 
+                        graph will most likely not interfere with the suppose pattern in the time series. We will verify 
+                        this by comparing with time series analysis of the result without cloud masking. 
                     </p>
                 </div>
         
                 <div>
                     <h4> Time series of NDVI (without cloud masking)</h4>
                         <p>Considering the high impact of cloud cover on the results, a time series analysis
-                         of the raw data without cloud masking is also hereby presented for better 
-                         interpretation and provision of deeper insight on the analysis. This serves as 
-                         a comparative time series analysis between raw and preprocessed data. 
-                         Interpretation of the result is also given.
+                         of the raw data without cloud masking is also hereby presented for better interpretation 
+                         and insight of the analysis.
                         </p>
                 </div>
         
                 <div>
-                    <p><a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0" target="_blank">
-                        Code for Time series analysis of Raw data (without cloud masking)
+                    <p>
+                        Without cloud masking, the code for time series analysis can be assessed from 
+                        <a href="https://code.earthengine.google.com/6ff52be4f0be44cf28656e2a29c949b0" target="_blank"> this link     
                     </a>
         
                     <div>
                         <h4>NDVI Time series of different biomes (without cloud masking)</h4>
-                        <div class="fig-img">
+                        <div class="fig-img"> <!--Cloudy time series analyzing-->
                             <img src="time series raw data.jpg" class="fig-img2">
                         </div>               
                         <small>Source: Author</small>
@@ -554,34 +583,36 @@
         
                 <div>
                     <h4>Interpretation of NDVI time series (without cloud masking)</h4>
-                        The result illustrates that whiles different biomes maintained different levels 
+                        The result illustrates that while different biomes had different levels 
                         of maximum NDVI within the time series analyzed, the biomes appear to follow a 
                         common pattern of attaining the maximum and minimum NDVI within a common time frame. 
                         Cropland however deviates from this observation significantly upon visual inspection. 
                         Moreover, deciduous broadleaf forest persistently attained the
-                        highest maximum NDVI of 0.9 approximately within each year of the time series around 
-                        the month of June. This is closely followed by Mixed forest and Evergreen needleleaved
+                        highest maximum NDVI of approximately 0.9 around the month of June each year. 
+                        This is closely followed by Mixed forest and Evergreen needleleaved
                         forest. As expected, the NDVI of Urban builtup have been relatively low compared 
-                        to others in most periods of the time series. A more critical view indicates that 
-                        whiles deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
+                        to other biomes in most periods of the time series. A more critical view indicates that 
+                        while deciduous broadleaf forest, mixed forest, Evergreen needleleaved forest
                         and urban builtup biomes are able to sustain their maximum NDVI in their respective 
                         cases for a longer period, cropland experiences a sharp decline immediately after 
                         attaining maximum NDVI hence a steep slope. A suggested explanation in this trend 
                         is that cropland is the most disturbed biome by human activity with persistent 
                         farming activities hence continuous change in land cover and land use compared
-                        to the other biomes. A more plausible reason is that the maximum NDVI values 
+                        to the other biomes. A plausible reason is that the maximum NDVI values 
                         of cropland are attained at periods of crop maturity after which there is immediate 
-                        harvesting leading to a fast change in the land
-                        cover as reflected in the sharp drop in maximum NDVI.
+                        harvesting leading to a fast change in the land cover as reflected in the sharp drop in 
+                        maximum NDVI.
                 </div>
                
+                <!--  
                 <div>
                     <p>At any stage the final product of a remote sensing project is define by it objectives. Hence,
-                        the result of one analysis can serve as the input for futher analysis elsewhere even using a different
-                        analytical tool. To domenstrate this, the time series result will be exported and analyzed further 
+                        the result of one analysis can serve as the input for futher analysis elsewhere even 
+                        using a different analytical tool. To domenstrate this, the time series result will be exported and analyzed further 
                         using R programming and R studio as the Integrated Development Environment (IDE). 
                     </p>
                 </div>
+                -->
                 
         </div>
 
