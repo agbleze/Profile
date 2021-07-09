@@ -1,2 +1,2 @@
 # Profile
-This website shows my portfolio. HTML, CSS and JavaScript were used. 
+This repository contains code for my personal website. HTML, CSS and JavaScript were used. 
