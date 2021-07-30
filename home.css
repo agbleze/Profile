@@ -243,6 +243,8 @@ margin-right: 0;
   }
 }
 
-
+img .d-block {
+  max-height: 30%;
+}
 
 
