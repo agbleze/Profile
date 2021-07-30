@@ -95,7 +95,7 @@
     </header>
 
 
-    <div class="slideshow-container">
+    <div class="slideshow-container" id = "slide">
 
       <div class="mySlides fade">
       <div class="numbertext">1 / 3</div>
@@ -386,7 +386,7 @@ function showSlides() {
   } */
   slides[slideIndex-1].style.display = "block";  
   /*dots[slideIndex-1].className += " active";*/
-  setTimeout(showSlides, 1000); // Change image every 2 seconds
+  setTimeout(showSlides, 3000); // Change image every 2 seconds
 }
 </script>
 
@@ -457,6 +457,10 @@ img {vertical-align: middle;}
 /* On smaller screens, decrease text size */
 @media only screen and (max-width: 300px) {
   .text {font-size: 11px}
+}
+
+#slide {
+  min-height: 50%;
 }
 </style>
 
