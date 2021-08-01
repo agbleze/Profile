@@ -115,7 +115,7 @@ footer {
 #headshot {
   grid-row-start: 1;
   grid-column-start: 3;
-  border: 2px solid green;
+ /* border: 2px solid green; */
   border-radius: 70%;
   position: relative;
   top: 50%;

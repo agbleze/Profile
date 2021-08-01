@@ -1,0 +1,45 @@
+/* Tutorial images */
+.fig-img2 {
+    width: 90%;
+    height: 90%;
+    z-index: 5;
+    padding: 25px;
+    box-shadow:0px 0px 12px 1px rgba(87, 87, 87, 0.2);
+}
+
+ /* .codeBlock {
+    width: 100px;
+    height: 170px;
+    z-index: 5;
+    padding: 25px;
+    box-shadow:0px 0px 12px 1px rgba(87, 87, 87, 0.2); 
+} */
+
+code {
+    display: inline-block;
+    width: 90%;
+    
+    border: solid chocolate;
+    border-radius: 1.5%;
+    text-align: left;
+}
+
+.fig-img {
+    padding: 25px;
+    width: 50%;
+    height: 50%;
+    margin: auto;
+}
+
+main{
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+img.thesis_img {
+    width: 80%;
+    height: 50%;
+    margin: 10%;
+    padding: 25px;
+    box-shadow: 0px 0px 12px 1px rgb(87 87 87 / 20%);
+}

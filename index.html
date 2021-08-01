@@ -18,6 +18,8 @@
   <meta name="google-site-verification" content="G4MG2qfTQgtna4BABW5gZ2hrAH4sk2B1pf2SU7VdH0M" />
   <link rel="stylesheet" href="home.css">
   <link rel="stylesheet" href="carousal_CSS.css">
+  <!--<link rel="stylesheet" href="gee.css"> -->
+  <link rel="stylesheet" href="project_page_styling.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -69,12 +71,12 @@
                     <i class="fa fa-caret-down"></i>
                   </button>
                   <div class="dropdown-content">
-                    <a href="gee.html">Estimating Normalized Difference Vegetation Index (NDVI) with GEE</a>
-                    <a href="GEE-RandomForest.html">Using Random Forest Classification for binary classification with GEE</a>
-                    <a href="GEE-TimeSeries.html">Time series Analysis of Vegetation biomes with GEE</a>
-                    <a href="r.html">Change detection in Time series based on BFAST algorithmn using R</a>
-                    <a href="SNAP.html">SNAP: Analyzing Normalized Difference Moisture Index (NDMI) with Sentinel 2</a>
-                    <a href="SNAP-Multitemporal-Composite.html">SNAP: Multi-temporal analysis based on Sentinel 1 </a>
+                    <a href="#" id = "gee">Estimating Normalized Difference Vegetation Index (NDVI) with GEE</a>
+                    <a href="#" id="gee_randomforest">Using Random Forest Classification for binary classification with GEE</a>
+                    <a href="#" id = "gee_timeseries">Time series Analysis of Vegetation biomes with GEE</a>
+                    <a href="#" id = "r_change_detection">Change detection in Time series based on BFAST algorithmn using R</a>
+                    <a href="#" id = "snap">SNAP: Analyzing Normalized Difference Moisture Index (NDMI) with Sentinel 2</a>
+                    <a href="#" id = "snap_multi">SNAP: Multi-temporal analysis based on Sentinel 1 </a>
                   </div>
               </div> 
                 <a href="#contact">Contact</a>
@@ -364,6 +366,36 @@
         $("#thesis_button").click(function(){
           $(".mainHide").hide();
           $("span").load("thesis.html")
+        })
+
+        $("#gee_randomforest").click(function(){
+          $(".mainHide").hide();
+          $("span").load("GEE-RandomForest.html")
+        })
+
+        $("#gee_timeseries").click(function(){
+          $(".mainHide").hide();
+          $("span").load("GEE-TimeSeries.html")
+        })
+
+        $("#gee").click(function(){
+          $(".mainHide").hide();
+          $("span").load("gee.html")
+        })
+
+        $("#r_change_detection").click(function(){
+          $(".mainHide").hide();
+          $("span").load("r.html")
+        })
+
+        $("#snap_multi").click(function(){
+          $(".mainHide").hide();
+          $("span").load("SNAP-Multitemporal-Composite.html")
+        })
+
+        $("#snap").click(function(){
+          $(".mainHide").hide();
+          $("span").load("SNAP.html")
         })
 
         /* $("#migrant").click(function() {
