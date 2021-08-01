@@ -28,6 +28,7 @@ img {vertical-align: middle;}
   padding: 8px 12px;
   position: absolute;
   top: 0;
+  display: none;
 }
 
 /* The dots/bullets/indicators */
